@@ -58,7 +58,7 @@ const sessionIds = new Map();
 
 // Index route
 app.get('/', function (req, res) {
-	res.send('Hello world, let\'s play Blackjack!')
+	res.send('Hello world, I\'m still not working!!')
 })
 
 // for Facebook verification
