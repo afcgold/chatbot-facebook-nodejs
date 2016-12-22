@@ -189,6 +189,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         var deck = new Array();
         var deck = cards.createdDecks(6).toString();
+        
+        console.log(deck);
 
         sendTextMessage(sender,deck);
         
