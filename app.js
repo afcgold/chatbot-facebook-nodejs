@@ -184,10 +184,12 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
-        case "deal-hand" :
+        case "deal-hand":
         
+            let prepForHand = "Here are your cards:"
             let firstHand = "3H KD";
         
+            sendTextMessage(sender,prepForHand);
             sendTextMessage(sender,firstHand);
         
         break;
