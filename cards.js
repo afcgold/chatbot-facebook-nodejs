@@ -3,10 +3,12 @@
 module.exports = {
   
   function sayHello() {
-
-    return "hello";
-
-  }
+  
+    var greeting = "hello!!!";
+  
+    return greeting;
+  
+  };
 
   function createDecks(numDecks) {
 
@@ -18,7 +20,7 @@ module.exports = {
     deck = [].concat.apply([], deck);
   //   console.log(deck);
     return deck;
-  }
+  };
 
   function createPack() {
     var suits = new Array("H", "C", "S", "D"); 
@@ -32,7 +34,7 @@ module.exports = {
           pack[count++] = j + suits[i]; 
       //console.log(pack);
     return pack; 
-  }
+  };
 
   function shuffleDecks(cards) {
     var m = cards.length, t, i;
@@ -48,7 +50,7 @@ module.exports = {
     }
   //   console.log(cards);
     return cards;
-  }
+  };
 
   function drawCards (deck, number){
     var hand = new Array();
@@ -58,6 +60,6 @@ module.exports = {
        hand[i] = rand;
     }
     return hand
-  }
+  };
 
 };
