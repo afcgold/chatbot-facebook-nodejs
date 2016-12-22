@@ -2,13 +2,6 @@
 //Create decks,shuffle and deal hands!
 module.exports = {
   
-  sayHello : function () {
-  
-    var greeting = "hello!!!";
-  
-    return greeting;
-  
-  },
   createPack : function () {
     var suits = new Array("H", "C", "S", "D"); 
     var pack = new Array();
@@ -22,6 +15,7 @@ module.exports = {
       //console.log(pack);
     return pack; 
   },
+  
   createDeck : function (deck, numDecks) {
     for (k = 0; k < numDecks; k++) {
       deck[k] = this.createPack();
@@ -33,9 +27,9 @@ module.exports = {
     }
 
     deck = [].concat.apply([], deck);
-  //   console.log(deck);
     return deck;
   },
+  
   shuffleDecks : function (cards) {
     var m = cards.length, t, i;
   //   console.log(m);
@@ -51,12 +45,19 @@ module.exports = {
   //   console.log(cards);
     return cards;
   },
+  
   drawCards : function (deck, number){
     var hand = new Array();
 
     for (i = 0; i < number; i++){      
        var rand = deck.splice(deck[Math.floor(Math.random() * deck.length)],1);
-       hand[i] = rand;
+      
+      if (rand === "BB"){
+        this.shuffleDecks(deck);
+      } else {
+         hand[i] = rand;
+      }
+
     }
     return hand
   }
