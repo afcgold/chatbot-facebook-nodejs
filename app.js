@@ -187,9 +187,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
         case "deal-hand":
         
-            var deck = "hello";
-                    
-            sendTextMessage(sender,deck);
+            var deck = cards.createDeck(6);
+        
+            var shuffledDeck = cards.shuffleDecks(deck);
+        
+            var hand = cards.drawCards(shuffledDeck,2);
+        
+            sendTextMessage(sender,hand);
         
         break;
 		default:
