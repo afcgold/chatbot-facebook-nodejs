@@ -188,7 +188,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         var deck = cards.createDecks(6);
         var shuffledDeck = cards.shuffleDecks(deck);
-        var hand = cards.drawCards(shuffledDeck);
+        var hand = cards.drawCards(shuffledDeck,2);
         
         sendTextMessage(sender,hand.toString());
         
