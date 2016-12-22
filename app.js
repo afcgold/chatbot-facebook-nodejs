@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const app = express();
 const uuid = require('uuid');
+const cards = require('./cards.js');
 
 
 // Messenger API parameters
@@ -186,7 +187,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
         case "deal-hand":
         
-            let firstHand = "3H KD";
+            let firstHand = cards.foo;
         
             sendTextMessage(sender,firstHand);
         
@@ -871,3 +872,4 @@ function isDefined(obj) {
 app.listen(app.get('port'), function () {
 	console.log('running on port', app.get('port'))
 })
+
