@@ -188,7 +188,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       case "deal-hand":
         
         var deck = new Array();
-        var deck = cards.createdDecks(6);
+        deck = cards.createdDecks(6).toString();
         
         console.log(deck.toString());
 
