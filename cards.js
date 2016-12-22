@@ -9,11 +9,7 @@ module.exports = {
     return greeting;
   
   },
-  
-  createdDecks : function (numDecks) {
-
-    var deck = new Array();
-
+  createDeck : function (deck, numDecks) {
     for (k = 0; k < numDecks; k++) {
       deck[k] = createPack();
     }
@@ -34,7 +30,7 @@ module.exports = {
       //console.log(pack);
     return pack; 
   },
-  shuffledDecks : function (cards) {
+  shuffleDecks : function (cards) {
     var m = cards.length, t, i;
   //   console.log(m);
     // While there remain elements to shuffle…
