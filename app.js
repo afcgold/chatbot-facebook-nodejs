@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const app = express();
 const uuid = require('uuid');
-const cards = require('./cards.js');
+const cards = require('./cards');
 
 
 // Messenger API parameters
