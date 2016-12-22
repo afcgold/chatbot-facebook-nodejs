@@ -184,7 +184,13 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
-       
+        case "deal-hand" :
+        
+            let firstHand = "3H KD";
+        
+            sendTextMessage(sender,firstHand)
+        
+        break;
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
