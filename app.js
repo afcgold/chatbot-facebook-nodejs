@@ -185,13 +185,7 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
-        case "deal-hand":
         
-            var deck = "hello";
-                    
-            sendTextMessage(sender,deck);
-        
-        break;
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
