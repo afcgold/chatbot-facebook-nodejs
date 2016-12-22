@@ -188,7 +188,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
             let firstHand = "3H KD";
         
-            sendTextMessage(sender,firstHand)
+            sendTextMessage(sender,firstHand);
         
         break;
 		default:
