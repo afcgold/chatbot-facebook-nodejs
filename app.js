@@ -191,7 +191,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //        
 //            var shuffledDeck = cards.shuffleDecks(deck);
         
-            var hand = cards.sayHello();
+            var hand = sayHello;
         
             sendTextMessage(sender,hand);
         
