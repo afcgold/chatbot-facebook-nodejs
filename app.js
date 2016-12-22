@@ -10,8 +10,6 @@ const app = express();
 const uuid = require('uuid');
 const cards = require('./cards');
 
-var deck = new Array();
-
 // Messenger API parameters
 if (!config.FB_PAGE_TOKEN) {
 	throw new Error('missing FB_PAGE_TOKEN');
@@ -188,11 +186,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
       case "deal-hand":
         
-        this.deck = cards.createdDecks(6).toString();
+        var deck = new Array();
         
-        console.log(deck.toString());
-
-        sendTextMessage(sender,this.deck);
+        deck = cards.createPack();
+        
+        sendTextMessage(sender,deck.toString());
         
         break;
 		default:
