@@ -9,14 +9,6 @@ module.exports = {
     return greeting;
   
   },
-  createDeck : function (deck, numDecks) {
-    for (k = 0; k < numDecks; k++) {
-      deck[k] = exports.createPack();
-    }
-    deck = [].concat.apply([], deck);
-  //   console.log(deck);
-    return deck;
-  },
   createPack : function () {
     var suits = new Array("H", "C", "S", "D"); 
     var pack = new Array();
@@ -29,6 +21,14 @@ module.exports = {
           pack[count++] = j + suits[i]; 
       //console.log(pack);
     return pack; 
+  },
+  createDeck : function (deck, numDecks) {
+    for (k = 0; k < numDecks; k++) {
+      deck[k] = this.createPack();
+    }
+    deck = [].concat.apply([], deck);
+  //   console.log(deck);
+    return deck;
   },
   shuffleDecks : function (cards) {
     var m = cards.length, t, i;
