@@ -186,9 +186,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
       case "deal-hand":
         
-        var deck = new Array();
-        
-        deck = cards.createPack();
+        var deck = [1,2];
         
         sendTextMessage(sender,deck.toString());
         
