@@ -11,7 +11,7 @@ module.exports = {
   },
   createDeck : function (deck, numDecks) {
     for (k = 0; k < numDecks; k++) {
-      deck[k] = createPack();
+      deck[k] = exports.createPack();
     }
     deck = [].concat.apply([], deck);
   //   console.log(deck);
