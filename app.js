@@ -187,7 +187,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
         case "deal-hand":
         
-            let firstHand = cards.foo;
+            let firstHand = cards.foo();
         
             sendTextMessage(sender,firstHand);
         
