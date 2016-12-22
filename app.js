@@ -187,11 +187,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       case "deal-hand":
         
         var empty = new Array()
-        var deck = cards.createDeck(empty,1);
+        var deck = cards.createDeck(empty,6);
         var shuffledDeck = cards.shuffleDecks(deck);
         var hand = cards.drawCards(shuffledDeck,2);
         
-        sendTextMessage(sender,deck.toString());
+        sendTextMessage(sender,hand.toString());
         
         break;
 		default:
