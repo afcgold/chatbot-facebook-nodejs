@@ -1,9 +1,5 @@
 //Cards.js
 //Create decks,shuffle and deal hands!
-
-
-
-module.exports = {
   
 let decksUsed = 6;
 var deck = new Array();
@@ -57,4 +53,7 @@ function drawCards (deck, number){
   return hand
 }
   
-};
+  exports.createDecks = createDecks; 
+  exports.createPack = createPack;
+  exports.shuffleDecks = shuffleDecks;
+  exports.drawCards = drawCards;
