@@ -185,17 +185,6 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
-        case "deal-hand":
-        
-//            var deck = cards.createDeck(6);
-//        
-//            var shuffledDeck = cards.shuffleDecks(deck);
-        
-            var hand = cards.sayHello();
-        
-            sendTextMessage(sender,hand);
-        
-        break;
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
