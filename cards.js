@@ -25,11 +25,13 @@ module.exports = {
   createDeck : function (deck, numDecks) {
     for (k = 0; k < numDecks; k++) {
       deck[k] = this.createPack();
-      if (k % 6 === 0){
-        var blankCard = ["BB"];
-        deck[k] = blankCard;
-      }
     }
+    
+    if (k % 6 === 0){
+        var blankCard = ["BB"];
+        deck.push(blankCard);
+    }
+
     deck = [].concat.apply([], deck);
   //   console.log(deck);
     return deck;
