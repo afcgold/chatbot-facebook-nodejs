@@ -188,8 +188,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         case "deal-hand":
         
             var deck = cards.createDecks(6);
-            
-        
+                    
             sendTextMessage(sender,deck);
         
         break;
