@@ -192,7 +192,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         console.log(deck.toString());
 
-        sendTextMessage(sender,deck);
+        sendTextMessage(sender,this.deck);
         
         break;
 		default:
