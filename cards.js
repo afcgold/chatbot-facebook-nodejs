@@ -2,7 +2,7 @@
 //Create decks,shuffle and deal hands!
 module.exports = {
   
-  function sayHello {
+  function sayHello() {
 
     return "hello";
 
