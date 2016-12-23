@@ -1,8 +1,9 @@
 //Cards.js
 //Create decks,shuffle and deal hands!
+
+var blankCard = ["BB"];
+
 module.exports = {
-  
-  var blankCard = ["BB"];
 
   createDeck : function () {
     var suits = new Array("H", "C", "S", "D"); 
