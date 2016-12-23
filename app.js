@@ -187,7 +187,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       case "deal-hand":
         
         var empty = new Array()
-        var deck = cards.createDeck(empty,6);
+        var deck = cards.createShoe(empty,6);
         var shuffledDeck = cards.shuffleDecks(deck);
         var hand = cards.drawCards(shuffledDeck,2);
         

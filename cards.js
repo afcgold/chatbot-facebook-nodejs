@@ -2,7 +2,9 @@
 //Create decks,shuffle and deal hands!
 module.exports = {
   
-  createPack : function () {
+  var blankCard = ["BB"];
+
+  createDeck : function () {
     var suits = new Array("H", "C", "S", "D"); 
     var pack = new Array();
     var n = 52;
@@ -16,13 +18,12 @@ module.exports = {
     return pack; 
   },
   
-  createDeck : function (deck, numDecks) {
+  createShoe : function (deck, numDecks) {
     for (k = 0; k < numDecks; k++) {
-      deck[k] = this.createPack();
+      deck[k] = this.createDeck();
     }
     
     if (k % 6 === 0){
-        var blankCard = ["BB"];
         deck.push(blankCard);
     }
 
@@ -42,22 +43,32 @@ module.exports = {
       cards[m] = cards[i];
       cards[i] = t;
     }
-  //   console.log(cards);
     return cards;
   },
   
-  drawCards : function (deck, number){
-    var hand = new Array();
-
-    for (i = 0; i < number; i++){      
-       var rand = deck.splice(deck[Math.floor(Math.random() * deck.length)],1);
+  drawCards: function(deck, number){
       
-      if (rand === "BB"){
-        this.shuffleDecks(deck);
-      } else {
-         hand[i] = rand;
+    //create a new array to hold "number" amount of cards
+    var hand = new Array();
+  
+    //pick 2 cards at random from the deck
+  
+    function randomCard() {
+         var chosenCard = deck.splice(deck[Math.floor(Math.random() * deck.length)],1);
+         chosenCard = [].concat.apply([], chosenCard);
+         return chosenCard;
+    }
+    
+    for (i = 0; i < number ; i++){      
+      var rand = randomCard();
+      hand[i] = rand;
+    }
+  
+    for (i = 0; i < hand.length; i++){
+      if (hand[i] == blankCard){
+          hand[i] = randomCard();
+          //shuffle deck at the end of this game.
       }
-
     }
     return hand
   }
