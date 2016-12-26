@@ -106,7 +106,7 @@ module.exports = {
 
       //create a new array to hold "number" amount of cards
       var hand = [];
-      var displayHand = ""
+      var displayHand = "";
 
       //pick 2 cards at random from the deck
       function randomCard() {

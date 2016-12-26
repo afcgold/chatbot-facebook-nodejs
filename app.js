@@ -190,12 +190,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         var hand = cards.drawCards(shuffledDeck,2);
         cards.displayHand(hand);
         
-        sendTextMessage(sender,"Hi George!");
+        sendTextMessage(sender, hand.toString());
         
         break;
 		default:
 			//unhandled action, just send back the text
-			sendTextMessage(sender, hand.toString());
+			sendTextMessage(sender, responseText);
 	}
 }
 
