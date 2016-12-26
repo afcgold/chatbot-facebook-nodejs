@@ -31,7 +31,7 @@ module.exports = {
       deck = [].concat.apply([], deck);
 
       return deck;
-    }
+    },
 
   createPack : function(deck) {
       var suits = ["hearts", "clubs", "spades", "diamonds"]; 
@@ -81,7 +81,7 @@ module.exports = {
         }
 
       return deck; 
-   }
+   },
 
 
   //function to shuffle the cards
@@ -98,7 +98,7 @@ module.exports = {
       }
 
       return deck;
-   }
+   },
 
   //function that draws cards from the deck
   drawCards :function(deck, number){
@@ -146,7 +146,7 @@ module.exports = {
       displayHand = hand.rank + hand.suit;
 
     return hand;
-  }
+  },
 
   displayHand: function(hand){
 
@@ -161,8 +161,7 @@ module.exports = {
     }
 
     return displayHand;
-
-  }
+  },
 
   isBlackjack : function(hand){
 
@@ -204,5 +203,5 @@ module.exports = {
 
     return sum;
 
-  }  
+  },
 }
