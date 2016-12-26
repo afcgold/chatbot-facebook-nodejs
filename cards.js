@@ -11,7 +11,7 @@ module.exports = {
      this.rank=rank;
      this.value=value;
 
-  }
+  },
 
   //create the entire shoe of cards, made up of decks
   createDeck : function(deck,numDecks) {
