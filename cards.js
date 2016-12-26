@@ -155,7 +155,7 @@ module.exports = {
 
     for (i = 0; i < hand.length; i++){
 
-      displayHand[i] = "" + hand[i].rank + " of " + hand[i].suit + "";
+      displayHand[i] = "" + hand[i].rank + " of " + hand[i].suit + " ";
 
     }
 
