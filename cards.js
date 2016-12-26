@@ -7,7 +7,7 @@ function CardObject(suit,rank,value)
      this.rank=rank;
      this.value=value;
 
-  },
+  }
 
 module.exports = {
 
