@@ -144,8 +144,6 @@ module.exports = {
 
       hand = [].concat.apply([], hand);
 
-      displayHand = hand.rank + hand.suit;
-
     return hand;
   },
 
