@@ -5,7 +5,7 @@
 
 module.exports = {
 
-  function CardObject(suit,rank,value)
+  CardObject : function(suit,rank,value)
   {
      this.suit=suit;
      this.rank=rank;
