@@ -1,16 +1,18 @@
 //Cards.js
 //Create decks,shuffle and deal hands!
 
-function CardObject(suit,rank,value)
+
+
+module.exports = {
+
+  function CardObject(suit,rank,value)
   {
      this.suit=suit;
      this.rank=rank;
      this.value=value;
 
-  }
-
-module.exports = {
-
+  },
+  
     // var blankCard = ["BB"];
   //create the entire shoe of cards, made up of decks
   createDeck : function(deck,numDecks) {
