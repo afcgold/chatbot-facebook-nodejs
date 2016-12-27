@@ -202,11 +202,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         function firstFunction(callback){
         // some very time consuming asynchronous code...
                   
-          sendTextMessage(sender, "first message");
           
           return callback(function(){
           
-          
+          sendTextMessage(sender, "second message");
+
           return true;
           });
         }
@@ -214,7 +214,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         function secondFunction(callback){
         // waits for firstFunction to be completed
       
-          sendTextMessage(sender, "second message");
+          sendTextMessage(sender, "first message");
 
           return callback();
           
