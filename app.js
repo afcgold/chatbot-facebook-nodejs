@@ -191,10 +191,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         var show = cards.displayHand(hand);
         var score = cards.isBlackjack(hand);
         
-        sendTextMessage(sender, show.toString());
+        sendTextMessage(sender, show.toString() + ". \nGiving you a score of " + score.toString());
         
-        sendTextMessage(sender, ". Giving you a score of " + score.toString());
-
         break;
 		default:
 			//unhandled action, just send back the text
