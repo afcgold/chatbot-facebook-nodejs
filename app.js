@@ -188,8 +188,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         var deck = cards.createDeck(empty,6);
         var shuffledDeck = cards.shuffleDeck(deck);
         var hand = cards.drawCards(shuffledDeck,2);
-        var show = cards.displayHand(hand);
         var score = cards.isBlackjack(hand);
+
+        var show = cards.displayHand(hand);
         
                   sendTextMessage(sender, show.toString());
                   sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
