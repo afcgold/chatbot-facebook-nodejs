@@ -189,32 +189,28 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         var shuffledDeck = cards.shuffleDeck(deck);
         var hand = cards.drawCards(shuffledDeck,2);
       
-        firstFunction(secondFunction);
+        firstFunction;
         
-        function firstFunction(callback){
+        secondFunction;
+        
+        function firstFunction(){
         // some very time consuming asynchronous code...
           
           var show = cards.displayHand(hand);
                   
           sendTextMessage(sender, show.toString());
           
-          //send back image of cards (player version);
-          // sendImage(sender, imageURL);
-          
-          return callback(function(hand){
-
-          return true;
-          });
+          return;
         }
         
-        function secondFunction(callback){
+        function secondFunction(){
         // waits for firstFunction to be completed
           
           var score = cards.isBlackjack(hand);
 
           sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
 
-          return callback();
+          return;
           
         }
         
