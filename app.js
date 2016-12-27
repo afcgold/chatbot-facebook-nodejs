@@ -191,7 +191,25 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         var show = cards.displayHand(hand);
         var score = cards.isBlackjack(hand);
         
-        sendTextMessage(sender, show.toString() + ". \nGiving you a score of " + score.toString()+"!");
+        
+        
+        function firstFunction(callback){
+        // some very time consuming asynchronous code...
+          console.log('1');
+          
+          sendTextMessage(sender, show.toString());
+
+        return callback(function(){
+          return true;
+          });
+        }
+        
+        function secondFunction(callback){
+        // waits for firstFunction to be completed
+        sendTextMessage(sender, ". \nGiving you a score of " + score.toString()+"!");
+
+        return callback();
+        }
         
         break;
 		default:
@@ -706,8 +724,6 @@ function callSendAPI(messageData) {
 	});
 }
 
-
-
 /*
  * Postback Event
  *
@@ -736,7 +752,6 @@ function receivedPostback(event) {
 		"at %d", senderID, recipientID, payload, timeOfPostback);
 
 }
-
 
 /*
  * Message Read Event
