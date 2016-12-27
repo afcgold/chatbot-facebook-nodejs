@@ -197,28 +197,28 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 
         
-//        firstFunction(secondFunction);
-//        
-//        function firstFunction(callback){
-//        // some very time consuming asynchronous code...
-//                  
-//          sendTextMessage(sender, show.toString());
-//          
-//          return callback(function(){
-//          
-//          
-//          return true;
-//          });
-//        }
-//        
-//        function secondFunction(callback){
-//        // waits for firstFunction to be completed
-//      
-//          sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
-//
-//          return callback();
-//          
-//        }
+        firstFunction(secondFunction);
+        
+        function firstFunction(callback){
+        // some very time consuming asynchronous code...
+                  
+          sendTextMessage(sender, "first message");
+          
+          return callback(function(){
+          
+          
+          return true;
+          });
+        }
+        
+        function secondFunction(callback){
+        // waits for firstFunction to be completed
+      
+          sendTextMessage(sender, "second message");
+
+          return callback();
+          
+        }
         
         break;
 		default:
