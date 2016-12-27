@@ -191,28 +191,33 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         var show = cards.displayHand(hand);
         var score = cards.isBlackjack(hand);
         
-        firstFunction(secondFunction);
-        
-        function firstFunction(callback){
-        // some very time consuming asynchronous code...
-                  
-          sendTextMessage(sender, show.toString());
-          
-          return callback(function(){
-          
-          
-          return true;
-          });
-        }
-        
-        function secondFunction(callback){
-        // waits for firstFunction to be completed
-      
-          sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
+                  sendTextMessage(sender, show.toString());
+                  sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
 
-          return callback();
-          
-        }
+
+        
+//        firstFunction(secondFunction);
+//        
+//        function firstFunction(callback){
+//        // some very time consuming asynchronous code...
+//                  
+//          sendTextMessage(sender, show.toString());
+//          
+//          return callback(function(){
+//          
+//          
+//          return true;
+//          });
+//        }
+//        
+//        function secondFunction(callback){
+//        // waits for firstFunction to be completed
+//      
+//          sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
+//
+//          return callback();
+//          
+//        }
         
         break;
 		default:
