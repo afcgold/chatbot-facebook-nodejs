@@ -191,7 +191,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         var show = cards.displayHand(hand);
         var score = cards.isBlackjack(hand);
         
-        
+        firstFunction(secondFunction);
         
         function firstFunction(callback){
         // some very time consuming asynchronous code...
