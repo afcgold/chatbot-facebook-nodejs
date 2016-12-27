@@ -206,7 +206,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         function secondFunction(callback){
         // waits for firstFunction to be completed
-        sendTextMessage(sender, ". \nGiving you a score of " + score.toString()+"!");
+        sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
 
         return callback();
         }
