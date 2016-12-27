@@ -195,18 +195,18 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         function firstFunction(callback){
         // some very time consuming asynchronous code...
-          console.log('1');
+                  
+          sendTextMessage(sender, show.toString());
           
         return callback(function(){
-          sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
           return true;
           });
         }
         
         function secondFunction(callback){
         // waits for firstFunction to be completed
-                  sendTextMessage(sender, show.toString());
-
+      
+          sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
 
         return callback();
         }
