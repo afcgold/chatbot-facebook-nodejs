@@ -173,7 +173,7 @@ module.exports = {
 
          temp[i] = hand[i].value;
 
-        if (hand[i].rank === "ace"){
+        if (hand[i].rank === "Ace"){
 
           var add = Math.max.apply(Math, hand[i].value);
           sum += add;
