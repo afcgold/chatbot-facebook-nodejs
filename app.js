@@ -198,9 +198,15 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                   
           sendTextMessage(sender, show.toString());
           
+          //send back image of cards (player version);
+          // sendImage(sender, imageURL);
+          
           return callback(function(hand){
           
-          
+                    var score = cards.isBlackjack(hand);
+
+                      sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
+
           return true;
           });
         }
@@ -208,9 +214,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         function secondFunction(callback){
         // waits for firstFunction to be completed
       
-          var score = cards.isBlackjack(hand);
-
-          sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
 
           return callback();
           
