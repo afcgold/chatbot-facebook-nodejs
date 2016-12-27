@@ -192,8 +192,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
         var show = cards.displayHand(hand);
         
-                  sendTextMessage(sender, show.toString());
-                  sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
+//                  sendTextMessage(sender, show.toString());
+//                  sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
 
 
         
