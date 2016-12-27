@@ -198,7 +198,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                   
           sendTextMessage(sender, show.toString());
           
-        return callback(function(){
+          return callback(function(){
+          
+          
           return true;
           });
         }
@@ -208,7 +210,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       
           sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
 
-        return callback();
+          return callback();
+          
         }
         
         break;
