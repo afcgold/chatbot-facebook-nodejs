@@ -34,7 +34,7 @@ module.exports = {
     },
 
   createPack : function(deck) {
-      var suits = ["hearts", "clubs", "spades", "diamonds"]; 
+      var suits = ["Hearts", "Clubs", "Spades", "Diamonds"]; 
       var value = [0];
       var rank = "";
   //     var pack = [];
@@ -54,20 +54,20 @@ module.exports = {
 
               switch(j) {
                   case 11:
-                      rank = "jack";
+                      rank = "Jack";
                       break;
                   case 12:
-                      rank = "queen";
+                      rank = "Queen";
                       break;
                   case 13:
-                      rank = "king";
+                      rank = "King";
                       break;
               }
 
             } else if (j == 1){
 
               value = [1, 11];
-              rank = "ace";
+              rank = "Ace";
 
             } else {
 
