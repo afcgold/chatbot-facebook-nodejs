@@ -10,7 +10,6 @@ module.exports = {
      this.suit=suit;
      this.rank=rank;
      this.value=value;
-
   },
   
     // var blankCard = ["BB"];
@@ -171,7 +170,6 @@ module.exports = {
     var numAces = 0;
 
       for (i = 0; i < hand.length; i++){
-        console.log(hand[i].value);
 
          temp[i] = hand[i].value;
 
@@ -187,8 +185,6 @@ module.exports = {
         }
       }
 
-      console.log("SUM 1 = " + sum);
-
     while (sum > 21 && numAces){
 
       sum -= 10;    
@@ -197,7 +193,7 @@ module.exports = {
     } 
 
     if (sum === 21){
-      return "BLACKJACK";
+//      return "BLACKJACK";
     }
 
     return sum;
