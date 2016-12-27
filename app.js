@@ -184,25 +184,21 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
       case "deal-hand":
         
-       
-        
-//                  sendTextMessage(sender, show.toString());
-//                  sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
+         var empty = [];
+         var deck = cards.createDeck(empty,6);
+         var shuffledDeck = cards.shuffleDeck(deck);
+         var hand = cards.drawCards(shuffledDeck,2);
         
         firstFunction(secondFunction);
         
         function firstFunction(callback){
         // some very time consuming asynchronous code...
-          
-           var empty = [];
-           var deck = cards.createDeck(empty,6);
-           var shuffledDeck = cards.shuffleDeck(deck);
-           var hand = cards.drawCards(shuffledDeck,2);
+        
            var show = cards.displayHand(hand);
                   
           sendTextMessage(sender, show.toString());
           
-          return callback(function(hand){
+          return callback(function(){
           
           
           return true;
