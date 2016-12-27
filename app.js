@@ -184,29 +184,27 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
       case "deal-hand":
         
-        var empty = [];
-        var deck = cards.createDeck(empty,6);
-        var shuffledDeck = cards.shuffleDeck(deck);
-        var hand = cards.drawCards(shuffledDeck,2);
-        var score = cards.isBlackjack(hand);
-
-        var show = cards.displayHand(hand);
+       
         
 //                  sendTextMessage(sender, show.toString());
 //                  sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
-
-
         
         firstFunction(secondFunction);
         
         function firstFunction(callback){
         // some very time consuming asynchronous code...
+          
+           var empty = [];
+           var deck = cards.createDeck(empty,6);
+           var shuffledDeck = cards.shuffleDeck(deck);
+           var hand = cards.drawCards(shuffledDeck,2);
+           var show = cards.displayHand(hand);
                   
+          sendTextMessage(sender, show.toString());
           
-          return callback(function(){
+          return callback(function(hand){
           
-          sendTextMessage(sender, "second message");
-
+          
           return true;
           });
         }
@@ -214,7 +212,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         function secondFunction(callback){
         // waits for firstFunction to be completed
       
-          sendTextMessage(sender, "first message");
+          var score = cards.isBlackjack(hand);
+
+          sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
 
           return callback();
           
