@@ -193,7 +193,7 @@ module.exports = {
     } 
 
     if (sum === 21){
-//      return "BLACKJACK";
+      return "BLACKJACK";
     }
 
     return sum;
