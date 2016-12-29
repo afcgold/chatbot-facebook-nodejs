@@ -188,31 +188,33 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         var deck = cards.createDeck(empty,6);
         var shuffledDeck = cards.shuffleDeck(deck);
         var hand = cards.drawCards(shuffledDeck,2);
-      
-        firstFunction;
         
-        secondFunction;
-        
-        function firstFunction(){
-        // some very time consuming asynchronous code...
-          
-          var show = cards.displayHand(hand);
+         var show = cards.displayHand(hand);
                   
           sendTextMessage(sender, show.toString());
-          
-          return;
-        }
-        
-        function secondFunction(){
-        // waits for firstFunction to be completed
-          
-          var score = cards.isBlackjack(hand);
-
-          sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
-
-          return;
-          
-        }
+      
+//        firstFunction();
+//        
+//        secondFunction();
+//        
+//        function firstFunction(){
+//        // some very time consuming asynchronous code...
+//          
+//         
+//          
+//          return;
+//        }
+//        
+//        function secondFunction(){
+//        // waits for firstFunction to be completed
+//          
+//          var score = cards.isBlackjack(hand);
+//
+//          sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
+//
+//          return;
+//          
+//        }
         
         break;
 		default:
