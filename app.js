@@ -195,15 +195,18 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                   
           sendTextMessage(sender, show.toString());
           
+          return hand;
+          
         }
         
         function showScore(callback){
           
+          var hand = callback();
+
           var score = cards.isBlackjack(hand)
         
           sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
           
-          callback();
           
         }
         
