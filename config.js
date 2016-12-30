@@ -8,5 +8,5 @@ module.exports = {
       cloud_name: 'afcgold', 
       api_key: '172131976868625', 
       api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc' 
-    })
+    });
 };
