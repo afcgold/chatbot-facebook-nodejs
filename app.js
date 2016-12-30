@@ -192,7 +192,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var hand = cards.drawCards(shuffledDeck,2);
           
           var show = cards.displayHand(hand);
-                  
+                            
           sendTextMessage(sender, show.toString());
           
           return hand;
@@ -204,9 +204,14 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var hand = callback();
 
           var score = cards.isBlackjack(hand)
+                    
+          function sendScoreMessage (){
+            
+            sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"! Nice!");
+
+          }
         
-          sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
-          
+          setTimeout(sendScoreMessage, 500);
           
         }
         
