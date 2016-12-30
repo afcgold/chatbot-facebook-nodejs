@@ -11,11 +11,11 @@ const uuid = require('uuid');
 const cards = require('./cards');
 const cloudinary = require('cloudinary');
 
- cloudinary.config({ 
-      cloud_name: 'afcgold', 
-      api_key: '172131976868625', 
-      api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc' 
-    });
+// cloudinary.config({ 
+//      cloud_name: 'afcgold', 
+//      api_key: '172131976868625', 
+//      api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc' 
+//    });
 
 // Messenger API parameters
 if (!config.FB_PAGE_TOKEN) {
@@ -202,12 +202,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
           sendTextMessage(sender, show.toString());
           
-          var imgURL = cloudinary.image('dealer-like.png');
+//          var imgURL = cloudinary.image('dealer-like.png');
           
 //          http://res.cloudinary.com/afcgold/image/upload/v1483133583/player-like.png
 //          http://res.cloudinary.com/afcgold/image/upload/v1483134651/dealer-like.png
           
-          sendImageMessage(sender, imgURL);
+//          sendImageMessage(sender, imgURL);
           
           return hand;
           
