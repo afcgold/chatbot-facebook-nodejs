@@ -33,14 +33,16 @@ if (!config.FB_APP_SECRET) {
 if (!config.SERVER_URL) { //used for ink to static files
 	throw new Error('missing SERVER_URL');
 }
-
-app.init(
-cloudinary.config({ 
-      cloud_name: 'afcgold', 
-      api_key: '172131976868625', 
-      api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc' 
-    });
-)
+//
+//app.init(
+//  
+//  cloudinary.config({ 
+//        cloud_name: 'afcgold', 
+//        api_key: '172131976868625', 
+//        api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc' 
+//      });
+//  
+//)
 
 
 app.set('port', (process.env.PORT || 5000))
