@@ -195,6 +195,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
           sendTextMessage(sender, show.toString());
           
+          var imgURL = (".../assets/like.png");
+          
+          sendImageMessage(sender, imgURL);
+          
           return hand;
           
         }
