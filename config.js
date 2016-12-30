@@ -6,9 +6,9 @@ module.exports = {
     FB_APP_SECRET: '5036185e92e06245934b4e744a815ad1',
     SERVER_URL: "https://blackjackbotio.herokuapp.com/",
     cloudinary: { 
-      cloud_name: 'sample', 
-      api_key: '874837483274837', 
-      api_secret: 'a676b67565c6767a6767d6767f676fe1' 
+      cloud_name: 'afcgold', 
+      api_key: '172131976868625', 
+      api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc'  
     }, 
 };
 
