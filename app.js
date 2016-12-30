@@ -195,7 +195,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
           sendTextMessage(sender, show.toString());
           
-          var imgURL = (".../assets/like.png");
+          var imgURL = "like.png";
           
           sendImageMessage(sender, imgURL);
           
