@@ -36,7 +36,7 @@ if (!config.SERVER_URL) { //used for ink to static files
 //
 app.init(
   
-  cloudinary.config: { 
+  config.cloudinary : { 
       cloud_name: 'afcgold', 
       api_key: '172131976868625', 
       api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc'  
