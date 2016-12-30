@@ -184,38 +184,33 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
       case "deal-hand":
         
-        var empty = [];
-        var deck = cards.createDeck(empty,6);
-        var shuffledDeck = cards.shuffleDeck(deck);
-        var hand = cards.drawCards(shuffledDeck,2);
-        
-         var show = cards.displayHand(hand);
+        function dealHand(){
+          
+          var empty = [];
+          var deck = cards.createDeck(empty,6);
+          var shuffledDeck = cards.shuffleDeck(deck);
+          var hand = cards.drawCards(shuffledDeck,2);
+          
+          var show = cards.displayHand(hand);
                   
           sendTextMessage(sender, show.toString());
-      
-//        firstFunction();
-//        
-//        secondFunction();
-//        
-//        function firstFunction(){
-//        // some very time consuming asynchronous code...
-//          
-//         
-//          
-//          return;
-//        }
-//        
-//        function secondFunction(){
-//        // waits for firstFunction to be completed
-//          
-//          var score = cards.isBlackjack(hand);
-//
-//          sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
-//
-//          return;
-//          
-//        }
+          
+        }
         
+        function showScore(callback){
+          
+          var score = cards.isBlackjack(hand)
+        
+          sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"!");
+          
+          callback();
+          
+        }
+        
+        showScore(dealHand);
+        
+       
+
         break;
 		default:
 			//unhandled action, just send back the text
