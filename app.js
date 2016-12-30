@@ -12,7 +12,6 @@ const cards = require('./cards');
 const cloudinary = require('cloudinary');
 
 
-
 // Messenger API parameters
 if (!config.FB_PAGE_TOKEN) {
 	throw new Error('missing FB_PAGE_TOKEN');
@@ -30,15 +29,15 @@ if (!config.SERVER_URL) { //used for ink to static files
 	throw new Error('missing SERVER_URL');
 }
 //
-//app.init(
-//  
-//  config.cloudinary : { 
-//      cloud_name: 'afcgold', 
-//      api_key: '172131976868625', 
-//      api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc'  
-//    }, 
-//  
-//)
+app.init(
+  
+  cloudinary.config({ 
+      cloud_name: 'afcgold', 
+      api_key: '172131976868625', 
+      api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc'  
+    }); 
+  
+)
 
 
 app.set('port', (process.env.PORT || 5000))
