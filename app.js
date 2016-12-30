@@ -195,7 +195,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
           sendTextMessage(sender, show.toString());
           
-          var imgURL = "like.png";
+          var imgURL = "http://res.cloudinary.com/afcgold/image/upload/v1483133583/like_sjunom.png";
           
           sendImageMessage(sender, imgURL);
           
