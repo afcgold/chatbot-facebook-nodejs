@@ -211,7 +211,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
           }
         
-          setTimeout(sendScoreMessage, 500);
+          setTimeout(sendScoreMessage, 250);
           
         }
         
