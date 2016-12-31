@@ -29,13 +29,12 @@ if (!config.SERVER_URL) { //used for ink to static files
 	throw new Error('missing SERVER_URL');
 }
 
-cloudinary.config({ 
-  cloud_name: 'afcgold', 
-  api_key: '172131976868625', 
-  api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc'  
-}); 
+//cloudinary.config({ 
+//  cloud_name: 'afcgold', 
+//  api_key: '172131976868625', 
+//  api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc'  
+//}); 
   
-
 app.set('port', (process.env.PORT || 5000))
 
 //verify request came from facebook
