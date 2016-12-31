@@ -196,7 +196,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
           sendTextMessage(sender, show.toString());
           
-          var imgURL = "/Users/georgegoldhagen/Documents/Development/node.js/blackjackbotio/public/like.png";
+          var imgURL = config.SERVER_URL + "/like.png";
           
           sendImageMessage(sender, imgURL);
           
