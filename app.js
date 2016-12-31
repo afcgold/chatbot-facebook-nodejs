@@ -200,6 +200,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var show = cards.displayHand(hand);
                             
           var imgURL = cloudinary.image("pigIcon_2x_a74f20.png");
+          
+          cloudinary.uploader.upload("http://cdn.images.express.co.uk/img/dynamic/67/590x/Alexis-Sanchez-632532.jpg", function(result) { 
+              console.log(result) 
+            });
 
           sendImageMessage(sender, imgURL);
           
