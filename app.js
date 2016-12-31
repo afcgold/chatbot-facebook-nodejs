@@ -9,7 +9,6 @@ const request = require('request');
 const app = express();
 const uuid = require('uuid');
 const cards = require('./cards');
-const cloudinary = require('cloudinary');
 //
 //cloudinary.config({ 
 //  cloud_name: 'sample', 
