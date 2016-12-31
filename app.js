@@ -201,13 +201,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
           var imgURL = cloudinary.image("pigIcon_2x_a74f20.png");
           
-          cloudinary.uploader.upload("http://cdn.images.express.co.uk/img/dynamic/67/590x/Alexis-Sanchez-632532.jpg", function(result) { 
-              console.log(result) 
-            });
+          var imageURL = cloudinary.image("lambIcon_tykk0u.png");
 
-          sendImageMessage(sender, imgURL);
+          sendImageMessage(sender, imageURL);
           
-                    sendTextMessage(sender, show.toString());
+          
+          
+          sendTextMessage(sender, show.toString());
 
 
           return hand;
