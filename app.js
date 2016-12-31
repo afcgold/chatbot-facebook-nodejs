@@ -35,7 +35,8 @@ app.use(bodyParser.json({
 }));
 
 //serve static files in the public directory
-app.use(express.static('public'));
+app.use("/public", express.static(__dirname + '/public'));
+
 
 // Process application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
