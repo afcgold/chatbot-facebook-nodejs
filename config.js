@@ -5,6 +5,5 @@ module.exports = {
     API_AI_CLIENT_ACCESS_TOKEN: '09b53a3803aa476291a9670b5683d31a',
     FB_APP_SECRET: '5036185e92e06245934b4e744a815ad1',
     SERVER_URL: "https://blackjackbotio.herokuapp.com/",
-    
 };
 
