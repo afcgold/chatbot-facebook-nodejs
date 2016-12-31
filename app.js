@@ -37,8 +37,7 @@ app.use(bodyParser.json({
 }));
 
 //serve static files in the public directory
-app.use("/public", express.static(path.join(__dirname, 'public')));
-
+app.use(express.static('public'));
 
 // Process application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
@@ -196,7 +195,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
           sendTextMessage(sender, show.toString());
           
-          var imgURL = config.SERVER_URL + "/like.png";
+          var imgURL = config.SERVER_URL + "like.png";
           
           sendImageMessage(sender, imgURL);
           
