@@ -37,7 +37,7 @@ app.use(bodyParser.json({
 }));
 
 //serve static files in the public directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use("/public", express.static(path.join(__dirname, 'public')));
 
 
 // Process application/x-www-form-urlencoded
@@ -196,7 +196,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
           sendTextMessage(sender, show.toString());
           
-          var imgURL = "/dealer_like.png";
+          var imgURL = "/like.png";
           
 //          http://res.cloudinary.com/afcgold/image/upload/v1483133583/player-like.png
 //          http://res.cloudinary.com/afcgold/image/upload/v1483134651/dealer-like.png
