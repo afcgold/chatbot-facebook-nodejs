@@ -195,9 +195,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
           sendTextMessage(sender, show.toString());
           
-          // var imgURL = config.SERVER_URL + "like.png";
+           var imgURL = "http://cdn.images.express.co.uk/img/dynamic/67/590x/Alexis-Sanchez-632532.jpg";
           
-		sendGifMessage(sender);     
+          sendImageMessage(sender, imgURL);
+          
+          
 
           return hand;
           
