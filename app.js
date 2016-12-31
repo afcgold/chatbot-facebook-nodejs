@@ -195,6 +195,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var show = cards.displayHand(hand);
                             
           sendTextMessage(sender, show.toString());
+          
+          cloudinary.config({ 
+            cloud_name: 'afcgold', 
+              api_key: '172131976868625', 
+              api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc' 
+          });
                     
           var imgURL = cloudinary.image("Blackjackbot.io/dealer_like.png");
                     
