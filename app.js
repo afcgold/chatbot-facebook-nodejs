@@ -196,9 +196,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
           sendTextMessage(sender, show.toString());
           
-          // var imgURL = config.SERVER_URL + "like.png";
-          
-			sendGifMessage(sender);     
+          var imgURL = cloudinary.image("Blackjackbot.io/dealer_like.png");
+                    
+		  sendImageMessage(sender, imgURL);    
 
           return hand;
           
