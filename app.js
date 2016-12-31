@@ -10,8 +10,7 @@ const request = require('request');
 const app = express();
 const uuid = require('uuid');
 const cards = require('./cards');
-
-process.env.PWD = process.cwd();
+var cloudinary = require('cloudinary');
 
 
 // Messenger API parameters
@@ -39,7 +38,7 @@ app.use(bodyParser.json({
 }));
 
 //serve static files in the public directory
-app.use(express.static(process.env.PWD + '/public'));
+app.use(express.static('public'));
 
 // Process application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
@@ -48,6 +47,8 @@ app.use(bodyParser.urlencoded({
 
 // Process application/json
 app.use(bodyParser.json())
+
+
 
 
 const apiAiService = apiai(config.API_AI_CLIENT_ACCESS_TOKEN, {
@@ -195,11 +196,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
           sendTextMessage(sender, show.toString());
           
-           var imgURL = "/assets/like.png";
+          // var imgURL = config.SERVER_URL + "like.png";
           
-          sendImageMessage(sender, imgURL);
-          
-          
+			sendGifMessage(sender);     
 
           return hand;
           
@@ -432,8 +431,6 @@ function sendGifMessage(recipientId) {
 			}
 		}
 	};
-  
-  console.log("HELLLPPP!!!!");
 
 	callSendAPI(messageData);
 }
