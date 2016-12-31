@@ -193,7 +193,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
           sendTextMessage(sender, show.toString());
           
-          var imgURL = "/assets/dealer-like.png";
+          var imgURL = "/assets/dealer_like.png";
           
 //          http://res.cloudinary.com/afcgold/image/upload/v1483133583/player-like.png
 //          http://res.cloudinary.com/afcgold/image/upload/v1483134651/dealer-like.png
