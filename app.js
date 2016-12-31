@@ -11,6 +11,8 @@ const app = express();
 const uuid = require('uuid');
 const cards = require('./cards');
 
+process.env.PWD = process.cwd();
+
 
 // Messenger API parameters
 if (!config.FB_PAGE_TOKEN) {
@@ -37,7 +39,7 @@ app.use(bodyParser.json({
 }));
 
 //serve static files in the public directory
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(process.env.PWD + '/public'));
 
 // Process application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
