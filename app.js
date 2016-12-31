@@ -197,7 +197,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           
           // var imgURL = config.SERVER_URL + "like.png";
           
-			sendGifMessage(sender);     
+		sendGifMessage(sender);     
 
           return hand;
           
@@ -430,6 +430,8 @@ function sendGifMessage(recipientId) {
 			}
 		}
 	};
+  
+  console.log("HELLLPPP!!!!");
 
 	callSendAPI(messageData);
 }
