@@ -10,7 +10,7 @@ const request = require('request');
 const app = express();
 const uuid = require('uuid');
 const cards = require('./cards');
-var cloudinary = require('cloudinary');
+const cloudinary = require('cloudinary');
 
 
 // Messenger API parameters
@@ -195,7 +195,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var show = cards.displayHand(hand);
                             
           sendTextMessage(sender, show.toString());
-          
+                    
           var imgURL = cloudinary.image("Blackjackbot.io/dealer_like.png");
                     
 		  sendImageMessage(sender, imgURL);    
