@@ -199,11 +199,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           
           var show = cards.displayHand(hand);
                             
-          sendTextMessage(sender, show.toString());
-                    
-          var imgURL = cloudinary.image("Blackjackbot.io/dealer_like.png");
-                    
-		  sendImageMessage(sender, imgURL);    
+          var imgURL = cloudinary.image("pigIcon_2x_a74f20.png");
+
+          sendImageMessage(sender, imgURL);
+          
+                    sendTextMessage(sender, show.toString());
+
 
           return hand;
           
