@@ -9,6 +9,11 @@ const request = require('request');
 const app = express();
 const uuid = require('uuid');
 const cards = require('./cards');
+const cloudinary = require('cloudinary');
+
+CLOUDINARY_URL: "172131976868625:MCVeonGDlwEga4ooiNgRiznd3Xc@afcgold";
+
+
 
 // Messenger API parameters
 if (!config.FB_PAGE_TOKEN) {
