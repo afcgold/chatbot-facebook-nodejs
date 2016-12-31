@@ -12,6 +12,11 @@ const uuid = require('uuid');
 const cards = require('./cards');
 const cloudinary = require('cloudinary');
 
+  cloudinary.config({ 
+            cloud_name: 'afcgold', 
+              api_key: '172131976868625', 
+              api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc' 
+          });
 
 // Messenger API parameters
 if (!config.FB_PAGE_TOKEN) {
@@ -195,12 +200,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var show = cards.displayHand(hand);
                             
           sendTextMessage(sender, show.toString());
-          
-          cloudinary.config({ 
-            cloud_name: 'afcgold', 
-              api_key: '172131976868625', 
-              api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc' 
-          });
                     
           var imgURL = cloudinary.image("Blackjackbot.io/dealer_like.png");
                     
