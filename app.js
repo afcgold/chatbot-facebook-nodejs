@@ -201,7 +201,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
           var imgURL = cloudinary.image("pigIcon_2x_a74f20.png");
           
-          var imageURL = cloudinary.image("lambIcon_tykk0u.png");
+          var imageURL = cloudinary.image("http://res.cloudinary.com/afcgold/image/upload/v1455980552/lambIcon_tykk0u.png");
 
           sendImageMessage(sender, imageURL);
           
