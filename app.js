@@ -195,10 +195,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
           sendTextMessage(sender, show.toString());
           
-          var imgURL = config.SERVER_URL + "like.png";
+          // var imgURL = config.SERVER_URL + "like.png";
           
-          sendImageMessage(sender, imgURL);
-          
+			sendGifMessage(sender);     
+
           return hand;
           
         }
