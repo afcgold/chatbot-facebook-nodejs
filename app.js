@@ -12,12 +12,6 @@ const uuid = require('uuid');
 const cards = require('./cards');
 const cloudinary = require('cloudinary');
 
-  cloudinary.config({ 
-            cloud_name: 'afcgold', 
-              api_key: '172131976868625', 
-              api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc' 
-          });
-
 // Messenger API parameters
 if (!config.FB_PAGE_TOKEN) {
 	throw new Error('missing FB_PAGE_TOKEN');
@@ -200,6 +194,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var show = cards.displayHand(hand);
                             
           var imgURL = cloudinary.image("pigIcon_2x_a74f20.png");
+          
+          cloudinary.config({ 
+            cloud_name: 'afcgold', 
+              api_key: '172131976868625', 
+              api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc' 
+          });
           
           var imageURL = cloudinary.image("http://res.cloudinary.com/afcgold/image/upload/v1455980552/lambIcon_tykk0u.png");
 
