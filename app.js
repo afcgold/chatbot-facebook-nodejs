@@ -196,9 +196,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var imgURL = cloudinary.image("pigIcon_2x_a74f20.png");
           
           cloudinary.config({ 
-            cloud_name: 'afcgold', 
-              api_key: '172131976868625', 
-              api_secret: 'MCVeonGDlwEga4ooiNgRiznd3Xc' 
+            cloud_name: "afcgold", 
+              api_key: "172131976868625", 
+              api_secret: "MCVeonGDlwEga4ooiNgRiznd3Xc" 
           });
           
           var imageURL = cloudinary.image("http://res.cloudinary.com/afcgold/image/upload/v1455980552/lambIcon_tykk0u.png");
