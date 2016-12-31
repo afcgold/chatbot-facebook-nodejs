@@ -9,10 +9,6 @@ const request = require('request');
 const app = express();
 const uuid = require('uuid');
 const cards = require('./cards');
-const cloudinary = require('cloudinary');
-
-
-
 
 // Messenger API parameters
 if (!config.FB_PAGE_TOKEN) {
@@ -197,7 +193,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
           sendTextMessage(sender, show.toString());
           
-          var imgURL = cloudinary.image('dealer-like.png');
+          var imgURL = "/dealer-like.png";
           
 //          http://res.cloudinary.com/afcgold/image/upload/v1483133583/player-like.png
 //          http://res.cloudinary.com/afcgold/image/upload/v1483134651/dealer-like.png
