@@ -11,7 +11,6 @@ const uuid = require('uuid');
 const cards = require('./cards');
 const cloudinary = require('cloudinary');
 
-CLOUDINARY_URL: "172131976868625:MCVeonGDlwEga4ooiNgRiznd3Xc@afcgold";
 
 
 
@@ -198,12 +197,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
           sendTextMessage(sender, show.toString());
           
-//          var imgURL = cloudinary.image('dealer-like.png');
+          var imgURL = cloudinary.image('dealer-like.png');
           
 //          http://res.cloudinary.com/afcgold/image/upload/v1483133583/player-like.png
 //          http://res.cloudinary.com/afcgold/image/upload/v1483134651/dealer-like.png
           
-//          sendImageMessage(sender, imgURL);
+          sendImageMessage(sender, imgURL);
           
           return hand;
           
