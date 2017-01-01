@@ -204,9 +204,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           cloudinary.uploader.upload("http://o.aolcdn.com/commerce/autodata/images/USC60JES011A021001.jpg", function(result) { 
             console.log(result) 
           }); 
-          
-          cloudinary.
-          
+                    
           var imageURL = cloudinary.image_url("http://res.cloudinary.com/afcgold/image/fetch/dealer-like.png");
 //
 //          sendImageMessage(sender, imageURL);
