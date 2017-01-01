@@ -193,19 +193,23 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           
           var show = cards.displayHand(hand);
                             
-          var imgURL = cloudinary.image("pigIcon_2x_a74f20.png");
+//          var imgURL = cloudinary.image("pigIcon_2x_a74f20.png");
           
-          cloudinary.config({ 
-            cloud_name: "afcgold", 
-              api_key: "172131976868625", 
-              api_secret: "MCVeonGDlwEga4ooiNgRiznd3Xc" 
-          });
+//          cloudinary.config({ 
+//              cloud_name: "afcgold", 
+//              api_key: "172131976868625", 
+//              api_secret: "MCVeonGDlwEga4ooiNgRiznd3Xc" 
+//          });
           
-          var imageURL = cloudinary.image("http://res.cloudinary.com/afcgold/image/upload/v1455980552/lambIcon_tykk0u.png");
-
-          sendImageMessage(sender, imageURL);
+          cloudinary.uploader.upload("http://o.aolcdn.com/commerce/autodata/images/USC60JES011A021001.jpg", function(result) { 
+            console.log(result) 
+          }); 
           
-          
+//          var imageURL = cloudinary.image("http://res.cloudinary.com/afcgold/image/upload/v1455980552/lambIcon_tykk0u.png");
+//
+//          sendImageMessage(sender, imageURL);
+//          
+//          
           
           sendTextMessage(sender, show.toString());
 
