@@ -418,11 +418,13 @@ function sendImageMessage(recipientId, imageUrl) {
 			attachment: {
 				type: "image",
 				payload: {
-					url: imageUrl
+					url: imageUrl.toString();
 				}
 			}
 		}
 	};
+  
+  sendTextMessage(sender, message.imageUrl.toString());
 
 	callSendAPI(messageData);
 }
