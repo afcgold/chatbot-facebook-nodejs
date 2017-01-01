@@ -29,6 +29,12 @@ if (!config.SERVER_URL) { //used for ink to static files
 	throw new Error('missing SERVER_URL');
 }
 
+cloudinary.config({ 
+              cloud_name: "afcgold", 
+              api_key: "172131976868625", 
+              api_secret: "MCVeonGDlwEga4ooiNgRiznd3Xc" 
+          });
+
 app.set('port', (process.env.PORT || 5000))
 
 //verify request came from facebook
@@ -195,25 +201,20 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
 //          var imgURL = cloudinary.image("pigIcon_2x_a74f20.png");
           
-          cloudinary.config({ 
-              cloud_name: "afcgold", 
-              api_key: "172131976868625", 
-              api_secret: "MCVeonGDlwEga4ooiNgRiznd3Xc" 
-          });
+          
 //          
 //          cloudinary.uploader.upload("http://o.aolcdn.com/commerce/autodata/images/USC60JES011A021001.jpg", function(result) { 
 //            console.log(result) 
 //          }); 
           
                     
-          var url = "http://res.cloudinary.com/afcgold/";
           var imageURL = cloudinary.image("dealer-like.png");
 //
           sendImageMessage(sender, imageURL);
 //          
-//          
+//        
           
-          sendTextMessage(sender, url.toString() + imageURL.toString());
+          sendTextMessage(sender, imageURL.toString());
 
 
           return hand;
