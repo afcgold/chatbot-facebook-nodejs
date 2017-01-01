@@ -418,7 +418,7 @@ function sendImageMessage(recipientId, imageUrl) {
 			attachment: {
 				type: "image",
 				payload: {
-					url: imageUrl;
+					url: imageUrl
 				}
 			}
 		}
