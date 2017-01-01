@@ -195,11 +195,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             
 //          var imgURL = cloudinary.image("pigIcon_2x_a74f20.png");
           
-//          cloudinary.config({ 
-//              cloud_name: "afcgold", 
-//              api_key: "172131976868625", 
-//              api_secret: "MCVeonGDlwEga4ooiNgRiznd3Xc" 
-//          });
+          cloudinary.config({ 
+              cloud_name: "afcgold", 
+              api_key: "172131976868625", 
+              api_secret: "MCVeonGDlwEga4ooiNgRiznd3Xc" 
+          });
 //          
 //          cloudinary.uploader.upload("http://o.aolcdn.com/commerce/autodata/images/USC60JES011A021001.jpg", function(result) { 
 //            console.log(result) 
@@ -207,7 +207,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                     
           var imageURL = cloudinary.image("dealer-like.png");
 //
-          sendImageMessage(sender, "https://res.cloudinary.com/afcgold/image/upload/v1483134651/dealer-like.png");
+          sendImageMessage(sender, imageURL);
 //          
 //          
           
