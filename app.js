@@ -200,12 +200,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //              api_key: "172131976868625", 
 //              api_secret: "MCVeonGDlwEga4ooiNgRiznd3Xc" 
 //          });
-          
-          cloudinary.uploader.upload("http://o.aolcdn.com/commerce/autodata/images/USC60JES011A021001.jpg", function(result) { 
-            console.log(result) 
-          }); 
+//          
+//          cloudinary.uploader.upload("http://o.aolcdn.com/commerce/autodata/images/USC60JES011A021001.jpg", function(result) { 
+//            console.log(result) 
+//          }); 
                     
-          var imageURL = cloudinary.image_url("http://res.cloudinary.com/afcgold/image/fetch/dealer-like.png");
+          var imageURL = cloudinary.image("http://res.cloudinary.com/afcgold/image/fetch/dealer-like.png");
 //
 //          sendImageMessage(sender, imageURL);
 //          
