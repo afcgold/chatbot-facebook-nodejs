@@ -199,21 +199,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           
           var show = cards.displayHand(hand);
                             
-//          var imgURL = cloudinary.image("pigIcon_2x_a74f20.png");
-          
-          
-//          
-//          cloudinary.uploader.upload("http://o.aolcdn.com/commerce/autodata/images/USC60JES011A021001.jpg", function(result) { 
-//            console.log(result) 
-//          }); 
-          
-                    
-          var imageURL = cloudinary.image("dealer-like.png");
-//
-          sendImageMessage(sender, imageURL);
-//          
-//        
-          
           sendTextMessage(sender, imageURL.toString());
 
 
@@ -239,6 +224,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         showScore(dealHand);
         
+        var imageURL = cloudinary.image("dealer-like.png");
+        
+        sendImageMessage(sender, imageURL);
        
 
         break;
