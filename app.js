@@ -202,12 +202,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
          var cloudName = cloudinary.config().cloud_name;
           var cloudSecret = cloudinary.config().api_secret
           var cloudReveal = cloudinary.config().api_key
+          
+                    sendTextMessage(sender, show.toString());
+
                             
-          sendTextMessage(sender, cloudName.toString());
-                    sendTextMessage(sender, cloudSecret.toString());
-                    sendTextMessage(sender, cloudReveal.toString());
-
-
+//          sendTextMessage(sender, cloudName.toString());
+//                    sendTextMessage(sender, cloudSecret.toString());
+//                    sendTextMessage(sender, cloudReveal.toString());
 
 
           return hand;
@@ -234,7 +235,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         var imageURL = cloudinary.image("dealer-like.png");
         
-        sendImageMessage(sender, imageURL);
+        sendImageMessage(sender, imageURL.toString());
        
 
         break;
