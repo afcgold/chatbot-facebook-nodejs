@@ -410,9 +410,6 @@ function sendTextMessage(recipientId, text) {
  */
 function sendImageMessage(recipientId, imageUrl) {
   
-          var imageURL = cloudinary.image("dealer-like.png");
-
-  
 	var messageData = {
 		recipient: {
 			id: recipientId
@@ -421,7 +418,7 @@ function sendImageMessage(recipientId, imageUrl) {
 			attachment: {
 				type: "image",
 				payload: {
-					url: imageURL
+					url: "http://res.cloudinary.com/afcgold/image/upload/v1483133583/player-like.png"
 				}
 			}
 		}
