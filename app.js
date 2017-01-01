@@ -211,7 +211,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //          
 //          
           
-          sendTextMessage(sender, imageURL.toString());
+          sendTextMessage(sender, cloudinary.cloud_name.toString());
 
 
           return hand;
