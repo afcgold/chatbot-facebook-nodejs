@@ -198,8 +198,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var hand = cards.drawCards(shuffledDeck,2);
           
           var show = cards.displayHand(hand);
+          
+         var cloudName = cloudinary.config().cloud_name;
                             
-          sendTextMessage(sender, imageURL.toString());
+          sendTextMessage(sender, cloudName.toString());
 
 
           return hand;
