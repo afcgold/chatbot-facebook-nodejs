@@ -207,7 +207,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                     
           var imageURL = cloudinary.image("dealer-like.png");
 //
-          sendImageMessage(sender, imageURL);
+          sendImageMessage(sender, cloudinary.image("dealer-like.png"));
 //          
 //          
           
