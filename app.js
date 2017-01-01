@@ -205,15 +205,15 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //            console.log(result) 
 //          }); 
           
-          var cloudName = cloudinary.cloud_name;
                     
+          var url = "http://res.cloudinary.com/afcgold/";
           var imageURL = cloudinary.image("dealer-like.png");
 //
           sendImageMessage(sender, imageURL);
 //          
 //          
           
-          sendTextMessage(sender, cloudName.toString());
+          sendTextMessage(sender, url.toString() + imageURL.toString());
 
 
           return hand;
