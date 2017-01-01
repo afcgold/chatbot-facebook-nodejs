@@ -204,6 +204,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //          cloudinary.uploader.upload("http://o.aolcdn.com/commerce/autodata/images/USC60JES011A021001.jpg", function(result) { 
 //            console.log(result) 
 //          }); 
+          
+          var cloudName = cloudinary.cloud_name;
                     
           var imageURL = cloudinary.image("dealer-like.png");
 //
@@ -211,7 +213,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //          
 //          
           
-          sendTextMessage(sender, cloudinary.cloud_name);
+          sendTextMessage(sender, cloudName.toString());
 
 
           return hand;
