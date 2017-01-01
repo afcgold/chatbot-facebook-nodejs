@@ -205,13 +205,15 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             console.log(result) 
           }); 
           
-//          var imageURL = cloudinary.image("http://res.cloudinary.com/afcgold/image/upload/v1455980552/lambIcon_tykk0u.png");
+          cloudinary.
+          
+          var imageURL = cloudinary.image_url("http://res.cloudinary.com/afcgold/image/fetch/dealer-like.png");
 //
 //          sendImageMessage(sender, imageURL);
 //          
 //          
           
-          sendTextMessage(sender, show.toString());
+          sendTextMessage(sender, imageURL.toString());
 
 
           return hand;
