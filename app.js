@@ -200,8 +200,14 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var show = cards.displayHand(hand);
           
          var cloudName = cloudinary.config().cloud_name;
+          var cloudSecret = cloudinary.config().api_secret
+          var cloudReveal = cloudinary.config().api_key
                             
           sendTextMessage(sender, cloudName.toString());
+                    sendTextMessage(sender, cloudSecret.toString());
+                    sendTextMessage(sender, cloudReveal.toString());
+
+
 
 
           return hand;
