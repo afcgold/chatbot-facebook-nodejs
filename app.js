@@ -233,7 +233,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         showScore(dealHand);
         
-        var imageURL = cloudinary.image("dealer-like.png");
         
         sendImageMessage(sender, imageURL.toString());
        
@@ -410,6 +409,10 @@ function sendTextMessage(recipientId, text) {
  *
  */
 function sendImageMessage(recipientId, imageUrl) {
+  
+          var imageURL = cloudinary.image("dealer-like.png");
+
+  
 	var messageData = {
 		recipient: {
 			id: recipientId
@@ -418,13 +421,12 @@ function sendImageMessage(recipientId, imageUrl) {
 			attachment: {
 				type: "image",
 				payload: {
-					url: imageUrl
+					url: imageURL
 				}
 			}
 		}
 	};
   
-  sendTextMessage(sender, message.imageUrl.toString());
 
 	callSendAPI(messageData);
 }
