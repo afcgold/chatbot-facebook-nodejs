@@ -212,7 +212,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
           sendImageMessage(sender, replaced);
           
-          sendTextMessage(sender, show.toString());
+//          sendTextMessage(sender, show.toString());
 
           return hand;
           
@@ -230,7 +230,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
           }
         
-          setTimeout(sendScoreMessage, 500);
+          setTimeout(sendScoreMessage, 1000);
           
         }
         
