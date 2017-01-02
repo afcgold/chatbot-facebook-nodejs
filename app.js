@@ -203,7 +203,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
           var imageURL = cloudinary.image("dealer-like.png").toString();
           
-          var imageURL2 = cloudinary.image("like.png").toString();
+          var imageURL2 = cloudinary.image("player-like.png").toString();
 
 
           var replaced = imageURL.replace("img src=","");
