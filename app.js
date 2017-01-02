@@ -11,6 +11,7 @@ const app = express();
 const uuid = require('uuid');
 const cards = require('./cards');
 const cloudinary = require('cloudinary');
+const images = require("images");
 
 // Messenger API parameters
 if (!config.FB_PAGE_TOKEN) {
