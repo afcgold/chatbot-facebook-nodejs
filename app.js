@@ -199,16 +199,16 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           
           var show = cards.displayHand(hand);
 
-//        var imageURL = cloudinary.image("dealer-like.png").toString();
-//        
-//        var replaced = imageURL.replace("img src=","");
-//        
-//        if (replaced.substring(0, 1) == '<') { 
-//            replaced = replaced.substring(2);
-//            replaced = replaced.slice(0, -4);
-//        }
-//        
-//        sendImageMessage(sender, replaced);
+          var imageURL = cloudinary.image("dealer-like.png").toString();
+
+          var replaced = imageURL.replace("img src=","");
+
+          if (replaced.substring(0, 1) == '<') { 
+              replaced = replaced.substring(2);
+              replaced = replaced.slice(0, -4);
+          }
+        
+          sendImageMessage(sender, replaced);
           
           sendTextMessage(sender, show.toString());
 
