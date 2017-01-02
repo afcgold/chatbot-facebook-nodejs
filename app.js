@@ -234,8 +234,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //          var transImg = images(replaced).draw(images(cloudinary.image(replaced2)), 10, 10).save("output.jpg");
           
           var newImg = cloudinary.image(replaced, {overlay: replaced2});
+          
+          if (newImg.substring(0, 1) == '<') { 
+             newImg = newImg.substring(2);
+              newImg = newImg.slice(0, -4);
+          }
                     
-          sendTextMessage(sender, newImg.toString());
+          sendTextMessage(sender, "new Image ===" + newImg.toString());
 ////                    
           cloudinary.uploader.upload(newImg, function(result) { 
             console.log(result) 
