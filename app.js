@@ -232,14 +232,14 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
               newImg = newImg.slice(0, -4);
           }
                     
-          sendTextMessage(sender, "new Image ===" + newImg.toString());
+//          sendTextMessage(sender, "new Image ===" + newImg.toString());
 ////                    
-          cloudinary.uploader.upload(newImg, function(result) { 
-            console.log(result) 
-          });
+//          cloudinary.uploader.upload(newImg, function(result) { 
+//            console.log(result) 
+//          });
 //          
-          sendImageMessage(sender, replaced);
-          sendImageMessage(sender, replaced2);
+//          sendImageMessage(sender, replaced);
+          sendImageMessage(sender, newImg);
           
           var show = cards.displayHand(hand);
               
