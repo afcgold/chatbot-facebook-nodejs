@@ -220,16 +220,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
               replaced2 = replaced2.substring(2);
               replaced2 = replaced2.slice(0, -4);
           }
-          
-      
-          
+                    
           
           
         
           
           sendImageMessage(sender, replaced);
           sendImageMessage(sender, replaced2);
-
           
           var show = cards.displayHand(hand);
               
