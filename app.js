@@ -234,8 +234,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         showScore(dealHand);
         
         var imageURL = cloudinary.image("dealer-like.png");
+        
+        var replaced = str.replace("img-src=","");
 
         sendTextMessage(sender, imageURL.toString());
+        sendTextMessage(sender, replaced.toString());
+
        
 
         break;
