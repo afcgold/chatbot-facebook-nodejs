@@ -239,13 +239,14 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         if (replaced.substring(0, 1) == '<') { 
             replaced = replaced.substring(2);
+            replaced = replaced.slice(0, -2);
         }
 
         sendTextMessage(sender, imageURL.toString());
         
         sendTextMessage(sender, "compact url = " + replaced.toString());
 
-       
+        sendImageMessage(sender, replaced);
 
         break;
 		default:
