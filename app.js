@@ -209,8 +209,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
               replaced = replaced.slice(0, -4);
           }
         
+          
           sendImageMessage(sender, replaced);
           
+          var show = cards.displayHand(hand);
+              
+          sendTextMessage(sender, show.toString());
 
           return hand;
           
@@ -223,10 +227,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var score = cards.isBlackjack(hand)
                     
           function sendScoreMessage (){
-            
-              var show = cards.displayHand(hand);
-              
-              sendTextMessage(sender, show.toString());
             
               sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"! Nice!");
 
