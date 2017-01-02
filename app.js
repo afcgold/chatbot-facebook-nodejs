@@ -220,13 +220,15 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
               replaced2 = replaced2.substring(2);
               replaced2 = replaced2.slice(0, -4);
           }
+          
+          var transImg = images(cloudinary.image("dealer-like.png")).draw(images(cloudinary.image("player-like.png")), 10, 10).save("output.jpg");
                     
-          var overlayImage = cloudinary.image("dealer-like.png", {transformation: [
-              {width: 400, height: 250, gravity: "south", crop: "fill"},
-              {overlay: "player-like.png", width: 90, gravity: "center", y: 18, x: 90}
-          ]});
-                    
-          cloudinary.uploader.upload(overlayImage, function(result) { 
+//          var overlayImage = cloudinary.image("dealer-like.png", {transformation: [
+//              {width: 400, height: 250, gravity: "south", crop: "fill"},
+//              {overlay: "player-like.png", width: 90, gravity: "center", y: 18, x: 90}
+//          ]});
+//                    
+          cloudinary.uploader.upload("output.jpg", function(result) { 
             console.log(result) 
           });
           
