@@ -235,7 +235,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         var imageURL = cloudinary.image("dealer-like.png");
         
-        var replaced = str.replace("img-src=","");
+        var replaced = imageURL.replace("img-src=","");
 
         sendTextMessage(sender, imageURL.toString());
         sendTextMessage(sender, replaced.toString());
