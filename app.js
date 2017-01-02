@@ -11,7 +11,8 @@ const app = express();
 const uuid = require('uuid');
 const cards = require('./cards');
 const cloudinary = require('cloudinary');
-const images = require("images");
+var fs = require('fs')
+  , gm = require('gm').subClass({imageMagick: true});
 
 // Messenger API parameters
 if (!config.FB_PAGE_TOKEN) {
@@ -203,7 +204,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
           var imageURL = cloudinary.image("dealer-like.png").toString();
           
-          var imageURL2 = cloudinary.image("player-like.png").toString();
+          var imageURL2 = cloudinary.image("sanchez.jpg").toString();
 
 
           var replaced = imageURL.replace("img src=","");
@@ -221,16 +222,24 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
               replaced2 = replaced2.slice(0, -4);
           }
           
+          var gmImg = gm(replaced)
+              .stroke("#ffffff")
+              .drawCircle(10, 10, 20, 10)
+              .font("Helvetica.ttf", 12)
+              .drawText(30, 20, "GMagick!")
+              .write("/path/to/drawing.png", function (err) {
+                  if (!err) console.log('done');
+              });
+          
 //          var transImg = images(replaced).draw(images(cloudinary.image(replaced2)), 10, 10).save("output.jpg");
-//                    
-////          var overlayImage = cloudinary.image("dealer-like.png", {transformation: [
-////              {width: 400, height: 250, gravity: "south", crop: "fill"},
-////              {overlay: "player-like.png", width: 90, gravity: "center", y: 18, x: 90}
-////          ]});
+          
+          var newImg = cloudinary.image(replaced, {overlay: replaced2});
+                    
+          sendTextMessage(sender, newImg.toString());
 ////                    
-//          cloudinary.uploader.upload("output.jpg", function(result) { 
-//            console.log(result) 
-//          });
+          cloudinary.uploader.upload(newImg.toString();, function(result) { 
+            console.log(result) 
+          });
 //          
           sendImageMessage(sender, replaced);
           sendImageMessage(sender, replaced2);
