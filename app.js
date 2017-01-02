@@ -221,20 +221,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
               replaced2 = replaced2.substring(2);
               replaced2 = replaced2.slice(0, -4);
           }
-          
-          var gmImg = gm(replaced)
-              .stroke("#ffffff")
-              .drawCircle(10, 10, 20, 10)
-              .font("Helvetica.ttf", 12)
-              .drawText(30, 20, "GMagick!")
-              .write("/path/to/drawing.png", function (err) {
-                  if (!err) console.log('done');
-              });
-          
-//          var transImg = images(replaced).draw(images(cloudinary.image(replaced2)), 10, 10).save("output.jpg");
-          
+
+                    
           var newImg = cloudinary.image(replaced, {overlay: replaced2});
           
+          var newImg = newImg.replace("img src=","");
+
           if (newImg.substring(0, 1) == '<') { 
              newImg = newImg.substring(2);
               newImg = newImg.slice(0, -4);
