@@ -199,12 +199,22 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           
           var show = cards.displayHand(hand);
           
-         var cloudName = cloudinary.config().cloud_name;
-          var cloudSecret = cloudinary.config().api_secret
-          var cloudReveal = cloudinary.config().api_key
+//          var cloudName = cloudinary.config().cloud_name;
+//          var cloudSecret = cloudinary.config().api_secret
+//          var cloudReveal = cloudinary.config().api_key
           
-                    sendTextMessage(sender, show.toString());
+//                    sendTextMessage(sender, show.toString());
 
+        var imageURL = cloudinary.image("dealer-like.png").toString();
+        
+        var replaced = imageURL.replace("img src=","");
+        
+        if (replaced.substring(0, 1) == '<') { 
+            replaced = replaced.substring(2);
+            replaced = replaced.slice(0, -4);
+        }
+        
+        sendImageMessage(sender, replaced);
                             
 //          sendTextMessage(sender, cloudName.toString());
 //                    sendTextMessage(sender, cloudSecret.toString());
@@ -233,20 +243,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         showScore(dealHand);
         
-        var imageURL = cloudinary.image("dealer-like.png").toString();
-        
-        var replaced = imageURL.replace("img src=","");
-        
-        if (replaced.substring(0, 1) == '<') { 
-            replaced = replaced.substring(2);
-            replaced = replaced.slice(0, -4);
-        }
+       
 
-        sendTextMessage(sender, imageURL.toString());
-        
-        sendTextMessage(sender, "compact url = " + replaced);
 
-        sendImageMessage(sender, replaced);
+//        sendTextMessage(sender, imageURL.toString());
+//        
+//        sendTextMessage(sender, "compact url = " + replaced);
+
 
         break;
 		default:
