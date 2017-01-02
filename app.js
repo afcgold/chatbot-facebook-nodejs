@@ -215,6 +215,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         }
         
         sendImageMessage(sender, replaced);
+          
+        sendTextMessage(sender, receivedDeliveryConfirmation());
                             
 //          sendTextMessage(sender, cloudName.toString());
 //                    sendTextMessage(sender, cloudSecret.toString());
