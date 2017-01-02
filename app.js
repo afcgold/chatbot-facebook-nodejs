@@ -88,6 +88,8 @@ app.get('/webhook/', function (req, res) {
 app.post('/webhook/', function (req, res) {
 	var data = req.body;
 	console.log(JSON.stringify(data));
+  
+    
 
 	// Make sure this is a page subscription
 	if (data.object == 'page') {
@@ -793,6 +795,8 @@ function receivedMessageRead(event) {
 	// All messages before watermark (a timestamp) or sequence have been seen.
 	var watermark = event.read.watermark;
 	var sequenceNumber = event.read.seq;
+  
+    sendTextMessage(senderID, event.toString());
 
 	console.log("Received message read event for watermark %d and sequence " +
 		"number %d", watermark, sequenceNumber);
