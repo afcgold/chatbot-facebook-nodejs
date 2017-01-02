@@ -199,7 +199,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var shuffledDeck = cards.shuffleDeck(deck);
           var hand = cards.drawCards(shuffledDeck,2);
           
-          var show = cards.displayHand(hand);
 
           var imageURL = cloudinary.image("dealer-like.png").toString();
 
@@ -212,7 +211,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
           sendImageMessage(sender, replaced);
           
-//          sendTextMessage(sender, show.toString());
 
           return hand;
           
@@ -226,17 +224,18 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                     
           function sendScoreMessage (){
             
-            sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"! Nice!");
+              var show = cards.displayHand(hand);
+              
+              sendTextMessage(sender, show.toString());
+            
+              sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"! Nice!");
 
           }
-        
           setTimeout(sendScoreMessage, 1000);
-          
         }
         
         showScore(dealHand);
         
-
         break;
 		default:
 			//unhandled action, just send back the text
