@@ -223,7 +223,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           }
 
                     
-          var newImg = cloudinary.image(replaced2, {overlay: replaced});
+          var newImg = cloudinary.image("sanchez.png", {overlay: "dealer-like.png"});
           
           var newImg = newImg.replace("img src=","");
 
