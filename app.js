@@ -238,7 +238,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         var replaced = imageURL.replace("img src=","");
 
         sendTextMessage(sender, imageURL.toString());
-        sendTextMessage(sender, replaced.toString());
+        sendTextMessage(sender, "compact url = " + replaced.toString());
 
        
 
