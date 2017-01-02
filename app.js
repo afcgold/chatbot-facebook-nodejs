@@ -230,7 +230,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
           }
         
-          setTimeout(sendScoreMessage, 250);
+          setTimeout(sendScoreMessage, 500);
           
         }
         
@@ -796,8 +796,6 @@ function receivedMessageRead(event) {
 	var watermark = event.read.watermark;
 	var sequenceNumber = event.read.seq;
   
-    sendTextMessage(senderID, event.toString());
-
 	console.log("Received message read event for watermark %d and sequence " +
 		"number %d", watermark, sequenceNumber);
 }
