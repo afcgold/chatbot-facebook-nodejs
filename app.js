@@ -237,7 +237,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                     
           sendTextMessage(sender, newImg.toString());
 ////                    
-          cloudinary.uploader.upload(newImg.toString();, function(result) { 
+          cloudinary.uploader.upload(newImg, function(result) { 
             console.log(result) 
           });
 //          
