@@ -11,7 +11,6 @@ const app = express();
 const uuid = require('uuid');
 const cards = require('./cards');
 const cloudinary = require('cloudinary');
-const canvas = require('canvas');
 
 // Messenger API parameters
 if (!config.FB_PAGE_TOKEN) {
@@ -221,10 +220,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
               replaced2 = replaced2.slice(0, -4);
           }
           
-          var img = new Canvas.Image();
-          
-          img.src = replaced;
-          
+      
           
           
           
