@@ -11,6 +11,7 @@ const app = express();
 const uuid = require('uuid');
 const cards = require('./cards');
 const cloudinary = require('cloudinary');
+const canvas = require('canvas');
 
 // Messenger API parameters
 if (!config.FB_PAGE_TOKEN) {
@@ -201,16 +202,37 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           
 
           var imageURL = cloudinary.image("dealer-like.png").toString();
+          
+          var imageURL2 = cloudinary.image("like.png").toString();
+
 
           var replaced = imageURL.replace("img src=","");
+          
+          var replaced2 = imageURL2.replace("img src=","");
+
 
           if (replaced.substring(0, 1) == '<') { 
               replaced = replaced.substring(2);
               replaced = replaced.slice(0, -4);
           }
+          
+          if (replaced2.substring(0, 1) == '<') { 
+              replaced2 = replaced2.substring(2);
+              replaced2 = replaced2.slice(0, -4);
+          }
+          
+          var img = new Canvas.Image();
+          
+          img.src = replaced;
+          
+          
+          
+          
         
           
           sendImageMessage(sender, replaced);
+          sendImageMessage(sender, replaced2);
+
           
           var show = cards.displayHand(hand);
               
