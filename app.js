@@ -221,7 +221,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
               replaced2 = replaced2.slice(0, -4);
           }
           
-          var transImg = images(cloudinary.image("dealer-like.png")).draw(images(cloudinary.image("player-like.png")), 10, 10).save("output.jpg");
+          var transImg = images(replaced).draw(images(cloudinary.image(replaced2)), 10, 10).save("output.jpg");
                     
 //          var overlayImage = cloudinary.image("dealer-like.png", {transformation: [
 //              {width: 400, height: 250, gravity: "south", crop: "fill"},
