@@ -203,12 +203,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           
 
           var imageURL = cloudinary.image("dealer-like.png").toString();
-          
           var imageURL2 = cloudinary.image("sanchez.jpg").toString();
 
-
           var replaced = imageURL.replace("img src=","");
-          
           var replaced2 = imageURL2.replace("img src=","");
 
 
@@ -223,7 +220,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           }
 
                     
-          var newImg = cloudinary.image("sanchez.png", {overlay: "dealer-like.png"});
+          var newImg = cloudinary.image("sanchez.png", {overlay: "dealer-like.png", gravity: "east"});
           
           var newImg = newImg.replace("img src=","");
 
