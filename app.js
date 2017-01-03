@@ -220,7 +220,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           }
 
                     
-          var newImg = cloudinary.image("diamonds-2.png", {width: 64, height: 100, overlay: "diamonds-3.png", gravity: "east", x: -75, width: 64, height: 100});
+          var newImg = cloudinary.image("diamonds-2.png", {overlay: "diamonds-3.png", gravity: "east", x: -75});
           
           var newImg = newImg.replace("img src=","");
 
