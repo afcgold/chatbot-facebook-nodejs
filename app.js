@@ -237,25 +237,20 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         function requestImage(array) {
       
-          var imageURL = cloudinary.image("Hearts-10.jpg", {overlay: "Hearts-10.jpg", gravity: "east", x: -165});
-  
-  
-  //    var imageURL = "= " + array[0] + ", " + array[1];
+          var imageURL = cloudinary.image(array[0], {overlay: array[1], gravity: "east", x: -165});
+          
+          sendTextMessage(sender, array[0]);
 
-//     function prepareURL(){
+          //var imageURL = "= " + array[0] + ", " + array[1];
       
-       //only needs to be done when sending image to FB
+          //only needs to be done when sending image to FB
          imageURL = imageURL.replace("img src=","");
 
          if (imageURL.substring(0, 1) == '<') { 
                imageURL = imageURL.substring(2);
                imageURL = imageURL.slice(0, -4);
          }
-      
- //       console.log(imageURL);
-      
-//     }
-  
+          
           //return URL ready for FACEBOOK to send
           return imageURL;
         
