@@ -235,5 +235,4 @@ isBlackjack : function(hand){
     }
 
     return sum;
-
-  },
+}
