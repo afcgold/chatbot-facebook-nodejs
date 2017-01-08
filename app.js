@@ -225,7 +225,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
               
                       sendTextMessage(sender, images.toString());
 
-                  var image = cards.requestImage(images);
+                  var image = requestImage(images);
                   
                   sendImageMessage(sender,image);
 
@@ -233,6 +233,32 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
           return hand;
           
+        }
+        
+        function requestImage(array) {
+      
+          var imageURL = this.cloudinary.image("Hearts-10.jpg", {overlay: "Hearts-10.jpg", gravity: "east", x: -165});
+  
+  
+  //    var imageURL = "= " + array[0] + ", " + array[1];
+
+//     function prepareURL(){
+      
+       //only needs to be done when sending image to FB
+         imageURL = imageURL.replace("img src=","");
+
+         if (imageURL.substring(0, 1) == '<') { 
+               imageURL = imageURL.substring(2);
+               imageURL = imageURL.slice(0, -4);
+         }
+      
+ //       console.log(imageURL);
+      
+//     }
+  
+          //return URL ready for FACEBOOK to send
+          return imageURL;
+        
         }
         
         function showScore(callback){
