@@ -207,7 +207,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
                 //   console.log(hand);
                   var playingCards = [];
-//                  var images = [];
+                  var images = [];
 
                   //send text message
                   playingCards = cards.displayHand(hand);
@@ -219,12 +219,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
                 //      var cloudinaryRef = this.requestImage(hand[i].image);
 
-                        images[i] = hand[i].image
+                        images[i] = hand[i].image;
 
                   }
 
                   var image = cards.requestImage(images);
-                  sendImageMessage(sender, image);
+                  sendImageMessage(sender,image);
 
             }
 
