@@ -16,7 +16,6 @@ createDeck : function(deck,numDecks) {
 
       for (k = 0; k < numDecks; k++) {
         deck[k] = this.createPack(deck);
-
       }
 
       if (k % 6 === 0){
@@ -171,7 +170,7 @@ requestImage : function(array) {
   
 //    var imageURL = "= " + array[0] + ", " + array[1];
       
-     function prepareURL(){
+//     function prepareURL(){
       
        //only needs to be done when sending image to FB
        imageURL = imageURL.replace("img src=","");
@@ -183,7 +182,7 @@ requestImage : function(array) {
       
  //       console.log(imageURL);
       
-     }
+//     }
   
     //return URL ready for FACEBOOK to send
     return imageURL;

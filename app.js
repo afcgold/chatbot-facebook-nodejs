@@ -217,17 +217,16 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                   //send image
                   for (i = 0; i < hand.length; i++){
 
-                //      var cloudinaryRef = this.requestImage(hand[i].image);
+//                      var cloudinaryRef = this.requestImage(hand[i].image);
 
                         images[i] = hand[i].image;
                     
                   }
-
+              
                       sendTextMessage(sender, images.toString());
 
                   var image = cards.requestImage(images);
                   
-                
                   sendImageMessage(sender,image);
 
             }
