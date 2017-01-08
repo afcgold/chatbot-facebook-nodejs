@@ -156,8 +156,10 @@ module.exports = {
 
       displayHand[i] = " " + hand[i].rank + " of " + hand[i].suit + "";
 
-    }
+      this.showCardImage(i);
 
+    }
+    
     return displayHand;
   },
 
@@ -199,4 +201,73 @@ module.exports = {
     return sum;
 
   },
+  
+  showCardImage : function (card) {
+        
+    //get card into naming image naming convention
+    var cloudinaryImage = card.suit.toLowerCase() + "-" + card.rank + ".jpeg";
+    
+    //return image from Cloudinary
+    this.requestImage(cloudinaryImage);
+    
+    return cloudinaryImage;
+      
+  },
+    
+  requestImage : function (string) {
+    
+    //take the URL from Cloudinary
+    var imageURL = cloudinary.image(string).toString();
+          
+    function prepareURL(){
+      imageURL = imageURL.replace("img src=","");
+
+      if (imageURL.substring(0, 1) == '<') { 
+            imageURL = imageURL.substring(2);
+            imageURL = imageURL.slice(0, -4);
+      };
+      
+      //return URL ready for FACEBOOK to send
+      return imageURL;
+    }
+        
+  },
+    
+  
+//          var imageURL = cloudinary.image("dealer-like.png").toString();
+//          var imageURL2 = cloudinary.image("sanchez.jpg").toString();
+//
+//          var replaced = imageURL.replace("img src=","");
+//          var replaced2 = imageURL2.replace("img src=","");
+//
+//
+//          if (replaced.substring(0, 1) == '<') { 
+//              replaced = replaced.substring(2);
+//              replaced = replaced.slice(0, -4);
+//          }
+//          
+//          if (replaced2.substring(0, 1) == '<') { 
+//              replaced2 = replaced2.substring(2);
+//              replaced2 = replaced2.slice(0, -4);
+//          }
+//
+//                    
+//          var newImg = cloudinary.image("diamonds-10.jpg", {overlay: "hearts-10.jpg", gravity: "east", x: -165});
+//          
+//          var newImg = newImg.replace("img src=","");
+//
+//          if (newImg.substring(0, 1) == '<') { 
+//             newImg = newImg.substring(2);
+//              newImg = newImg.slice(0, -4);
+//          }
+//                    
+////          sendTextMessage(sender, "new Image ===" + newImg.toString());
+//////                    
+////          cloudinary.uploader.upload(newImg, function(result) { 
+////            console.log(result) 
+////          });
+////          
+////          sendImageMessage(sender, replaced);
+//          sendImageMessage(sender, newImg);
+          
 }

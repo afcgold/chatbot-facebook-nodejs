@@ -200,47 +200,33 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var deck = cards.createDeck(empty,6);
           var shuffledDeck = cards.shuffleDeck(deck);
           var hand = cards.drawCards(shuffledDeck,2);
+          show(hand);
           
+            function show(hand) {
 
-          var imageURL = cloudinary.image("dealer-like.png").toString();
-          var imageURL2 = cloudinary.image("sanchez.jpg").toString();
+                //   console.log(hand);
 
-          var replaced = imageURL.replace("img src=","");
-          var replaced2 = imageURL2.replace("img src=","");
+                  var cards = [];
+                  var images = [];
+
+                  //send text message
+                  cards = cards.displayHand(hand);
+                  sendTextMessage(sender, cards)
+
+                  //send image
+                  for (i = 0; i < hand.length; i++){
+
+                //      var cloudinaryRef = this.requestImage(hand[i].image);
+
+                        images[i] = hand[i].image
+
+                  }
+
+                  var image = cards.requestImage(images);
+                  sendImageMessage(sender, image);
 
 
-          if (replaced.substring(0, 1) == '<') { 
-              replaced = replaced.substring(2);
-              replaced = replaced.slice(0, -4);
-          }
-          
-          if (replaced2.substring(0, 1) == '<') { 
-              replaced2 = replaced2.substring(2);
-              replaced2 = replaced2.slice(0, -4);
-          }
-
-                    
-          var newImg = cloudinary.image("diamonds-10.jpg", {overlay: "hearts-10.jpg", gravity: "east", x: -165});
-          
-          var newImg = newImg.replace("img src=","");
-
-          if (newImg.substring(0, 1) == '<') { 
-             newImg = newImg.substring(2);
-              newImg = newImg.slice(0, -4);
-          }
-                    
-//          sendTextMessage(sender, "new Image ===" + newImg.toString());
-////                    
-//          cloudinary.uploader.upload(newImg, function(result) { 
-//            console.log(result) 
-//          });
-//          
-//          sendImageMessage(sender, replaced);
-          sendImageMessage(sender, newImg);
-          
-          var show = cards.displayHand(hand);
-              
-          sendTextMessage(sender, show.toString());
+            }
 
           return hand;
           
