@@ -167,7 +167,7 @@ drawCards : function(deck, number){
 
 requestImage : function(array) {
       
-     var imageURL = app.cloudinary.image("Hearts-10.jpg", {overlay: "Hearts-10.jpg", gravity: "east", x: -165});
+     var imageURL = this.cloudinary.image("Hearts-10.jpg", {overlay: "Hearts-10.jpg", gravity: "east", x: -165});
   
 //    var imageURL = "= " + array[0] + ", " + array[1];
       
