@@ -208,8 +208,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //                  var images = [];
 
                   //send text message
-                  playingCards = cards.displayHand(hand);
-                  sendTextMessage(sender, playingCards)
+//                  playingCards = cards.displayHand(hand);
+              
+                  sendTextMessage(sender, "hello");
 
 //                  //send image
 //                  for (i = 0; i < hand.length; i++){
