@@ -206,12 +206,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
                 //   console.log(hand);
 
-                  var cards = [];
+                  var playingCards = [];
                   var images = [];
 
                   //send text message
-                  cards = cards.displayHand(hand);
-                  sendTextMessage(sender, cards)
+                  playingCards = cards.displayHand(hand);
+                  sendTextMessage(sender, playingCards)
 
                   //send image
                   for (i = 0; i < hand.length; i++){
