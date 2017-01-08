@@ -1,9 +1,8 @@
 //Cards.js
 //Create decks,shuffle and deal hands!
+const cloudinary = require('cloudinary');
 
 module.exports = {
-
-const cloudinary = require('cloudinary');
 
 CardObject : function(suit,rank,value,image){
      this.suit=suit;
