@@ -205,26 +205,24 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             function show(hand) {
 
                 //   console.log(hand);
-
                   var playingCards = [];
-                  var images = [];
+//                  var images = [];
 
                   //send text message
                   playingCards = cards.displayHand(hand);
                   sendTextMessage(sender, playingCards)
 
-                  //send image
-                  for (i = 0; i < hand.length; i++){
-
-                //      var cloudinaryRef = this.requestImage(hand[i].image);
-
-                        images[i] = hand[i].image
-
-                  }
-
-                  var image = cards.requestImage(images);
-                  sendImageMessage(sender, image);
-
+//                  //send image
+//                  for (i = 0; i < hand.length; i++){
+//
+//                //      var cloudinaryRef = this.requestImage(hand[i].image);
+//
+//                        images[i] = hand[i].image
+//
+//                  }
+//
+//                  var image = cards.requestImage(images);
+//                  sendImageMessage(sender, image);
 
             }
 
