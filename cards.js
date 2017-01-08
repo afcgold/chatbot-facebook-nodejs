@@ -1,15 +1,14 @@
 //Cards.js
 //Create decks,shuffle and deal hands!
 
-
-
 module.exports = {
 
-  CardObject : function(suit,rank,value)
+    CardObject : function(suit,rank,value,image)
   {
      this.suit=suit;
      this.rank=rank;
      this.value=value;
+     this.image=image;
   },
   
     // var blankCard = ["BB"];
@@ -33,10 +32,11 @@ module.exports = {
       return deck;
     },
 
-  createPack : function(deck) {
+createPack : function(deck) {
       var suits = ["Hearts", "Clubs", "Spades", "Diamonds"]; 
       var value = [0];
       var rank = "";
+      var image ="";
   //     var pack = [];
       var n = 52;
       var index = n / suits.length; 
@@ -74,8 +74,10 @@ module.exports = {
               value = j;
 
             }
-
-            deck.push(new this.CardObject(suits[i],rank,value));
+            
+            image = suits[i] + "-" + rank + ".jpg";
+            
+            deck.push(new this.CardObject(suits[i],rank,value,image));
 
           }
         }
@@ -83,9 +85,8 @@ module.exports = {
       return deck; 
    },
 
-
   //function to shuffle the cards
-  shuffleDeck: function(deck) {
+  shuffleDeck : function(deck) {
 
        var m = deck.length, t, i;
 
@@ -101,7 +102,7 @@ module.exports = {
    },
 
   //function that draws cards from the deck
-  drawCards :function(deck, number){
+ drawCards : function(deck, number){
 
       //create a new array to hold "number" amount of cards
       var hand = [];
@@ -142,28 +143,63 @@ module.exports = {
       }
 
       hand = [].concat.apply([], hand);
+   
+    
 
     return hand;
   },
 
-  displayHand: function(hand){
+ displayHand : function(hand){
 
     var displayHand = [];
+   
 
   //   console.log(hand);
 
     for (i = 0; i < hand.length; i++){
 
       displayHand[i] = " " + hand[i].rank + " of " + hand[i].suit + "";
-
-      this.showCardImage(i);
+      
+//       displayHandImage[i] = hand[i].image;
+      
+// //       console.log("cloudinary name = " + hand[i].image);
+      
+//       this.requestImage(hand[i].image);
 
     }
+   
+    
     
     return displayHand;
-  },
+ },
 
-  isBlackjack : function(hand){
+requestImage : function(array) {
+      
+     var imageURL = cloudinary.image(array[0], {overlay: array[1], gravity: "east", x: -165});
+  
+//    var imageURL = "= " + array[0] + ", " + array[1];
+      
+     function prepareURL(){
+      
+       //only needs to be done when sending image to FB
+       imageURL = imageURL.replace("img src=","");
+
+       if (imageURL.substring(0, 1) == '<') { 
+             imageURL = imageURL.substring(2);
+             imageURL = imageURL.slice(0, -4);
+       }
+      
+ //       console.log(imageURL);
+      
+     }
+  
+    //return URL ready for FACEBOOK to send
+    return imageURL;
+        
+},
+
+
+isBlackjack : function(hand){
 
     var temp = [];
 
@@ -201,73 +237,3 @@ module.exports = {
     return sum;
 
   },
-  
-  showCardImage : function (card) {
-        
-    //get card into naming image naming convention
-    var cloudinaryImage = card.suit.toLowerCase() + "-" + card.rank + ".jpeg";
-    
-    //return image from Cloudinary
-    this.requestImage(cloudinaryImage);
-    
-    return cloudinaryImage;
-      
-  },
-    
-  requestImage : function (string) {
-    
-    //take the URL from Cloudinary
-    var imageURL = cloudinary.image(string).toString();
-          
-    function prepareURL(){
-      imageURL = imageURL.replace("img src=","");
-
-      if (imageURL.substring(0, 1) == '<') { 
-            imageURL = imageURL.substring(2);
-            imageURL = imageURL.slice(0, -4);
-      };
-      
-      //return URL ready for FACEBOOK to send
-      return imageURL;
-    }
-        
-  },
-    
-  
-//          var imageURL = cloudinary.image("dealer-like.png").toString();
-//          var imageURL2 = cloudinary.image("sanchez.jpg").toString();
-//
-//          var replaced = imageURL.replace("img src=","");
-//          var replaced2 = imageURL2.replace("img src=","");
-//
-//
-//          if (replaced.substring(0, 1) == '<') { 
-//              replaced = replaced.substring(2);
-//              replaced = replaced.slice(0, -4);
-//          }
-//          
-//          if (replaced2.substring(0, 1) == '<') { 
-//              replaced2 = replaced2.substring(2);
-//              replaced2 = replaced2.slice(0, -4);
-//          }
-//
-//                    
-//          var newImg = cloudinary.image("diamonds-10.jpg", {overlay: "hearts-10.jpg", gravity: "east", x: -165});
-//          
-//          var newImg = newImg.replace("img src=","");
-//
-//          if (newImg.substring(0, 1) == '<') { 
-//             newImg = newImg.substring(2);
-//              newImg = newImg.slice(0, -4);
-//          }
-//                    
-////          sendTextMessage(sender, "new Image ===" + newImg.toString());
-//////                    
-////          cloudinary.uploader.upload(newImg, function(result) { 
-////            console.log(result) 
-////          });
-////          
-////          sendImageMessage(sender, replaced);
-//          sendImageMessage(sender, newImg);
-          
-}
