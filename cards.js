@@ -3,17 +3,16 @@
 
 module.exports = {
 
-    CardObject : function(suit,rank,value,image)
-  {
+CardObject : function(suit,rank,value,image){
      this.suit=suit;
      this.rank=rank;
      this.value=value;
      this.image=image;
-  },
+},
   
     // var blankCard = ["BB"];
   //create the entire shoe of cards, made up of decks
-  createDeck : function(deck,numDecks) {
+createDeck : function(deck,numDecks) {
 
       for (k = 0; k < numDecks; k++) {
         deck[k] = this.createPack(deck);
@@ -30,7 +29,7 @@ module.exports = {
       deck = [].concat.apply([], deck);
 
       return deck;
-    },
+},
 
 createPack : function(deck) {
       var suits = ["Hearts", "Clubs", "Spades", "Diamonds"]; 
@@ -82,11 +81,11 @@ createPack : function(deck) {
           }
         }
 
-      return deck; 
-   },
+    return deck; 
+},
 
   //function to shuffle the cards
-  shuffleDeck : function(deck) {
+shuffleDeck : function(deck) {
 
        var m = deck.length, t, i;
 
@@ -99,10 +98,10 @@ createPack : function(deck) {
       }
 
       return deck;
-   },
+},
 
   //function that draws cards from the deck
- drawCards : function(deck, number){
+drawCards : function(deck, number){
 
       //create a new array to hold "number" amount of cards
       var hand = [];
@@ -122,7 +121,6 @@ createPack : function(deck) {
          rand = [].concat.apply([], rand);
 
          hand[i] = rand;
-
       }
 
       for (i = 0; i < hand.length; i++){
@@ -144,16 +142,12 @@ createPack : function(deck) {
 
       hand = [].concat.apply([], hand);
    
-    
-
     return hand;
-  },
+},
 
  displayHand : function(hand){
 
     var displayHand = [];
-   
-
   //   console.log(hand);
 
     for (i = 0; i < hand.length; i++){
@@ -168,10 +162,8 @@ createPack : function(deck) {
 
     }
    
-    
-    
     return displayHand;
- },
+},
 
 requestImage : function(array) {
       
@@ -235,4 +227,4 @@ isBlackjack : function(hand){
     }
 
     return sum;
-}
+},
