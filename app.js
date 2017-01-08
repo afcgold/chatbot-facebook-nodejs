@@ -219,12 +219,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
                 //      var cloudinaryRef = this.requestImage(hand[i].image);
 
-                        var test = hand[0].image;
                         images[i] = hand[i].image;
                     
-                        sendTextMessage(sender, test.toString());
-
                   }
+
+                      sendTextMessage(sender, images.toString());
 
                   var image = cards.requestImage(images);
                   
