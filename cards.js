@@ -1,6 +1,5 @@
 //Cards.js
 //Create decks,shuffle and deal hands!
-const cloudinary = require('cloudinary');
 
 module.exports = {
 
@@ -168,7 +167,7 @@ drawCards : function(deck, number){
 
 requestImage : function(array) {
       
-     var imageURL = cloudinary.image("Hearts-10.jpg", {overlay: "Hearts-10.jpg", gravity: "east", x: -165});
+     var imageURL = app.cloudinary.image("Hearts-10.jpg", {overlay: "Hearts-10.jpg", gravity: "east", x: -165});
   
 //    var imageURL = "= " + array[0] + ", " + array[1];
       
