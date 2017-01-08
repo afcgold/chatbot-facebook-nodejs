@@ -199,14 +199,14 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var deck = cards.createDeck(empty,6);
           var shuffledDeck = cards.shuffleDeck(deck);
           var hand = cards.drawCards(shuffledDeck,2);
-                            sendTextMessage(sender, "hello");
+//                            sendTextMessage(sender, "hello");
 
-//          show(hand);
+          show(hand);
           
-            function show(hand) {
+            function show(hand){
 
                 //   console.log(hand);
-                  var playingCards = [];
+//                  var playingCards = [];
 //                  var images = [];
 
                   //send text message
