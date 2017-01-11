@@ -223,8 +223,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                     
                   }
               
-                      sendTextMessage(sender, images.toString());
-
                   var image = requestImage(images);
                   
                   sendImageMessage(sender,image);
@@ -237,10 +235,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         function requestImage(array) {
       
-          var imageURL = cloudinary.image(array[0], {overlay: array[1], gravity: "east", x: -165});
+          var imageURL = cloudinary.image("Hearts-Ace.png", {overlay: "Hearts-Ace.png", gravity: "east", x: -165});
           
-          sendTextMessage(sender, array[0]);
-
           //var imageURL = "= " + array[0] + ", " + array[1];
       
           //only needs to be done when sending image to FB
