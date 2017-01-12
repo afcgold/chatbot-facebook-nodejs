@@ -194,12 +194,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
       case "player-hand":
         
-        break;
-
         
       case "dealer-hand" :
         
-                function dealHand(){
+        function dealHand(){
           
           var empty = [];
           var deck = cards.createDeck(empty,6);
