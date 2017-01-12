@@ -191,11 +191,8 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
-        
-      case "player-hand":
-        sendTextMessage(sender, "case statement");
-        break;
-      case "deal-hand" :
+
+      case "dealer-hand" :
         
         function dealHand(){
           
