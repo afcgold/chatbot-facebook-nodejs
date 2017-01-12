@@ -193,9 +193,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
         
       case "player-hand":
-        
-        
-      case "dealer-hand" :
+        sendTextMessage(sender, "case statement");
+        break;
+      case "deal-hand" :
         
         function dealHand(){
           
@@ -260,8 +260,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         showScore(dealHand);
         
         break;
-        
-        
+         
       default:
 		//unhandled action, just send back the text
 		sendTextMessage(sender, responseText);
