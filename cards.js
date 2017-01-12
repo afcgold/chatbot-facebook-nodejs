@@ -73,7 +73,7 @@ createPack : function(deck) {
 
             }
             
-            image = suits[i] + "-" + rank + ".jpg";
+            image = suits[i] + "/" + suits[i] + "-" + rank + ".png";  
             
             deck.push(new this.CardObject(suits[i],rank,value,image));
 
@@ -164,32 +164,7 @@ drawCards : function(deck, number){
     return displayHand;
 },
 
-requestImage : function(array) {
-      
-     var imageURL = this.cloudinary.image("Hearts-10.jpg");
-  
-  //, {overlay: "Hearts-10.jpg", gravity: "east", x: -165}
-  
-//    var imageURL = "= " + array[0] + ", " + array[1];
-      
-//     function prepareURL(){
-      
-       //only needs to be done when sending image to FB
-       imageURL = imageURL.replace("img src=","");
 
-       if (imageURL.substring(0, 1) == '<') { 
-             imageURL = imageURL.substring(2);
-             imageURL = imageURL.slice(0, -4);
-       }
-      
- //       console.log(imageURL);
-      
-//     }
-  
-    //return URL ready for FACEBOOK to send
-    return imageURL;
-        
-},
 
 
 isBlackjack : function(hand){
