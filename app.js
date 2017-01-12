@@ -202,6 +202,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
           show(hand);
           
+          showScore(dealHand);
+          
         }
         
         function show(hand){
@@ -253,7 +255,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           setTimeout(sendScoreMessage, 1000);
         }
         
-        showScore(dealHand);
+        
         
         break;
 		default:
