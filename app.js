@@ -202,29 +202,26 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
           show(hand);
           
-          showScore(dealHand);
-          
-        }
-        
-        function show(hand){
+            function show(hand){
               
-            var playingCards = [];
-            var images = [];
+                  var playingCards = [];
+                  var images = [];
 
-            //send text message
-            playingCards = cards.displayHand(hand);
-            sendTextMessage(sender, playingCards.toString());
+                  //send text message
+                  playingCards = cards.displayHand(hand);
+                  sendTextMessage(sender, playingCards.toString());
 
-            //send image
-            for (i = 0; i < hand.length; i++){
+                  //send image
+                  for (i = 0; i < hand.length; i++){
 //                      var cloudinaryRef = this.requestImage(hand[i].image);
-                  images[i] = hand[i].image;
+                        images[i] = hand[i].image;
+                  }
+              
+                  var image = requestImage(images);
+                  sendImageMessage(sender,image);
+
+              return hand;
             }
-
-            var image = requestImage(images);
-            sendImageMessage(sender,image);
-
-          return hand;
         }
         
         function requestImage(array) {
@@ -255,7 +252,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           setTimeout(sendScoreMessage, 1000);
         }
         
-        
+        showScore(dealHand);
         
         break;
 		default:
