@@ -220,8 +220,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                   var image = requestImage(images);
                   sendImageMessage(sender,image);
 
-              return hand;
             }
+          return hand;
         }
         
         function requestImage(array) {
@@ -242,6 +242,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         function showScore(callback){
           
           var hand = callback();
+
           var score = cards.isBlackjack(hand)
                     
           function sendScoreMessage (){
