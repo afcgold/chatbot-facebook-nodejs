@@ -199,46 +199,36 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var deck = cards.createDeck(empty,6);
           var shuffledDeck = cards.shuffleDeck(deck);
           var hand = cards.drawCards(shuffledDeck,2);
-//                            sendTextMessage(sender, "hello");
 
           show(hand);
           
-            function show(hand){
+        }
+        
+        function show(hand){
               
-                //   console.log(hand);
-                  var playingCards = [];
-                  var images = [];
+            var playingCards = [];
+            var images = [];
 
-                  //send text message
-                  playingCards = cards.displayHand(hand);
-              
-                  sendTextMessage(sender, playingCards.toString());
+            //send text message
+            playingCards = cards.displayHand(hand);
+            sendTextMessage(sender, playingCards.toString());
 
-                  //send image
-                  for (i = 0; i < hand.length; i++){
-
+            //send image
+            for (i = 0; i < hand.length; i++){
 //                      var cloudinaryRef = this.requestImage(hand[i].image);
-
-                        images[i] = hand[i].image;
-                    
-                  }
-              
-                  var image = requestImage(images);
-                  
-                  sendImageMessage(sender,image);
-
+                  images[i] = hand[i].image;
             }
 
+            var image = requestImage(images);
+            sendImageMessage(sender,image);
+
           return hand;
-          
         }
         
         function requestImage(array) {
       
           var imageURL = cloudinary.image(array[0], {overlay: array[1], gravity: "east", x: -175});
-          
-          //var imageURL = "= " + array[0] + ", " + array[1];
-      
+                
           //only needs to be done when sending image to FB
          imageURL = imageURL.replace("img src=","");
 
@@ -246,16 +236,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                imageURL = imageURL.substring(2);
                imageURL = imageURL.slice(0, -4);
          }
-          
           //return URL ready for FACEBOOK to send
           return imageURL;
-        
         }
         
         function showScore(callback){
           
           var hand = callback();
-
           var score = cards.isBlackjack(hand)
                     
           function sendScoreMessage (){
