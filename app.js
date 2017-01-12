@@ -247,6 +247,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                imageURL = imageURL.slice(0, -4);
          }
           
+          sendTextMessage(sender, array[0].toString());
+          sendTextMessage(sender, array[1].toString());
+
+          
           //return URL ready for FACEBOOK to send
           return imageURL;
         
