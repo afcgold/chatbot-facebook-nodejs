@@ -235,7 +235,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         function requestImage(array) {
       
-          var imageURL = cloudinary.image("Hearts-Ace.png", {overlay: "Hearts-Ace.png", gravity: "east", x: -175});
+          var imageURL = cloudinary.image("Hearts-2.png", {overlay: "Hearts-Ace.png", gravity: "east", x: -175});
           
           //var imageURL = "= " + array[0] + ", " + array[1];
       
