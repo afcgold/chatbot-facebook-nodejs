@@ -191,9 +191,15 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
-      case "deal-hand":
         
-        function dealHand(){
+      case "player-hand":
+        
+        break;
+
+        
+      case "dealer-hand" :
+        
+                function dealHand(){
           
           var empty = [];
           var deck = cards.createDeck(empty,6);
@@ -256,9 +262,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         showScore(dealHand);
         
         break;
-		default:
-			//unhandled action, just send back the text
-			sendTextMessage(sender, responseText);
+        
+        
+      default:
+		//unhandled action, just send back the text
+		sendTextMessage(sender, responseText);
 	}
 }
 
