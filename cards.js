@@ -73,7 +73,7 @@ createPack : function(deck) {
 
             }
             
-            image = suits[i] + "/" + suits[i] + "-" + rank + ".png";  
+            image = suits[i] + "-" + rank + ".png";  
             
             deck.push(new this.CardObject(suits[i],rank,value,image));
 
