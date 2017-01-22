@@ -189,16 +189,16 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       case "dealer-hand" :
                 
         
-        var shoe = function newGame(){
+        var newShoe = (function newGame(){
   
             var shoe = new cards.Deck();
             shoe.cards.createShoe(1);
             shoe.cards.shuffleDeck();
 
             return shoe;
-        }
+        })();
         
-        var playerHand = shoe.deck
+        var playerHand = newShoe.deck
         
         sendTextMessage(sender, playerHand.toString());
         
