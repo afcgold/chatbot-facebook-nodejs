@@ -1,7 +1,8 @@
 //Cards.js
 //Create decks,shuffle and deal hands!
+module.exports = {
 
-function Deck() {
+Deck : function() {
 
     this.deck = new Array();
   
@@ -13,18 +14,18 @@ function Deck() {
     this.show = displayHand;
     this.hit = hit;
     this.isSplit = false;
-}
+},
 
-function Card(suit,rank,value,image){
+Card : function(suit,rank,value,image){
   
    this.suit=suit;
    this.rank=rank;
    this.value=value;
    this.image=image;
-}
+},
    
 //create the entire shoe of cards, made up of decks
-function  createShoe(numDecks) {
+createShoe :function(numDecks) {
       
       for (k = 0; k < numDecks; k++) {
         this.deck.push[k] = this.createDeck();
@@ -35,9 +36,9 @@ function  createShoe(numDecks) {
         this.deck.push(blankCard);
       }
   return;
- }
+},
 
-function createDeck() {
+createDeck: function() {
       var suits = ["Hearts", "Clubs", "Spades", "Diamonds"]; 
       var value = [0];
       var rank = "";
@@ -88,10 +89,10 @@ function createDeck() {
         }
   
     return; 
-}
+},
 
   //function to shuffle the cards
-function shuffleDeck() {
+shuffleDeck: function() {
    
     var m = this.deck.length, t, i;
 
@@ -104,10 +105,10 @@ function shuffleDeck() {
       }
     
       return ;
-   }
+  },
 
  //function that draws cards from the deck
- function  dealCards(number){
+ dealCards: function(number){
    
       if(number == null){
         number = 1;
@@ -143,9 +144,9 @@ function shuffleDeck() {
 //    }
 
     return hand;
-}
+},
 
-function split(hand){
+split :function(hand){
   
     //currently only handles 1-round of splitting
   
@@ -163,9 +164,9 @@ function split(hand){
     
     //now return 2 separate split hands
     return [split1, split2];
-}
+},
 
- function displayHand(deck){
+ displayHand:function(deck){
    
     var handDisplay = [];  
    
@@ -175,19 +176,18 @@ function split(hand){
       
     }
     return handDisplay;
- }
+ },
 
-function requestImage(array) {
+requestImage:function(array) {
       
 //     var imageURL = cloudinary.image(array[0], {overlay: array[1], gravity: "east", x: -165});
   
     var imageURL = array[0] + ", " + array[1];
   
     return imageURL;   
-}
+},
 
-
-function isBlackjack(){
+isBlackjack:function(){
   
     var temp = [];
 
@@ -223,9 +223,9 @@ function isBlackjack(){
     }
   
     return sum;
-}
+},
 
-function show(hand) {
+show:function(hand) {
     
   var cards = [];
   var images = [];
@@ -248,18 +248,18 @@ function show(hand) {
 //  
 //  var image = this.requestImage(images);
 //  //sendImageMessage(sender, image);
-}
+},
 
-function hit (deck){
+ hit:function(deck){
   
   this.deck.push(shoe.dealCards().deck);
   
   this.deck = [].concat.apply([], this.deck);
 
   return
-}
+},
 
-function newGame(){
+newGame:function(){
   
     shoe = new Deck();
     playerHand = new Deck();
@@ -277,28 +277,14 @@ function newGame(){
 //     dealerHand.deck = [].concat.apply([], dealerHand.deck);
 
     return
-}
+},
 
-function below17 (hand) {
+below17:function(hand) {
   
     var val = hand.score();
     
     return val < 17 ? true : false;
   
 }
-
-module.exports = {
-  Deck: Deck,
-  below17: below17,
-  newGame: newGame,
-  hit: hit,
-  show: show,
-  isBlackjack: isBlackjack,
-  requestImage: requestImage,
-  split: split,
-  displayHand: displayHand,
-  dealCards: dealCards,
-  shuffleDeck: shuffleDeck,
-  createDeck: createDeck,
-  createShoe: createShoe
-};
+ 
+}
