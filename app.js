@@ -55,8 +55,6 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 
 
-
-
 const apiAiService = apiai(config.API_AI_CLIENT_ACCESS_TOKEN, {
 	language: "en",
 	requestSource: "fb"
@@ -65,7 +63,7 @@ const sessionIds = new Map();
 
 // Index route
 app.get('/', function (req, res) {
-	res.send('Hello world, I\'m still not working!!')
+	res.send('Hello world, I\'m working!!')
 })
 
 // for Facebook verification
@@ -125,10 +123,6 @@ app.post('/webhook/', function (req, res) {
 		res.sendStatus(200);
 	}
 });
-
-
-
-
 
 function receivedMessage(event) {
 
@@ -191,38 +185,48 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
-
+        
       case "dealer-hand" :
         
-        function dealHand(){
-          
-          var empty = [];
-          var deck = cards.createDeck(empty,6);
-          var shuffledDeck = cards.shuffleDeck(deck);
-          var hand = cards.drawCards(shuffledDeck,2);
-
-          show(hand);
-          
-            function show(hand){
-              
-                  var playingCards = [];
-                  var images = [];
-
-                  //send text message
-                  playingCards = cards.displayHand(hand);
-                  sendTextMessage(sender, playingCards.toString());
-
-                  //send image
-                  for (i = 0; i < hand.length; i++){
-//                      var cloudinaryRef = this.requestImage(hand[i].image);
-                        images[i] = hand[i].image;
-                  }
-              
-                  var image = requestImage(images);
-                  sendImageMessage(sender,image);
-
-            }
-          return hand;
+        cards.newGame();
+        
+        var textMessage = show(playerHand);
+        
+        sendTextMessage(sender, textMessage.toString());
+        
+//        function dealHand(){
+//          
+//          var empty = [];
+//          var deck = cards.createDeck(empty,6);
+//          var shuffledDeck = cards.shuffleDeck(deck);
+//          var hand = cards.drawCards(shuffledDeck,2);
+//          
+////          var dealerHand = cards.drawCards(shuffledDeck,1);
+//
+//          show(hand);
+//          
+////          show(dealerHand);
+//          
+//            function show(hand){
+//              
+//                  var playingCards = [];
+//                  var images = [];
+//
+//                  //send text message
+//                  playingCards = cards.displayHand(hand);
+//                  sendTextMessage(sender, playingCards.toString());
+//
+//                  //send image
+//                  for (i = 0; i < hand.length; i++){
+////                      var cloudinaryRef = this.requestImage(hand[i].image);
+//                        images[i] = hand[i].image;
+//                  }
+//              
+//                  var image = requestImage(images);
+//                  sendImageMessage(sender,image);
+//
+//            }
+//          return hand;
         }
         
         function requestImage(array) {

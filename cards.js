@@ -1,36 +1,43 @@
 //Cards.js
 //Create decks,shuffle and deal hands!
 
-module.exports = {
+function Deck() {
 
-CardObject : function(suit,rank,value,image){
-     this.suit=suit;
-     this.rank=rank;
-     this.value=value;
-     this.image=image;
-},
+    this.deck = new Array();
   
-    // var blankCard = ["BB"];
-  //create the entire shoe of cards, made up of decks
-createDeck : function(deck,numDecks) {
+    this.createShoe = createShoe;
+    this.createDeck = createDeck;
+    this.shuffleDeck = shuffleDeck;
+    this.dealCards = dealCards;
+    this.score = isBlackjack;
+    this.show = displayHand;
+    this.hit = hit;
+    this.isSplit = false;
+}
 
+function Card(suit,rank,value,image){
+  
+   this.suit=suit;
+   this.rank=rank;
+   this.value=value;
+   this.image=image;
+}
+   
+//create the entire shoe of cards, made up of decks
+function  createShoe(numDecks) {
+      
       for (k = 0; k < numDecks; k++) {
-        deck[k] = this.createPack(deck);
+        this.deck.push[k] = this.createDeck();
       }
 
       if (k % 6 === 0){
+        var blankCard = new Card("","BB",0);
+        this.deck.push(blankCard);
+      }
+  return;
+ }
 
-          var blankCard = new this.CardObject("","BB",0);
-
-          deck.push(blankCard);
-       }
-
-      deck = [].concat.apply([], deck);
-
-      return deck;
-},
-
-createPack : function(deck) {
+function createDeck() {
       var suits = ["Hearts", "Clubs", "Spades", "Diamonds"]; 
       var value = [0];
       var rank = "";
@@ -73,115 +80,128 @@ createPack : function(deck) {
 
             }
             
-            image = suits[i] + "-" + rank + ".png";  
+            image = suits[i] + "-" + rank + ".png";
             
-            deck.push(new this.CardObject(suits[i],rank,value,image));
+            this.deck.push(new Card(suits[i],rank,value,image));
 
           }
         }
-
-    return deck; 
-},
+  
+    return; 
+}
 
   //function to shuffle the cards
-shuffleDeck : function(deck) {
+function shuffleDeck() {
+   
+    var m = this.deck.length, t, i;
 
-       var m = deck.length, t, i;
-
-      while (m) {
+    while (m) {
 
         i = Math.floor(Math.random() * m--);
-        t = deck[m];
-        deck[m] = deck[i];
-        deck[i] = t;
+        t = this.deck[m];
+        this.deck[m] = this.deck[i];
+        this.deck[i] = t;
       }
+    
+      return ;
+   }
 
-      return deck;
-},
-
-  //function that draws cards from the deck
-drawCards : function(deck, number){
-
+ //function that draws cards from the deck
+ function  dealCards(number){
+   
+      if(number == null){
+        number = 1;
+      }
+     
       //create a new array to hold "number" amount of cards
-      var hand = [];
-      var displayHand = "";
-
-      //pick 2 cards at random from the deck
-      function randomCard() {
-
-        var chosenCard = deck.splice(deck[Math.floor(Math.random() * deck.length)],1);
-
-      }
-
+      var hand = new Deck();
+      
       for (i = 0; i < number ; i++){      
-
-        var rand = deck.splice(deck[Math.floor(Math.random() * deck.length)],1)
-
-         rand = [].concat.apply([], rand);
-
-         hand[i] = rand;
+          hand.deck.push(this.deck.shift());
       }
 
       for (i = 0; i < hand.length; i++){
 
-            hand = [].concat.apply([], hand);
-
-        if (hand[i].value === 0){
-
-          console.log("blank card found at pos: "+i);
-
-            hand[i] = [];
-
-            var newCard = deck.splice(deck[Math.floor(Math.random() * deck.length)],1)
-
-            hand[i] = newCard;
-
+        if (hand.deck[i].value === 0){
+            console.log("blank card found at pos: "+i);
+            hand.deck[i] = [];
+            hand.deck.push(this.deck.shift());        
         }
       }
+      
+//    if (this.deck.isSplit === true) {
+//         //if a matching pair is dealt then split
+     
+//      console.log("split");
+          
+//      if ((hand.deck[0].value === hand.deck[1].value) && (hand.deck[0].rank === hand.deck[1].rank) || (hand.deck[0].rank == "Ace" && hand.deck[1].rank == "Ace")){
+    
+//         console.log("matching pair");
+//         split(hand);
 
-      hand = [].concat.apply([], hand);
-   
+//      } 
+//    }
+
     return hand;
-},
+}
 
- displayHand : function(hand){
+function split(hand){
+  
+    //currently only handles 1-round of splitting
+  
+    var split1 = new Deck();
 
-    var displayHand = [];
-  //   console.log(hand);
+    split1.isSplit = true;
+    split1.deck.push(hand.deck[0]);
+    split1.hit(shoe.deck);
+  
+    var split2 = new Deck();
+  
+    split2.isSplit = true;
+    split2.deck.push(hand.deck[1]);
+    split2.hit(shoe.deck);
+    
+    //now return 2 separate split hands
+    return [split1, split2];
+}
 
-    for (i = 0; i < hand.length; i++){
-
-      displayHand[i] = " " + hand[i].rank + " of " + hand[i].suit + "";
-      
-//       displayHandImage[i] = hand[i].image;
-      
-// //       console.log("cloudinary name = " + hand[i].image);
-      
-//       this.requestImage(hand[i].image);
-
-    }
+ function displayHand(deck){
    
-    return displayHand;
-},
+    var handDisplay = [];  
+   
+     for (i = 0; i < deck.length; i++){
+
+      handDisplay[i] = deck[i].rank + " of " + deck[i].suit + "";
+      
+    }
+    return handDisplay;
+ }
+
+function requestImage(array) {
+      
+//     var imageURL = cloudinary.image(array[0], {overlay: array[1], gravity: "east", x: -165});
+  
+    var imageURL = array[0] + ", " + array[1];
+  
+    return imageURL;   
+}
 
 
-
-
-isBlackjack : function(hand){
-
+function isBlackjack(){
+  
     var temp = [];
 
     var sum = 0;
 
     var numAces = 0;
 
-      for (i = 0; i < hand.length; i++){
+      for (i = 0; i < this.deck.length; i++){
 
-         temp[i] = hand[i].value;
+        temp[i] = this.deck[i].value;
 
-        if (hand[i].rank === "Ace"){
+        if (this.deck[i].rank === "Ace"){
 
-          var add = Math.max.apply(Math, hand[i].value);
+          var add = Math.max.apply(Math, this.deck[i].value);
           sum += add;
           numAces++;
 
@@ -201,7 +221,82 @@ isBlackjack : function(hand){
     if (sum === 21){
       return "BLACKJACK";
     }
-
+  
     return sum;
 }
+
+function show(hand) {
+    
+  var cards = [];
+  var images = [];
+  
+  //send text message
+  cards = displayHand(hand);
+  //sendTextMessage(sender, cards)
+  console.log(cards);
+       
+     //send image
+      for (i = 0; i < hand.length; i++){
+
+//      var cloudinaryRef = this.requestImage(hand[i].image);
+            
+        images[i] = hand[i].image
+        
+      } 
+  
+  var image = this.requestImage(images);
+  //sendImageMessage(sender, image);
 }
+
+function hit (deck){
+  
+  this.deck.push(shoe.dealCards().deck);
+  
+  this.deck = [].concat.apply([], this.deck);
+
+  return
+}
+
+function newGame(){
+  
+    shoe = new Deck();
+    playerHand = new Deck();
+  
+    playerHand.isSplit = false;
+//     dealerHand = new Deck();
+
+    shoe.createShoe(1);
+    shoe.shuffleDeck();
+  
+    playerHand.deck.push(shoe.dealCards(2).deck);
+//     dealerHand.deck.push(shoe.dealCards().deck);
+  
+     playerHand = [].concat.apply([], playerHand.deck);
+//     dealerHand.deck = [].concat.apply([], dealerHand.deck);
+
+    return
+}
+
+function below17 (hand) {
+  
+    var val = hand.score();
+    
+    return val < 17 ? true : false;
+  
+}
+
+module.exports = {
+  Deck: Deck,
+  below17: below17,
+  newGame: newGame,
+  hit: hit,
+  show: show,
+  isBlackjack: isBlackjack,
+  requestImage: requestImage,
+  split: split,
+  displayHand: displayHand,
+  dealCards: dealCards,
+  shuffleDeck: shuffleDeck,
+  createDeck: createDeck,
+  createShoe: createShoe
+};
