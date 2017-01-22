@@ -269,7 +269,7 @@ show:function(hand) {
 
 newGame:function(){
   
-    shoe = new exports.Deck();
+    shoe = new Deck();
     
     shoe.createShoe(1);
     shoe.shuffleDeck();
