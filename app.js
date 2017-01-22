@@ -197,7 +197,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             return
         }
         
-        var playerHand = function(){ 
+        function(){ 
         
             playerHand = new cards.Deck();
             playerHand.isSplit = false;
@@ -207,7 +207,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             return;  
         }
     
-        sendTextMessage(sender, playerHand.deck.toString());
+        sendTextMessage(sender, playerHand.toString());
         
         break;
          
