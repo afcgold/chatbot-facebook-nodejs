@@ -187,9 +187,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
         
       case "dealer-hand" :
-        
-        cards.newGame();
-        
+                
         function newGame(){
   
             shoe = new cards.Deck();
@@ -209,7 +207,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             return;  
         }
     
-        sendTextMessage(sender, playerHand.toString());
+        sendTextMessage(sender, playerHand.deck.toString());
         
         break;
          
