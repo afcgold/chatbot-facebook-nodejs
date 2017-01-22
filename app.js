@@ -192,8 +192,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         function newShoe(){
   
             var shoe = new cards.Deck();
-            shoe.cards.createShoe(1);
-            shoe.cards.shuffleDeck();
+            shoe.createShoe(1);
+            shoe.shuffleDeck();
 
             return shoe;
         };
