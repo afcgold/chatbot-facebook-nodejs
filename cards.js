@@ -270,8 +270,8 @@ newGame:function(){
   
     shoe = new this.Deck();
     
-    shoe.createShoe(1);
-    shoe.shuffleDeck();
+    shoe.this.createShoe(1);
+    shoe.this.shuffleDeck();
   
     return shoe;
 },
