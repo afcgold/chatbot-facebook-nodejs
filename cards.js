@@ -1,28 +1,6 @@
 //Cards.js
 //Create decks,shuffle and deal hands!
 module.exports = {
-
-Deck : function() {
-
-    this.deck = new Array();
-  
-    this.createShoe = createShoe;
-    this.createDeck = createDeck;
-    this.shuffleDeck = shuffleDeck;
-    this.dealCards = dealCards;
-    this.score = isBlackjack;
-    this.show = displayHand;
-    this.hit = hit;
-    this.isSplit = false;
-},
-
-Card : function(suit,rank,value,image){
-  
-   this.suit=suit;
-   this.rank=rank;
-   this.value=value;
-   this.image=image;
-},
    
 //create the entire shoe of cards, made up of decks
 createShoe: function(numDecks) {
@@ -268,6 +246,28 @@ newGame:function(){
     shoe.shuffleDeck();
   
     return shoe;
+},
+  
+Deck : function(){
+
+    this.deck = new Array();
+  
+    this.createShoe = createShoe;
+    this.createDeck = createDeck;
+    this.shuffleDeck = shuffleDeck;
+    this.dealCards = dealCards;
+    this.score = isBlackjack;
+    this.show = displayHand;
+    this.hit = hit;
+    this.isSplit = false;
+},
+
+Card : function(suit,rank,value,image){
+  
+   this.suit=suit;
+   this.rank=rank;
+   this.value=value;
+   this.image=image;
 },
 
 below17:function(hand) {
