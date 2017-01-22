@@ -12,9 +12,9 @@ Deck : function(){
 
     this.deck = new Array();
   
-    this.createShoe = createShoe;
-    this.createDeck = createDeck;
-    this.shuffleDeck = shuffleDeck;
+    this.createShoe = exports.createShoe;
+    this.createDeck = exports.createDeck;
+    this.shuffleDeck = exports.shuffleDeck;
 //    this.dealCards = this.dealCards;
 //    this.score = this.isBlackjack;
 //    this.show = this.displayHand;
@@ -270,8 +270,8 @@ newGame:function(){
   
     shoe = new this.Deck();
     
-    shoe.exports.createShoe(1);
-    shoe.exports.shuffleDeck();
+    shoe.this.createShoe(1);
+    shoe.this.shuffleDeck();
   
     return shoe;
 },
