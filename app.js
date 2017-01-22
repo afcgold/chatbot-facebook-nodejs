@@ -203,9 +203,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             return
         }
         
-        var playerFirstHand = playerHand.deck.push(shoe.cards.dealCards(2).deck);
+        var playerFirstHand = playerHand.deck.push(shoe.dealCards(2).deck);
 
-        
         sendTextMessage(sender, playerFirstHand.toString());
         
         break;
