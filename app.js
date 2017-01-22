@@ -203,7 +203,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             return
         }
         
-        var playerFirstHand = playerHand.deck;
+        var playerFirstHand = shoe.cards.deck;
 
         sendTextMessage(sender, playerFirstHand.toString());
         
