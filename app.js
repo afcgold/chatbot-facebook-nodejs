@@ -197,18 +197,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             return
         }
         
-        var playerHand = shoe.cards.dealCards(2).deck
+       
         
-//        function dealPlayerHand (){ 
-//        
-//            playerHand = new cards.Deck();
-//            playerHand.isSplit = false;
-//          
-//            playerHand.deck.push(cards.shoe.dealCards(2).deck);
-//
-//            return;  
-//        }
-    
+        var playerHand = shoe.deck
+        
         sendTextMessage(sender, playerHand.toString());
         
         break;
