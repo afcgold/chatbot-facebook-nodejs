@@ -233,19 +233,21 @@ function show(hand) {
   //send text message
   cards = displayHand(hand);
   //sendTextMessage(sender, cards)
-  console.log(cards);
-       
-     //send image
-      for (i = 0; i < hand.length; i++){
-
-//      var cloudinaryRef = this.requestImage(hand[i].image);
-            
-        images[i] = hand[i].image
-        
-      } 
   
-  var image = this.requestImage(images);
-  //sendImageMessage(sender, image);
+  return;
+//  console.log(cards);
+       
+//     //send image
+//      for (i = 0; i < hand.length; i++){
+//
+////      var cloudinaryRef = this.requestImage(hand[i].image);
+//            
+//        images[i] = hand[i].image
+//        
+//      } 
+//  
+//  var image = this.requestImage(images);
+//  //sendImageMessage(sender, image);
 }
 
 function hit (deck){

@@ -227,39 +227,38 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //
 //            }
 //          return hand;
-        }
-        
-        function requestImage(array) {
-      
-          var imageURL = cloudinary.image(array[0], {overlay: array[1], gravity: "east", x: -175});
-                
-          //only needs to be done when sending image to FB
-         imageURL = imageURL.replace("img src=","");
-
-         if (imageURL.substring(0, 1) == '<') { 
-               imageURL = imageURL.substring(2);
-               imageURL = imageURL.slice(0, -4);
-         }
-          //return URL ready for FACEBOOK to send
-          return imageURL;
-        }
-        
-        function showScore(callback){
-          
-          var hand = callback();
-
-          var score = cards.isBlackjack(hand)
-                    
-          function sendScoreMessage (){
-            
-              sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"! Nice!");
-
-          }
-          setTimeout(sendScoreMessage, 1000);
-        }
-        
-        showScore(dealHand);
-        
+//        }        
+//        function requestImage(array) {
+//      
+//          var imageURL = cloudinary.image(array[0], {overlay: array[1], gravity: "east", x: -175});
+//                
+//          //only needs to be done when sending image to FB
+//         imageURL = imageURL.replace("img src=","");
+//
+//         if (imageURL.substring(0, 1) == '<') { 
+//               imageURL = imageURL.substring(2);
+//               imageURL = imageURL.slice(0, -4);
+//         }
+//          //return URL ready for FACEBOOK to send
+//          return imageURL;
+//        }
+//        
+//        function showScore(callback){
+//          
+//          var hand = callback();
+//
+//          var score = cards.isBlackjack(hand)
+//                    
+//          function sendScoreMessage (){
+//            
+//              sendTextMessage(sender, "\nGiving you a score of " + score.toString()+"! Nice!");
+//
+//          }
+//          setTimeout(sendScoreMessage, 1000);
+//        }
+//        
+//        showScore(dealHand);
+//        
         break;
          
       default:
