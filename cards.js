@@ -4,16 +4,16 @@ module.exports = {
 
 Deck : function() {
 
-    this.deck = new Array();
+      cards.deck = new Array();
   
-    this.createShoe = createShoe;
-    this.createDeck = createDeck;
-    this.shuffleDeck = shuffleDeck;
-    this.dealCards = dealCards;
-    this.score = isBlackjack;
-    this.show = displayHand;
-    this.hit = hit;
-    this.isSplit = false;
+     cards.createShoe = createShoe;
+     cards.createDeck = createDeck;
+     cards.shuffleDeck = shuffleDeck;
+     cards.dealCards = dealCards;
+     cards.score = isBlackjack;
+     cards.show = displayHand;
+     cards.hit = hit;
+     cards.isSplit = false;
 },
 
 Card : function(suit,rank,value,image){
@@ -25,7 +25,7 @@ Card : function(suit,rank,value,image){
 },
    
 //create the entire shoe of cards, made up of decks
-createShoe :function(numDecks) {
+createShoe: function(numDecks) {
       
       for (k = 0; k < numDecks; k++) {
         this.deck.push[k] = this.createDeck();
@@ -35,6 +35,7 @@ createShoe :function(numDecks) {
         var blankCard = new Card("","BB",0);
         this.deck.push(blankCard);
       }
+  
   return;
 },
 
