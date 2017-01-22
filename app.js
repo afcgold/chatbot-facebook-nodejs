@@ -188,9 +188,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
       case "dealer-hand" :
                 
-        function newGame(){
+        
+        var shoe = function newGame(){
   
-            shoe = new cards.Deck();
+            var shoe = new cards.Deck();
             shoe.cards.createShoe(1);
             shoe.cards.shuffleDeck();
 
