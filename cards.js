@@ -269,10 +269,10 @@ show:function(hand) {
 
 newGame:function(){
   
-    shoe = new module.exports.Deck();
+    var shoe = new exports.Deck();
     
-    shoe.createShoe(1);
-    shoe.shuffleDeck();
+    shoe.exports.createShoe(1);
+    shoe.exports.shuffleDeck();
   
     return shoe;
 },
