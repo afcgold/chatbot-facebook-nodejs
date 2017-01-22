@@ -190,8 +190,23 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         cards.newGame();
         
+        function newGame(){
+  
+            shoe = new cards.Deck();
+            playerHand = new cards.Deck();
+
+            playerHand.isSplit = false;
+
+            shoe.cards.createShoe(6);
+            shoe.cards.shuffleDeck();
+
+            return
+        }
         
-        sendTextMessage(sender, "George of the Jungle");
+        var playerFirstHand = playerHand.deck.push(shoe.cards.dealCards(2).deck);
+
+        
+        sendTextMessage(sender, playerFirstHand.toString());
         
         break;
          
