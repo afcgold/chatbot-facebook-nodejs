@@ -187,13 +187,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
         
       case "dealer-hand" :
-                
-        
+      
         var newShoe = (function(){
   
             var shoe = new cards.Deck();
-            shoe.createShoe(1);
-            shoe.shuffleDeck();
+//            cards.createShoe(1);
+//            cards.shuffleDeck();
 
             return shoe;
         })();
