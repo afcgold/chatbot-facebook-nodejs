@@ -12,14 +12,14 @@ Deck : function(){
 
     this.deck = new Array();
   
-    this.createShoe = this.createShoe;
-    this.createDeck = this.createDeck;
-    this.shuffleDeck = this.shuffleDeck;
-    this.dealCards = this.dealCards;
-    this.score = this.isBlackjack;
-    this.show = this.displayHand;
-    this.hit = this.hit;
-    this.isSplit = false;
+    this.createShoe = createShoe();
+    this.createDeck = createDeck();
+    this.shuffleDeck = shuffleDeck();
+//    this.dealCards = this.dealCards;
+//    this.score = this.isBlackjack;
+//    this.show = this.displayHand;
+//    this.hit = this.hit;
+//    this.isSplit = false;
 },
 
 Card : function(suit,rank,value,image){
