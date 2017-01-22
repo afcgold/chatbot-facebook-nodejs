@@ -264,8 +264,8 @@ newGame:function(){
   
     shoe = new this.Deck();
     
-    shoe.this.createShoe(1);
-    shoe.this.shuffleDeck();
+    shoe.createShoe(1);
+    shoe.shuffleDeck();
   
     return shoe;
 },
