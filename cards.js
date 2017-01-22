@@ -12,13 +12,13 @@ Deck : function(){
 
     this.deck = new Array();
   
-    this.createShoe = cards.createShoe;
-    this.createDeck = cards.createDeck;
-    this.shuffleDeck = cards.shuffleDeck;
-    this.dealCards = cards.dealCards;
-    this.score = cards.isBlackjack;
-    this.show = cards.displayHand;
-    this.hit = cards.hit;
+    this.createShoe = self.createShoe;
+    this.createDeck = self.createDeck;
+    this.shuffleDeck = self.shuffleDeck;
+    this.dealCards = self.dealCards;
+    this.score = self.isBlackjack;
+    this.show = self.displayHand;
+    this.hit = self.hit;
     this.isSplit = false;
 },
 
