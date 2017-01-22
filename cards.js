@@ -12,9 +12,9 @@ Deck : function(){
 
     this.deck = new Array();
   
-    this.createShoe = exports.createShoe;
-    this.createDeck = exports.createDeck;
-    this.shuffleDeck = exports.shuffleDeck;
+    this.createShoe = createShoe;
+    this.createDeck = createDeck;
+    this.shuffleDeck = shuffleDeck;
 //    this.dealCards = this.dealCards;
 //    this.score = this.isBlackjack;
 //    this.show = this.displayHand;
