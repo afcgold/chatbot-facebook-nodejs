@@ -194,10 +194,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             shoe.cards.createShoe(1);
             shoe.cards.shuffleDeck();
 
-            return
+            return shoe;
         }
-        
-       
         
         var playerHand = shoe.deck
         
