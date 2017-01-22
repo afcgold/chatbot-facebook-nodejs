@@ -20,6 +20,8 @@ Deck : function(){
 //    this.show = this.displayHand;
 //    this.hit = this.hit;
 //    this.isSplit = false;
+  
+  return
 },
 
 Card : function(suit,rank,value,image){
