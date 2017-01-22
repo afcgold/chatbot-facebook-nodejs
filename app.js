@@ -193,7 +193,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         var message = cards.sayHello();
         
         //return player first hand
-        sendTextMessage(sender, message.toString);
+        sendTextMessage(sender, message.toString());
         
         //return dealer first hand
         
