@@ -4,16 +4,16 @@ module.exports = {
 
 Deck : function() {
 
-      cards.deck = new Array();
+    this.deck = new Array();
   
-     cards.createShoe = createShoe;
-     cards.createDeck = createDeck;
-     cards.shuffleDeck = shuffleDeck;
-     cards.dealCards = dealCards;
-     cards.score = isBlackjack;
-     cards.show = displayHand;
-     cards.hit = hit;
-     cards.isSplit = false;
+    this.createShoe = this.createShoe;
+    this.createDeck = this.createDeck;
+    this.shuffleDeck = this.shuffleDeck;
+    this.dealCards = this.dealCards;
+    this.score = this.isBlackjack;
+    this.show = this.displayHand;
+    this.hit = this.hit;
+    this.isSplit = false;
 },
 
 Card : function(suit,rank,value,image){
