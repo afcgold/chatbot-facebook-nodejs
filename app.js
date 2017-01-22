@@ -190,9 +190,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         cards.newGame();
         
-        var textMessage = cards.show(playerHand);
         
-        sendTextMessage(sender, textMessage);
+        sendTextMessage(sender, "George of the Jungle");
         
         break;
          
