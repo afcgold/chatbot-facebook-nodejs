@@ -6,7 +6,7 @@ sayHello : function(){
   var greeting = "Hi, I'm a bot!"
   
   return greeting;
-}
+},
 
 Deck : function(){
 
