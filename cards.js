@@ -21,7 +21,6 @@ Deck : function(){
 //    this.hit = this.hit;
 //    this.isSplit = false;
   
-  return
 },
 
 Card : function(suit,rank,value,image){
@@ -270,10 +269,10 @@ show:function(hand) {
 
 newGame:function(){
   
-    shoe = new this.Deck();
+    shoe = new exports.Deck();
     
-    shoe.this.createShoe(1);
-    shoe.this.shuffleDeck();
+    shoe.createShoe(1);
+    shoe.shuffleDeck();
   
     return shoe;
 },
