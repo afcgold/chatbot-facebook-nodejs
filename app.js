@@ -188,21 +188,14 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
       case "dealer-hand" :
     
-            
-        function newShoe(){
-  
-            var shoe = new cards.Deck();
-            cards.createShoe(1);
-            cards.shuffleDeck();
-
-            return shoe;
-        };
+        //start a new game
         
-        var gameShoe = newShoe();
-          
-        var playerHand = gameShoe.deck;
+        var newGame = cards.newGame();
         
-        sendTextMessage(sender, playerHand.toString());
+        //return player first hand
+        sendTextMessage(sender, newGame.deck);
+        
+        //return dealer first hand
         
         break;
          

@@ -263,21 +263,11 @@ show:function(hand) {
 newGame:function(){
   
     shoe = new Deck();
-    playerHand = new Deck();
-  
-    playerHand.isSplit = false;
-//     dealerHand = new Deck();
-
+    
     shoe.createShoe(1);
     shoe.shuffleDeck();
   
-    playerHand.deck.push(shoe.dealCards(2).deck);
-//     dealerHand.deck.push(shoe.dealCards().deck);
-  
-     playerHand = [].concat.apply([], playerHand.deck);
-//     dealerHand.deck = [].concat.apply([], dealerHand.deck);
-
-    return
+    return shoe;
 },
 
 below17:function(hand) {
