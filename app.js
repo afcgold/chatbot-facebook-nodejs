@@ -188,14 +188,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
       case "dealer-hand" :
     
-        //start a new game
-        
-        var me = new cards.Person();
-        
-        //return player first hand
-        sendTextMessage(sender, me.concat().toString());
-        //return dealer first hand
-        
         var deck = new cards.Deck()
         deck.createShoe(1);
         

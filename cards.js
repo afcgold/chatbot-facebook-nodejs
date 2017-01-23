@@ -22,9 +22,9 @@ function  createShoe(numDecks) {
       
       for (k = 0; k < numDecks; k++) {
         this.deck.push[k] = this.createDeck();
+        
+        this.shuffleDeck();
       }
-  
-  this.deck.shuffleDeck;
   
   return;
 }
