@@ -193,7 +193,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         var me = new cards.Person();
         
         //return player first hand
-        sendTextMessage(sender, me.firstName.toString() + me.lastName.toString());
+        sendTextMessage(sender, me.concat.toString());
         //return dealer first hand
         
         break;

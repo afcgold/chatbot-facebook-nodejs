@@ -9,6 +9,10 @@ function sayHello(){
 function Person() {
     this.firstName = firstName();
     this.lastName = lastName();
+    this.concat = function(this.firstName, this.lastName){
+      var output = first + " " + last;
+      return output;
+    }
 
 }
 
@@ -22,11 +26,6 @@ function lastName(){
   return second;
 }
 
-function addWords(){
-  var additional = "and add this on the end too please!";
-  return additional;
-  
-}
 
   module.exports = {
     
