@@ -115,5 +115,4 @@ function lastName(){
     Deck: Deck,
     Card : Card,
     createShoe : createShoe,
-    createDeck : createDeck
 }
