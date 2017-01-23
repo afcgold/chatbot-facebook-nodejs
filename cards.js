@@ -9,7 +9,7 @@ function sayHello(){
 function Person() {
     this.firstName = firstName();
     this.lastName = lastName();
-    this.concat = function(Person.firstName, Person.lastName){
+    this.concat = function(firstName, lastName){
       var output = first + " " + last;
       return output;
     }
