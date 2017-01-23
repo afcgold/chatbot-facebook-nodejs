@@ -81,6 +81,23 @@ function displayHand(deck){
   return display;
 }
 
+function deal(number){
+     if(number === undefined){
+        number = 1;
+     }
+   
+     if(number === 1){
+        return this.deck.shift();
+     }
+     
+     var cards = [];
+     for (i = 0; i < cards.length; i++){
+       cards.push(this.deck.shift());        
+     }  
+    return cards;
+}
+
+
 
 //////////////////////
 
@@ -119,5 +136,6 @@ function lastName(){
     Deck: Deck,
     Card : Card,
     createShoe : createShoe,
-    displayHand : displayHand
+    displayHand : displayHand,
+    deal : deal
 }
