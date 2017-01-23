@@ -7,6 +7,7 @@ function Deck() {
   
     this.createShoe = createShoe;
     this.createDeck = createDeck;
+    this.shuffleDeck = shuffleDeck;
 }
 
 function Card(suit,rank,value,image){
@@ -23,6 +24,8 @@ function  createShoe(numDecks) {
         this.deck.push[k] = this.createDeck();
       }
   
+  this.deck.shuffleDeck;
+  
   return;
 }
 
@@ -31,21 +34,15 @@ function createDeck() {
       var value = [0];
       var rank = "";
       var image ="";
-  //     var pack = [];
       var n = 52;
       var index = n / suits.length; 
       var count = 0;
 
         for(i = 0; i <= 3; i++) {
-
           for(j = 1; j <= index; j++) {
-
             rank = j;
-
             if (j >= 10) {
-
               value = 10;
-
               switch(j) {
                   case 11:
                       rank = "Jack";
@@ -57,26 +54,34 @@ function createDeck() {
                       rank = "King";
                       break;
               }
-
             } else if (j == 1){
-
               value = [1, 11];
               rank = "Ace";
-
             } else {
-
               value = j;
-
             }
             
             image = suits[i] + "-" + rank + ".png";
-            
             this.deck.push(new Card(suits[i],rank,value,image));
 
           }
         }
-  
     return; 
+}
+
+function shuffleDeck() {
+   
+  var m = this.deck.length, t, i;
+
+  while (m) {
+
+      i = Math.floor(Math.random() * m--);
+      t = this.deck[m];
+      this.deck[m] = this.deck[i];
+      this.deck[i] = t;
+    }
+    
+  return ;
 }
 
 function sayHello(){
