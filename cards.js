@@ -32,5 +32,6 @@ function addWords(){
     
     sayHello : sayHello,
     firstName : firstName,
-    lastName : lastName
+    lastName : lastName,
+    Person : Person;
 }
