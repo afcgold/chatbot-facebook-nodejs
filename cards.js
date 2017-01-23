@@ -6,9 +6,9 @@ function sayHello(){
   return greeting;
 }
 
-function person(first, last) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+function Person(firstName, lastName) {
+    this.firstName = firstName();
+    this.lastName = lastName();
 
 }
 
