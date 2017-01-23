@@ -10,7 +10,7 @@ function Person() {
     this.firstName = firstName();
     this.lastName = lastName();
     this.concat = function(firstName, lastName){
-      var output = first + " " + last;
+      var output = firstName + " " + lastName;
       return output;
     }
 
