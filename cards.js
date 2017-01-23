@@ -33,5 +33,5 @@ function addWords(){
     sayHello : sayHello,
     firstName : firstName,
     lastName : lastName,
-    Person : Person;
+    Person : Person
 }
