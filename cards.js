@@ -6,6 +6,7 @@ function Deck() {
     this.createShoe = createShoe;
     this.createDeck = createDeck;
     this.shuffleDeck = shuffleDeck;
+    this.deal = deal;
 }
 
 function Card(suit,rank,value,image){
