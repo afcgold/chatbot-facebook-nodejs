@@ -199,7 +199,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         var deck = new cards.Deck()
         deck.createShoe(1);
         
-        var card = deck.deck[0];
+        var card = deck.deck[1];
         sendTextMessage(sender, card.toString());
         
         break;
