@@ -196,6 +196,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         sendTextMessage(sender, me.concat().toString());
         //return dealer first hand
         
+        var deck = new cards.Deck()
+        deck.createShoe(1);
+        sendTextMessage(sender, deck.deck[0].toString());
+        
         break;
          
       default:
