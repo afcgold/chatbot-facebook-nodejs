@@ -9,8 +9,8 @@ function sayHello(){
 function Person() {
     this.firstName = firstName();
     this.lastName = lastName();
-    this.concat = function(firstName, lastName){
-      var output = firstName + " " + lastName;
+    this.concat = function(this.firstName, this.lastName){
+      var output = this.firstName + " " + this.lastName;
       return output;
     }
 
