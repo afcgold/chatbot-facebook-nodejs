@@ -190,7 +190,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
     
         //start a new game
         
-        var me = new cards.Person();
+        var me = new Person();
         
         //return player first hand
         sendTextMessage(sender, me.firstName().toString());
