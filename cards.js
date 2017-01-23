@@ -3,7 +3,7 @@
 
 function Deck() {
 
-    this.deck = new Array([]);
+    this.deck = new Array();
   
     this.createShoe = createShoe;
     this.createDeck = createDeck;
@@ -22,11 +22,7 @@ function  createShoe(numDecks) {
       for (k = 0; k < numDecks; k++) {
         this.deck.push[k] = this.createDeck();
       }
-
-      if (k % 6 === 0){
-        var blankCard = new Card("","BB",0);
-        this.deck.push(blankCard);
-      }
+  
   return;
 }
 
