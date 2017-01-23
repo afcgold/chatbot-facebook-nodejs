@@ -6,6 +6,22 @@ function sayHello(){
   return greeting;
 }
 
+function person(first, last) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+
+}
+
+function firstName(){
+  var first = "George"
+  return first;
+}
+
+function lastName(){
+  var second = "Goldhagen"
+  return second;
+}
+
 function addWords(){
   var additional = "and add this on the end too please!";
   return additional;
@@ -15,5 +31,6 @@ function addWords(){
   module.exports = {
     
     sayHello : sayHello,
-
+    firstName : firstName,
+    lastName : lastName
 }

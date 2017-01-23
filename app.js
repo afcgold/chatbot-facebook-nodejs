@@ -190,10 +190,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
     
         //start a new game
         
-        var message = cards.sayHello();
+        var me = new cards.Person;
         
         //return player first hand
-        sendTextMessage(sender, message.toString());
+        sendTextMessage(sender, me.firstName().toString());
         //return dealer first hand
         
         break;
