@@ -193,7 +193,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         var card = deck.deck;
         
-        var printOut = displayHand([card[0]]);
+        var printOut = cards.displayHand([card[0]]);
         
         sendTextMessage(sender, printOut.toString());
         
