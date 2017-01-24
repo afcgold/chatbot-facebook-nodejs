@@ -92,7 +92,7 @@ function deal(number){
      }
      
      var cards = [];
-     for (i = 0; i < cards.length; i++){
+     for (i = 0; i < number; i++){
        cards.push(this.deck.shift());        
      }  
     return cards;
