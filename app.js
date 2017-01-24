@@ -191,7 +191,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         var deck = new cards.Deck()
         deck.createShoe(1);
                 
-        var printOut = deck.deal();
+        var printOut = deck.deal(2);
         
         printOut = cards.displayHand([printOut]);
         
