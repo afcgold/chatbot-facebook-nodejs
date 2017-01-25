@@ -198,7 +198,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         sendTextMessage(sender, printOut.toString());
         
         break;
-         
+      
+      case "newGame" :
+        
+        sendTextMessage(sender, "START NEW GAME");
+        
+         break;
+        
       default:
 		//unhandled action, just send back the text
 		sendTextMessage(sender, responseText);
