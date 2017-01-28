@@ -189,7 +189,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
   switch (action) {
       
-//      case "dealer-hand" :
+      case "dealer-hand" :
 //    
 //        var deck = new cards.Deck()
 //        deck.createShoe(1);
@@ -199,12 +199,14 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //        printOut = cards.displayHand(printOut);
 //        
 //        sendTextMessage(sender, printOut.toString());
+      
+      sendButtonMessage(sender,"choose your next move:", ["hit","stand"]);
 //        
-//        break;
+        break;
       
       case "newGame" :
         
-        sendTextMessage(sender, "START NEW GAME");
+//        sendTextMessage(sender, "START NEW GAME");
 
           //start a new game of blackjack
           shoe = cards.newGame();
