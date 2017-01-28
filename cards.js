@@ -103,10 +103,10 @@ function deal(number){
 function newGame(){
   
   //create shoe to play from
-  shoe = new Shoe()
-  shoe.createShoe(2);
+  var shoe = new Deck()
+  shoe.createShoe(6);
   
-  return;
+  return shoe;
   
 }
 

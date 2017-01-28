@@ -203,9 +203,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         sendTextMessage(sender, "START NEW GAME");
 
-        //start a new game of blackjack
-        cards.newGame();
-        //create player and dealer 
+          //start a new game of blackjack
+          var shoe = cards.newGame();
+          //create player and dealer 
         
           //create player
           player = new cards.Player("Player");
