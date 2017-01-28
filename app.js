@@ -236,6 +236,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         sendTextMessage(sender, player.name + "  hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+cards.score(player.hand).toString());
         
+        sendTextMessage(sender, shoe.deck.length().toString());
         
         break;
         
