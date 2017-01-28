@@ -186,6 +186,8 @@ function handleEcho(messageId, appId, metadata) {
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
         
+        var player, dealer;
+        
       case "dealer-hand" :
     
         var deck = new cards.Deck()
@@ -208,11 +210,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           //create player and dealer 
         
           //create player
-          var player = new cards.Player("Player");
+          player = new cards.Player("George");
           player.hand = shoe.deal(2);
 
           //create dealer
-          var dealer = new cards.Player("Dealer");
+          dealer = new cards.Player("Dealer");
           dealer.hand = shoe.deal(2);
           dealer.dealer = true;
         
@@ -222,6 +224,17 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         sendTextMessage(sender, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString());
                 
          break;
+      
+      case "hit" :
+        
+        var hitCard = shoe.deal();
+        
+        player.hand.push(hitCard);
+        
+        sendTextMessage(sender, player.name + "  hand: " + cards.displayHand(player.hand).toString());
+        
+        
+        break;
         
       default:
 		//unhandled action, just send back the text
