@@ -141,6 +141,9 @@ function score(hand){
 
     if (sum === 21){
       return "BLACKJACK";
+    } else if(sum > 21){
+      
+      return "BUSTED! Game over.";
     }
   
     return sum;
