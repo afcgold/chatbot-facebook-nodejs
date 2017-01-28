@@ -200,7 +200,15 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //        
 //        sendTextMessage(sender, printOut.toString());
       
-      sendButtonMessage(sender,"choose your next move:", ["hit"]);
+      var button = [
+      {
+        "type":"postback",
+        "title":"Bookmark Item",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD"
+      }
+    ];
+      
+      sendButtonMessage(sender,"choose your next move:", button.toString());
 //        
         break;
       
