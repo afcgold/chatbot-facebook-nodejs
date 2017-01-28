@@ -239,7 +239,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       }
     ];
       
-      sendButtonMessage(sender,"choose your next move:", button);
+      sendButtonMessage(sender,"Choose your next move:", buttons);
 
         return shoe;
                 
