@@ -199,16 +199,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //        printOut = cards.displayHand(printOut);
 //        
 //        sendTextMessage(sender, printOut.toString());
-      
-      var button = [
-      {
-        "type":"postback",
-        "title":"Bookmark Item",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD"
-      }
-    ];
-      
-      sendButtonMessage(sender,"choose your next move:", button);
 //        
         break;
       
@@ -235,6 +225,21 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         sendTextMessage(sender, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString()+". Giving me a score of "+cards.score(dealer.hand).toString());
       
 //        sendTextMessage(sender, cards.cardsRemain(shoe).toString());
+      
+            var buttons = [
+      {
+        "type":"postback",
+        "title":"Hit",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD"
+      },
+      {
+      "type":"postback",
+      "title":"Stand",
+      "payload":"DEVELOPER_DEFINED_PAYLOAD"
+      }
+    ];
+      
+      sendButtonMessage(sender,"choose your next move:", button);
 
         return shoe;
                 
