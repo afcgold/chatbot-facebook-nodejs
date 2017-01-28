@@ -184,10 +184,11 @@ function handleEcho(messageId, appId, metadata) {
 }
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
-	switch (action) {
-        
-        var player, dealer;
-        
+	
+   var player, dealer;
+  
+  switch (action) {
+      
       case "dealer-hand" :
     
         var deck = new cards.Deck()
