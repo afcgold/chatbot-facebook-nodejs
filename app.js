@@ -223,6 +223,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         sendTextMessage(sender, player.name + "  hand: " + cards.displayHand(player.hand).toString());
         
         sendTextMessage(sender, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString());
+      
+        return shoe;
                 
          break;
       
