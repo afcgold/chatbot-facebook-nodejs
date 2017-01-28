@@ -106,21 +106,23 @@ function deal(number){
     return cards;
 }
 
-function score(){
+function score(hand){
   
     var temp = [];
 
     var sum = 0;
+  
+//     console.log(hand);
 
     var numAces = 0;
 
-      for (i = 0; i < this.deck.length; i++){
+      for (i = 0; i < hand.length; i++){
 
-        temp[i] = this.deck[i].value;
+        temp[i] = hand[i].value;
 
-        if (this.deck[i].rank === "Ace"){
+        if (hand[i].rank === "Ace"){
 
-          var add = Math.max.apply(Math, this.deck[i].value);
+          var add = Math.max.apply(Math, hand[i].value);
           sum += add;
           numAces++;
 
