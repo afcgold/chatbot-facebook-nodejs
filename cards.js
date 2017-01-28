@@ -143,7 +143,9 @@ function score(hand){
       return "BLACKJACK";
     } else if(sum > 21){
       
-      return "BUSTED! Game over.";
+       var busted = ""+sum+". BUSTED! Game over.";
+      
+      return busted;
     }
   
     return sum;
