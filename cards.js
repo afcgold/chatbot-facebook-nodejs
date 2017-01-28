@@ -100,6 +100,19 @@ function deal(number){
     return cards;
 }
 
+function newGame(){
+  
+  //create shoe to play from
+  shoe = new Shoe()
+  shoe.createShoe(2);
+  
+  return;
+  
+}
+
+
+
+
 
 
 //////////////////////
@@ -140,5 +153,6 @@ function lastName(){
     Card : Card,
     createShoe : createShoe,
     displayHand : displayHand,
-    deal : deal
+    deal : deal,
+    newGame : newGame
 }

@@ -208,11 +208,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         //create player and dealer 
         
           //create player
-          player = new Player("Player");
+          player = new cards.Player("Player");
           player.hand = shoe.deal(2);
 
           //create dealer
-          dealer = new Player("Dealer");
+          dealer = new cards.Player("Dealer");
           dealer.hand = shoe.deal(2);
           dealer.dealer = true;
         
