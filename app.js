@@ -217,7 +217,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           dealer.dealer = true;
         
         //deal 2 cards for player and 1 for dealer
-        sendTextMessage(sender, player.hand.toString());
+        sendTextMessage(sender, cards.displayHand(player.hand).toString());
         
         sendTextMessage(sender, dealer.hand.toString());
                 
