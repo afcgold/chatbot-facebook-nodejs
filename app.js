@@ -183,24 +183,24 @@ function handleEcho(messageId, appId, metadata) {
 	console.log("Received echo for message %s and app %d with metadata %s", messageId, appId, metadata);
 }
 
+var player, dealer, shoe;
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	
-   var player, dealer,shoe;
-  
+
   switch (action) {
       
-      case "dealer-hand" :
-    
-        var deck = new cards.Deck()
-        deck.createShoe(1);
-                
-        var printOut = deck.deal(2);
-        
-        printOut = cards.displayHand(printOut);
-        
-        sendTextMessage(sender, printOut.toString());
-        
-        break;
+//      case "dealer-hand" :
+//    
+//        var deck = new cards.Deck()
+//        deck.createShoe(1);
+//                
+//        var printOut = deck.deal(2);
+//        
+//        printOut = cards.displayHand(printOut);
+//        
+//        sendTextMessage(sender, printOut.toString());
+//        
+//        break;
       
       case "newGame" :
         
