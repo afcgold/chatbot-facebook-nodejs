@@ -156,7 +156,13 @@ function newGame(){
   
 }
 
-
+function cardsRemain(deck){
+  
+  var remain = deck.deck.length;
+  
+  return remain;
+  
+}
 
 
 
@@ -202,5 +208,6 @@ function lastName(){
     displayHand : displayHand,
     deal : deal,
     newGame : newGame,
-    score: score
+    score: score,
+    cardsRemain: cardsRemain
 }
