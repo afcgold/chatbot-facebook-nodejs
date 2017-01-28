@@ -229,12 +229,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             var buttons = [
       {
         "type":"postback",
-        "title":"Hit",
+        "title":"Hit ☝️",
         "payload":"hit"
       },
       {
       "type":"postback",
-      "title":"Stand",
+      "title":"Stand ✋",
       "payload":"DEVELOPER_DEFINED_PAYLOAD"
       }
     ];
