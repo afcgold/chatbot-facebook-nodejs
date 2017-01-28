@@ -220,9 +220,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           dealer.dealer = true;
         
         //deal 2 cards for player and 1 for dealer
-        sendTextMessage(sender, player.name + "  hand: " + cards.displayHand(player.hand).toString());
+        sendTextMessage(sender, player.name + "  hand: " + cards.displayHand(player.hand).toString()+". Giving you a score of "+cards.score(player.hand).toString());
         
-        sendTextMessage(sender, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString());
+        sendTextMessage(sender, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString()+". Giving me a score of "+cards.score(dealer.hand).toString());
       
         return shoe;
                 
@@ -234,7 +234,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         player.hand.push(hitCard);
         
-        sendTextMessage(sender, player.name + "  hand: " + cards.displayHand(player.hand).toString());
+        sendTextMessage(sender, player.name + "  hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+cards.score(player.hand).toString()));
         
         
         break;

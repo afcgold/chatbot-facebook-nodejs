@@ -106,6 +106,44 @@ function deal(number){
     return cards;
 }
 
+function score(){
+  
+    var temp = [];
+
+    var sum = 0;
+
+    var numAces = 0;
+
+      for (i = 0; i < this.deck.length; i++){
+
+        temp[i] = this.deck[i].value;
+
+        if (this.deck[i].rank === "Ace"){
+
+          var add = Math.max.apply(Math, this.deck[i].value);
+          sum += add;
+          numAces++;
+
+        } else {
+
+           sum += temp[i];
+        }
+      }
+
+    while (sum > 21 && numAces){
+
+      sum -= 10;    
+      numAces--;
+
+    } 
+
+    if (sum === 21){
+      return "BLACKJACK";
+    }
+  
+    return sum;
+}
+
 function newGame(){
   
   //create shoe to play from
@@ -161,5 +199,6 @@ function lastName(){
     createShoe : createShoe,
     displayHand : displayHand,
     deal : deal,
-    newGame : newGame
+    newGame : newGame,
+    score: score
 }
