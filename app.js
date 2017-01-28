@@ -230,7 +230,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       {
         "type":"postback",
         "title":"Hit",
-        "payload":hit
+        "payload":"hit"
       },
       {
       "type":"postback",
