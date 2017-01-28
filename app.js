@@ -200,7 +200,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //        
 //        sendTextMessage(sender, printOut.toString());
       
-      sendButtonMessage(sender,"choose your next move:", ["hit","stand"]);
+      sendButtonMessage(sender,"choose your next move:", "hit");
 //        
         break;
       
