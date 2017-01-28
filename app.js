@@ -202,7 +202,25 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       case "newGame" :
         
         sendTextMessage(sender, "START NEW GAME");
+
+        //start a new game of blackjack
+        cards.newGame();
+        //create player and dealer 
         
+          //create player
+          player = new Player("Player");
+          player.hand = shoe.deal(2);
+
+          //create dealer
+          dealer = new Player("Dealer");
+          dealer.hand = shoe.deal(2);
+          dealer.dealer = true;
+        
+        //deal 2 cards for player and 1 for dealer
+        sendTextMessage(sender, player.hand.toString());
+        
+        sendTextMessage(sender, dealer.hand.toString());
+                
          break;
         
       default:
