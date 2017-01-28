@@ -788,7 +788,19 @@ function receivedPostback(event) {
 	var payload = event.postback.payload;
 
 	switch (payload) {
-		default:
+      case "hit":
+        
+        var hitCard = shoe.deal();
+        
+        player.hand.push(hitCard);
+        
+        sendTextMessage(sender, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+cards.score(player.hand).toString());
+        
+        
+        
+        break;
+        
+      default:
 			//unindentified payload
 			sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?");
 			break;
