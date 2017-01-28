@@ -794,8 +794,7 @@ function receivedPostback(event) {
         
         player.hand.push(hitCard);
         
-        sendTextMessage(sender, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+cards.score(player.hand).toString());
-        
+        sendTextMessage(senderID, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+cards.score(player.hand).toString());
         
         
         break;
