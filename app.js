@@ -185,7 +185,7 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	
-   var player, dealer;
+   var player, dealer,shoe;
   
   switch (action) {
       
@@ -207,7 +207,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         sendTextMessage(sender, "START NEW GAME");
 
           //start a new game of blackjack
-          var shoe = cards.newGame();
+          shoe = cards.newGame();
           //create player and dealer 
         
           //create player
