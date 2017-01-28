@@ -1,5 +1,11 @@
 //Cards.js
 //Create decks,shuffle and deal hands!
+function Player(name){
+  this.name = name;
+  this.score = 0;
+  this.hand = [];
+  this.dealer = false;
+}
 
 function Deck() {
     this.deck = new Array();
@@ -150,6 +156,7 @@ function lastName(){
     lastName : lastName,
     Person : Person,
     Deck: Deck,
+    Player: Player,
     Card : Card,
     createShoe : createShoe,
     displayHand : displayHand,
