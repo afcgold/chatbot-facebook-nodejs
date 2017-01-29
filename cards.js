@@ -1,4 +1,3 @@
-const app = require('./app');
 
 //Cards.js
 //Create decks,shuffle and deal hands!
@@ -148,23 +147,7 @@ function score(sender,hand){
        var busted = ""+sum+". BUSTED! Game over.";
       
       return busted;
-    } else {
-      
-       var buttons = [
-              {
-                "type":"postback",
-                "title":"Hit ☝️",
-                "payload":"hit"
-              },
-              {
-              "type":"postback",
-              "title":"Stand ✋",
-              "payload":"DEVELOPER_DEFINED_PAYLOAD"
-              }
-            ];
-      
-      app.sendButtonMessage(sender,"Choose your next move:", buttons);
-    }
+    } 
   
     return sum;
 }
