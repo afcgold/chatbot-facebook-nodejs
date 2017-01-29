@@ -198,9 +198,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         break;
       
       case "newGame" :
-        
-//        sendTextMessage(sender, "START NEW GAME");
-
+      
           //start a new game of blackjack
           shoe = cards.newGame();
           //create player and dealer 
@@ -228,7 +226,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //        sendImageMessage(sender,dealerImageURL);
       
         var handValue = cards.score(player.hand)
-        hitStand(sender,handValue);
+        
+        if (dealer.busted === false){
+          
+          hitStand(sender,handValue);
+
+        }
 
         return shoe;
                 
