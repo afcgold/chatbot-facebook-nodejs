@@ -214,19 +214,18 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           dealer.hand = shoe.deal(2);
           dealer.dealer = true;
         
-        //deal 2 cards for player and 1 for dealer
+        //deal 2 cards for player and 2 for dealer
         sendTextMessage(sender, player.name + "'s hand: "+ cards.displayHand(player.hand).toString()+". Giving you a score of "+cards.score(player.hand).toString());
         
-        var playerImageURL = cards.requestImage(player.hand);
+//        var playerImageURL = cards.requestImage(player.hand);
+//      
+//        sendImageMessage(sender,playerImageURL);
       
-        sendImageMessage(sender,playerImageURL);
-      
-      //
         sendTextMessage(sender, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString()+". Giving me a score of "+cards.score(dealer.hand).toString());
 
-        var dealerImageURL = cards.requestImage(dealer.hand);
-      
-        sendImageMessage(sender,dealerImageURL);
+//        var dealerImageURL = cards.requestImage(dealer.hand);
+//      
+//        sendImageMessage(sender,dealerImageURL);
       
         var handValue = cards.score(player.hand)
         hitStand(sender,handValue);
@@ -809,7 +808,9 @@ function receivedPostback(event) {
         
         var handValue = cards.score(player.hand);
         
-        if (cards.dealer17(dealer.hand) === true){
+        sendTextMessage(senderID,player.busted.toString());
+        
+        if (cards.dealer17(dealer.hand) === true) && {
           
           var dealerHit = shoe.deal();
           

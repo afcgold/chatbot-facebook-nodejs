@@ -12,6 +12,7 @@ function Player(name){
   this.score = 0;
   this.hand = [];
   this.dealer = false;
+  this.busted = false;
 }
 
 function Deck() {
@@ -150,9 +151,11 @@ function score(hand){
       return "BLACKJACK";
     } else if(sum > 21){
       
-       var busted = ""+sum+". BUSTED! Game over 😭";
+      this.player.busted = true;
       
-      return busted;
+       var bust = ""+sum+". BUSTED! Game over 😭";
+      
+      return bust;
     } 
   
     return sum;
