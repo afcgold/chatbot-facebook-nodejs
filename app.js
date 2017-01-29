@@ -218,19 +218,15 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         sendTextMessage(sender, player.name + "'s hand: "+ cards.displayHand(player.hand).toString()+". Giving you a score of "+cards.score(player.hand).toString());
         
         var playerImageURL = cards.requestImage(player.hand);
-  
-        var pImageURL = playerImageURL.replace("<img src='","");
-  
-//        playerImageURL.replace("' />","");
       
-        sendTextMessage(sender,pImageURL);
+        sendImageMessage(sender,playerImageURL);
       
       //
         sendTextMessage(sender, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString()+". Giving me a score of "+cards.score(dealer.hand).toString());
 
         var dealerImageURL = cards.requestImage(dealer.hand);
       
-        sendTextMessage(sender,dealerImageURL);
+        sendImageMessage(sender,dealerImageURL);
       
         var handValue = cards.score(player.hand)
         hitStand(sender,handValue);
