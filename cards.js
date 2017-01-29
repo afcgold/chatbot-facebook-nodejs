@@ -170,6 +170,16 @@ function cardsRemain(deck){
   
 }
 
+function dealer17(hand){
+  
+  var value = cards.score(hand);
+  
+  if value < 17 
+    
+  return value < 17 ? true : false
+  
+}
+
 
 
 
@@ -215,5 +225,6 @@ function lastName(){
     deal : deal,
     newGame : newGame,
     score: score,
-    cardsRemain: cardsRemain
+    cardsRemain: cardsRemain,
+    dealer17: dealer17
 }

@@ -233,15 +233,15 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       
       case "hit" :
         
-        var hitCard = shoe.deal();
-        
-        player.hand.push(hitCard);
-        
-        sendTextMessage(sender, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+cards.score(player.hand).toString());
-
-//        var handValue = cards.score(player.hand)
-//        hitStand(sender,handValue);
-//              
+//        var hitCard = shoe.deal();
+//        
+//        player.hand.push(hitCard);
+//        
+//        sendTextMessage(sender, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+cards.score(player.hand).toString());
+//
+////        var handValue = cards.score(player.hand)
+////        hitStand(sender,handValue);
+////              
         break;
         
       default:
@@ -808,6 +808,16 @@ function receivedPostback(event) {
         sendTextMessage(senderID, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+handValue.toString());
         
         hitStand(senderID,handValue);
+        
+        if (cards.dealer17(player.hand) === true){
+          
+          var dealerHit = shoe.deal();
+          
+          dealer.hand.push(dealerHit);
+          
+          sendTextMessage(senderID, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString()+". Giving me a score of "+cards.score(dealer.hand).toString());
+
+        }
               
         break;
       
