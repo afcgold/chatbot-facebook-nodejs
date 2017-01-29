@@ -823,7 +823,7 @@ function receivedPostback(event) {
         hitStand(senderID,handValue);
         
         
-         if (player.busted === false) {
+         if (player.busted === false || cards.cardsRemain(dealer.hand) === false) {
           
           var dealerHit = shoe.deal();
           
