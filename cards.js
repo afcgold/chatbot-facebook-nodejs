@@ -197,6 +197,8 @@ function requestImage(hand) {
           
       var imageURL = cloudinary.image(images[0], {overlay: images[1], gravity: "east", x: -175});
   
+      imageURL.toString();
+  
       imageURL.replace("<img src='","");
   
       imageURL.replace("' />","");
