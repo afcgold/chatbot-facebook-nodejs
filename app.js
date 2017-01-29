@@ -223,14 +223,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         sendTextMessage(sender, player.name + "'s hand: "+ cards.displayHand(player.hand).toString()+". Giving you a score of "+cards.score(sender,player.hand).toString());
         
         sendTextMessage(sender, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString()+". Giving me a score of "+cards.score(sender,dealer.hand).toString());
-      
-//        sendTextMessage(sender, cards.cardsRemain(shoe).toString());
-      
-//        var handValue = cards.score(player.hand);
-//      
-//        hitStand(sender,handValue);
-      
 
+        hitStand(sender,cards.score(player.hand));
 
         return shoe;
                 
@@ -243,13 +237,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         player.hand.push(hitCard);
         
         sendTextMessage(sender, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+cards.score(sender,player.hand).toString());
+
+        hitStand(sender,cards.score(player.hand));
         
-//        sendTextMessage(sender, cards.cardsRemain(shoe).toString());
-      
-//        handValue = cards.score(player.hand);
-//      
-//        hitStand(sender,handValue);
-//        
         break;
         
       default:
@@ -258,27 +248,27 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	}
 }
 
-//function hitStand(sender,score){
-//  
-//  if (score < 21){
-//                var buttons = [
-//              {
-//                "type":"postback",
-//                "title":"Hit ☝️",
-//                "payload":"hit"
-//              },
-//              {
-//              "type":"postback",
-//              "title":"Stand ✋",
-//              "payload":"DEVELOPER_DEFINED_PAYLOAD"
-//              }
-//            ];
-//      
-//      sendButtonMessage(sender,"Choose your next move:", buttons);
-//    
-//  };
-//  
-//}
+function hitStand(sender,score){
+  
+  if (score < 21){
+                var buttons = [
+              {
+                "type":"postback",
+                "title":"Hit ☝️",
+                "payload":"hit"
+              },
+              {
+              "type":"postback",
+              "title":"Stand ✋",
+              "payload":"DEVELOPER_DEFINED_PAYLOAD"
+              }
+            ];
+      
+      sendButtonMessage(sender,"Choose your next move:", buttons);
+    
+  };
+  
+}
 
 function handleMessage(message, sender) {
 	switch (message.type) {
