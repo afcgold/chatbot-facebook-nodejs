@@ -200,8 +200,6 @@ function requestImage(hand) {
       imageURL.replace("<img src='","");
   
       imageURL.replace("' />","");
-
-      var imageURL = imageURL.toString();
   
       return imageURL;   
 
