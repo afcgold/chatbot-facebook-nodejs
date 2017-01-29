@@ -810,7 +810,7 @@ function receivedPostback(event) {
         
         sendTextMessage(senderID,player.busted.toString());
         
-        if (cards.dealer17(dealer.hand) === true) && {
+        if (cards.dealer17(dealer.hand) === true) && (player.busted === false) {
           
           var dealerHit = shoe.deal();
           

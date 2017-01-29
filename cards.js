@@ -147,8 +147,12 @@ function score(hand){
 
     } 
 
-    if (sum === 21){
+    if (sum === 21 && hand.length <= 2){
       return "BLACKJACK";
+    } else if (sum ===21 && hand.length > 2){
+      
+      return sum;
+      
     } else if(sum > 21){
       
       this.player.busted = true;
