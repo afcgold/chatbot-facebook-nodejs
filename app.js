@@ -219,7 +219,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         var playerImageURL = cards.requestImage(player.hand);
   
-        playerImageURL.replace("<img src='","");
+        pImageURL = playerImageURL.replace("<img src='","");
   
 //        playerImageURL.replace("' />","");
       
