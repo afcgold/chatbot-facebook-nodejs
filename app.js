@@ -239,11 +239,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         sendTextMessage(sender, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+cards.score(player.hand).toString());
 
-        var handValue = cards.score(player.hand)
-        hitStand(sender,handValue);
-      
-        sendTextMessage(sender, "umm hit or stand?");
-        
+//        var handValue = cards.score(player.hand)
+//        hitStand(sender,handValue);
+//              
         break;
         
       default:
@@ -808,7 +806,9 @@ function receivedPostback(event) {
         var handValue = cards.score(player.hand);
         
         sendTextMessage(senderID, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+handValue.toString());
-                
+        
+        hitStand(sender,handValue);
+              
         break;
         
       default:
