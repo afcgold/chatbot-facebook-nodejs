@@ -107,7 +107,7 @@ function deal(number){
     return cards;
 }
 
-function score(sender,hand){
+function score(hand){
   
     var temp = [];
 
