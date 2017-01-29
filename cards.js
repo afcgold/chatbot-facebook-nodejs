@@ -191,13 +191,13 @@ function requestImage(hand) {
       //send image
       for (i = 0; i < hand.length; i++){
             
-        images[i] = hand[i].image
+        images[i] = hand[i].rank
         
       } 
           
 //      var imageURL = cloudinary.image(images[0], {overlay: images[1], gravity: "east", x: -165});
 
-      var imageURL = "IMAGE";
+      var imageURL = images;
   
       return imageURL;   
 
