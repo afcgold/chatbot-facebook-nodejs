@@ -810,6 +810,12 @@ function receivedPostback(event) {
         hitStand(senderID,handValue);
               
         break;
+      
+      case "stand":
+        
+        sendTextMessage(senderID,"stand, let dealer play");
+        
+        break;
         
       default:
 			//unindentified payload
