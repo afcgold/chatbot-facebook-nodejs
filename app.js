@@ -226,20 +226,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       
 //        sendTextMessage(sender, cards.cardsRemain(shoe).toString());
       
-            var buttons = [
-      {
-        "type":"postback",
-        "title":"Hit ☝️",
-        "payload":"hit"
-      },
-      {
-      "type":"postback",
-      "title":"Stand ✋",
-      "payload":"DEVELOPER_DEFINED_PAYLOAD"
-      }
-    ];
+        var handValue = cards.score(player.hand);
       
-      sendButtonMessage(sender,"Choose your next move:", buttons);
+        score(handValue);
+      
+
 
         return shoe;
                 
@@ -261,6 +252,28 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		//unhandled action, just send back the text
 		sendTextMessage(sender, responseText);
 	}
+}
+
+function hitStand(score){
+  
+  if (score < 21){
+                var buttons = [
+              {
+                "type":"postback",
+                "title":"Hit ☝️",
+                "payload":"hit"
+              },
+              {
+              "type":"postback",
+              "title":"Stand ✋",
+              "payload":"DEVELOPER_DEFINED_PAYLOAD"
+              }
+            ];
+      
+      sendButtonMessage(sender,"Choose your next move:", buttons);
+    
+  };
+  
 }
 
 function handleMessage(message, sender) {
@@ -794,9 +807,10 @@ function receivedPostback(event) {
         
         player.hand.push(hitCard);
         
-        sendTextMessage(senderID, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+cards.score(player.hand).toString());
+        var handValue = cards.score(player.hand);
         
-        
+        sendTextMessage(senderID, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+handValue.toString());
+                
         break;
         
       default:
