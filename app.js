@@ -228,7 +228,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       
         var handValue = cards.score(player.hand);
       
-        hitStand(handValue);
+        hitStand(sender,handValue);
       
 
 
@@ -254,7 +254,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	}
 }
 
-function hitStand(score){
+function hitStand(sender,score){
   
   if (score < 21){
                 var buttons = [
