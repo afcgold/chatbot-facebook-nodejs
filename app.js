@@ -805,11 +805,7 @@ function receivedPostback(event) {
         
         var handValue = cards.score(player.hand);
         
-        sendTextMessage(senderID, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+handValue.toString());
-        
-        hitStand(senderID,handValue);
-        
-        if (cards.dealer17(player.hand) === true){
+        if (cards.dealer17(dealer.hand) === true){
           
           var dealerHit = shoe.deal();
           
@@ -818,6 +814,12 @@ function receivedPostback(event) {
           sendTextMessage(senderID, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString()+". Giving me a score of "+cards.score(dealer.hand).toString());
 
         }
+        
+        sendTextMessage(senderID, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+handValue.toString());
+        
+        hitStand(senderID,handValue);
+        
+        
               
         break;
       
