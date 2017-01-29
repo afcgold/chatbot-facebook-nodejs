@@ -241,6 +241,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
         var handValue = cards.score(player.hand)
         hitStand(sender,handValue);
+      
+        sendTextMessage(sender, "umm hit or stand?");
         
         break;
         
