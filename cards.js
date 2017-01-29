@@ -178,6 +178,26 @@ function dealer17(hand){
   
 }
 
+function requestImage(hand) {
+       
+      var images = [];
+
+      //send image
+      for (i = 0; i < hand.length; i++){
+            
+        images[i] = hand[i].image
+        
+      } 
+  
+      function getImage(images){
+        
+          var imageURL = cloudinary.image(images[0], {overlay: images[1], gravity: "east", x: -165});
+
+      }
+
+    return imageURL;   
+}
+
 
 
 
@@ -224,5 +244,6 @@ function lastName(){
     newGame : newGame,
     score: score,
     cardsRemain: cardsRemain,
-    dealer17: dealer17
+    dealer17: dealer17,
+    requestImage: requestImage
 }
