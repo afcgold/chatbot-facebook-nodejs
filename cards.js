@@ -146,24 +146,7 @@ function score(hand){
        var busted = ""+sum+". BUSTED! Game over.";
       
       return busted;
-    } else {
-      
-      var buttons = [
-              {
-                "type":"postback",
-                "title":"Hit ☝️",
-                "payload":"hit"
-              },
-              {
-              "type":"postback",
-              "title":"Stand ✋",
-              "payload":"DEVELOPER_DEFINED_PAYLOAD"
-              }
-            ];
-      
-      sendButtonMessage(sender,"Choose your next move:", buttons);
-      
-    }
+    } 
   
     return sum;
 }
