@@ -262,7 +262,7 @@ function hitStand(sender,score){
               {
               "type":"postback",
               "title":"Stand ✋",
-              "payload":"DEVELOPER_DEFINED_PAYLOAD"
+              "payload":"stand"
               }
             ];
       
