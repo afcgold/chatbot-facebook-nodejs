@@ -228,7 +228,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       
         var handValue = cards.score(player.hand);
       
-        score(handValue);
+        hitStand(handValue);
       
 
 
