@@ -822,18 +822,18 @@ function receivedPostback(event) {
         
         hitStand(senderID,handValue);
         
-        
-         if (player.busted === false || cards.cardsRemain(dealer.hand) === false) {
-          
-          var dealerHit = shoe.deal();
-          
-          dealer.hand.push(dealerHit);
-           
-           sendTextMessage(senderID, cards.cardsRemain(dealer.hand).toString());
-          
-//          sendTextMessage(senderID, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString()+". Giving me a score of "+cards.score(dealer.hand).toString());
+        sendTextMessage(senderID, cards.cardsRemain(dealer.hand).toString());
 
-        }
+//        
+//         if (player.busted === false || cards.cardsRemain(dealer.hand) === false) {
+//          
+//          var dealerHit = shoe.deal();
+//          
+//          dealer.hand.push(dealerHit);
+//                     
+////          sendTextMessage(senderID, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString()+". Giving me a score of "+cards.score(dealer.hand).toString());
+//
+//        }
         
               
         break;
