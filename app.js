@@ -808,6 +808,10 @@ function receivedPostback(event) {
         
         var handValue = cards.score(player.hand);
         
+        if (handValue > 21){
+          player.busted = true;
+        }
+        
         sendTextMessage(senderID,player.busted.toString());
         
         if (cards.dealer17(dealer.hand) === true && player.busted === false) {
