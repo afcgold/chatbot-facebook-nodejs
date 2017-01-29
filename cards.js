@@ -191,7 +191,7 @@ function requestImage(hand) {
       //send image
       for (i = 0; i < hand.length; i++){
             
-        images[i] = hand[i].rank
+        images[i] = hand[i].image
         
       } 
           
