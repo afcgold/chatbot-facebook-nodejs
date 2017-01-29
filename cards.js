@@ -1,5 +1,10 @@
 const cloudinary = require('cloudinary');
 
+cloudinary.config({ 
+              cloud_name: "afcgold", 
+              api_key: "172131976868625", 
+              api_secret: "MCVeonGDlwEga4ooiNgRiznd3Xc" 
+          });
 //Cards.js
 //Create decks,shuffle and deal hands!
 function Player(name){
