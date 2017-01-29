@@ -172,7 +172,7 @@ function cardsRemain(deck){
 
 function dealer17(hand){
   
-  var value = cards.score(hand);
+  var value = score(hand);
     
   return value < 17 ? true : false
   
