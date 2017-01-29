@@ -807,7 +807,7 @@ function receivedPostback(event) {
         
         sendTextMessage(senderID, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+handValue.toString());
         
-        hitStand(sender,handValue);
+        hitStand(senderID,handValue);
               
         break;
         
