@@ -814,35 +814,28 @@ function receivedPostback(event) {
           
           dealer.hand = shoe.deal(1);
           
-        }
-        
-        var hitCard = shoe.deal();
-        
-        player.hand.push(hitCard);
-        
-        var handValue = cards.score(player.hand);
-        
-        if (handValue > 21){
-          player.busted = true;
-        }
-                
-        sendTextMessage(senderID, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+handValue.toString());
-        
-        hitStand(senderID,handValue);
-        
-        sendTextMessage(senderID, cards.cardsRemain(dealer.hand).toString());
+          dealer.score = cards.score(dealer.hand);
+          
+          sendTextMessage(senderID, "The dealer's hole card was: " + cards.displayHand(player.hand[1]).toString()+", so his score is now "+dealer.score.toString());
 
-//        
-//         if (player.busted === false || cards.cardsRemain(dealer.hand) === false) {
-//          
-//          var dealerHit = shoe.deal();
-//          
-//          dealer.hand.push(dealerHit);
-//                     
-////          sendTextMessage(senderID, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString()+". Giving me a score of "+cards.score(dealer.hand).toString());
-//
-//        }
+          
+        }
         
+//        var hitCard = shoe.deal();
+//        
+//        player.hand.push(hitCard);
+//        
+//        var handValue = cards.score(player.hand);
+//        
+//        if (handValue > 21){
+//          player.busted = true;
+//        }
+                
+//        sendTextMessage(senderID, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+handValue.toString());
+        
+//        hitStand(senderID,handValue);
+        
+
               
         break;
       
