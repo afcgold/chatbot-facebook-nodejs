@@ -810,7 +810,7 @@ function receivedPostback(event) {
         //need to look at this tomorrow
       case "hit":
         
-        if dealer.hand.length < 2 {
+        if (dealer.hand.length < 2 ){
           
           dealer.hand = shoe.deal(1);
           
