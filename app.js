@@ -812,11 +812,13 @@ function receivedPostback(event) {
         
         if (dealer.hand.length < 2 ){
           
-          dealer.hand = shoe.deal(1);
+          var dealHole = shoe.deal(1);
+          
+          dealer.hand.push(dealHole);
           
           dealer.score = cards.score(dealer.hand);
           
-          sendTextMessage(senderID, "The dealer's hole card was: " + cards.displayHand(player.hand[1]).toString()+", so his score is now "+dealer.score.toString());
+          sendTextMessage(senderID, "The dealer's hole card was: " + dealHole.toString()+", so his score is now "+dealer.score.toString());
 
           
         }
