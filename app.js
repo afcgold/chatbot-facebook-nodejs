@@ -30,7 +30,6 @@ if (!config.SERVER_URL) { //used for ink to static files
 }
 
 
-
 app.set('port', (process.env.PORT || 5000))
 
 //verify request came from facebook
@@ -813,18 +812,20 @@ function receivedPostback(event) {
         if (dealer.hand.length < 2 ){
           
           shoe.deal(dealer,1);
-          
           shoe.deal(player,1);
           
           dealer.score = cards.score(dealer.hand);
-          
           player.score = cards.score(player.hand);
 
           
           if (dealer.hand.length === 2){
             
+            if (player.score < 21){
+              
               sendTextMessage(senderID, "The dealer's hole card was:" + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
 
+            }
+            
               sendTextMessage(senderID, "Your hand is now" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!"); 
 
           }
@@ -844,23 +845,7 @@ function receivedPostback(event) {
           sendTextMessage(senderID, "Now you've got" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!"); 
 
         }
-        
-//        shoe.deal(dealer,1);
-//        
-////        player.hand.push(hitCard);
-//        
-//        var handValue = cards.score(player.hand);
-//        
-//        if (handValue > 21){
-//          player.busted = true;
-//        }
-//                
-//        sendTextMessage(senderID, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+handValue.toString());
-//        
-////        hitStand(senderID,handValue);
-//        
-//
-//              
+
         break;
       
       case "stand":
