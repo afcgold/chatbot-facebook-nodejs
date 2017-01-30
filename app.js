@@ -219,13 +219,23 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         sendTextMessage(sender, player.name + "'s hand: "+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
         
 //        var playerImageURL = cards.requestImage(player.hand);
+//      
 //        sendImageMessage(sender,playerImageURL);
       
         sendTextMessage(sender, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString()+". Giving me a score of "+dealer.score.toString());
 
 //        var dealerImageURL = cards.requestImage(dealer.hand);
+//      
 //        sendImageMessage(sender,dealerImageURL);
       
+//        var handValue = cards.score(player.hand)
+//        
+//        if (dealer.busted === false){
+          
+          hitStandButton(sender, player.score);
+
+//        }
+
         return shoe;
                 
          break;
@@ -249,7 +259,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	}
 }
 
-function hitStand(sender,score){
+function hitStandButton (sender,score){
   
   if (score < 21){
                 var buttons = [
