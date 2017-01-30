@@ -856,11 +856,21 @@ function receivedPostback(event) {
         
         if (cards.below17(dealer.hand) === true ){
           
-          shoe.deal(dealer,1);
-          dealer.score = cards.score(dealer.hand);
+          while (cards.below17(dealer.hand) === true){
+            
+                shoe.deal(dealer,1);
+            dealer.score = cards.score(dealer.hand);
 
-          sendTextMessage(senderID, "The dealer now has" + cards.displayHand(dealer.hand).toString()+", with a combined score of "+dealer.score.toString() + "."); 
+            if (dealer.hand.length ===2 ){
 
+                sendTextMessage(senderID, "The dealer's hole card was:" + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
+
+            } else {
+
+                sendTextMessage(senderID, "The dealer's hand is now:" + cards.displayHand(dealer.hand).toString()+", totalling "+dealer.score.toString());
+            }
+          }
+        
         } else { 
         
           sendTextMessage(senderID,"the dealer stands");
