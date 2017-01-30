@@ -810,30 +810,30 @@ function receivedPostback(event) {
         //need to look at this tomorrow
       case "hit":
         
-        if (dealer.hand.length < 2 ){
-          
-          var dealHole = shoe.deal(1);
-          
-          dealer.hand.push(dealHole);
-          
-          dealer.score = cards.score(dealer.hand);
-          
-          sendTextMessage(senderID, "The dealer's hole card was: " + dealHole.toString()+", so his score is now "+dealer.score.toString());
-
-          
-        }
-        
-//        var hitCard = shoe.deal();
-//        
-//        player.hand.push(hitCard);
-//        
-//        var handValue = cards.score(player.hand);
-//        
-//        if (handValue > 21){
-//          player.busted = true;
+//        if (dealer.hand.length < 2 ){
+//          
+//          var dealHole = shoe.deal(1);
+//          
+//          dealer.hand.push(dealHole);
+//          
+//          dealer.score = cards.score(dealer.hand);
+//          
+//          sendTextMessage(senderID, "The dealer's hole card was: " + dealHole.toString()+", so his score is now "+dealer.score.toString());
+//
+//          
 //        }
+        
+        var hitCard = shoe.deal();
+        
+        player.hand.push(hitCard);
+        
+        var handValue = cards.score(player.hand);
+        
+        if (handValue > 21){
+          player.busted = true;
+        }
                 
-//        sendTextMessage(senderID, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+handValue.toString());
+        sendTextMessage(senderID, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+handValue.toString());
         
 //        hitStand(senderID,handValue);
         
