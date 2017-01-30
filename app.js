@@ -820,15 +820,15 @@ function receivedPostback(event) {
             
               sendTextMessage(senderID, "The dealer's hole card was: " + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
 
-              shoe.deal(player,1);
+              
+          }
+          
+          shoe.deal(player,1);
             
               player.score = cards.score(player.hand);
             
               sendTextMessage(senderID, "Your hand is now" + cards.displayHand(player.hand).toString()+", with a score of "+handValue.toString()); 
             
-          }
-          
-          
           
         } else {
           
