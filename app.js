@@ -850,7 +850,19 @@ function receivedPostback(event) {
       
       case "stand":
         
-        sendTextMessage(senderID,"stand, let dealer play");
+//        sendTextMessage(senderID,"stand, let dealer play");
+        
+        sendTextMessage(senderID,"Great, you've decided to stand with "+ player.score);
+        
+        if (dealer17(dealer.score) === true ){
+          
+          shoe.deal(dealer,1);
+          dealer.score = cards.score(dealer.hand);
+
+          sendTextMessage(senderID, "The dealer now has" + cards.displayHand(dealer.hand).toString()+", with a combined score of "+dealer.score.toString() + "."); 
+
+        }
+
         
         break;
         

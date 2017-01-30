@@ -149,6 +149,8 @@ function score(hand){
             
        var bust = ""+sum+". BUSTED! Game over 😭";
       
+      this.player.busted = true;
+      
       return bust;
     } 
   
@@ -173,7 +175,7 @@ function cardsRemain(deck){
   
 }
 
-function dealer17(hand){
+function below17(hand){
   
   var value = score(hand);
     
@@ -248,6 +250,6 @@ function lastName(){
     newGame : newGame,
     score: score,
     cardsRemain: cardsRemain,
-    dealer17: dealer17,
+    below17: below17,
     requestImage: requestImage
 }
