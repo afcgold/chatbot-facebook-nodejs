@@ -210,7 +210,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
           //create dealer
           dealer = new cards.Player("Dealer");
-          dealer.hand = shoe.deal(2);
+          dealer.hand = shoe.deal(1);
           dealer.dealer = true;
           dealer.score = cards.score(dealer.hand);
         
@@ -809,6 +809,12 @@ function receivedPostback(event) {
         
         //need to look at this tomorrow
       case "hit":
+        
+        if dealer.hand.length < 2 {
+          
+          dealer.hand = shoe.deal(1);
+          
+        }
         
         var hitCard = shoe.deal();
         
