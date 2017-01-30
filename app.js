@@ -216,13 +216,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         
         //deal 2 cards for player and 2 for dealer
-        sendTextMessage(sender, player.name + "'s hand: "+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
+        sendTextMessage(sender, player.name + "'s hand:"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
         
 //        var playerImageURL = cards.requestImage(player.hand);
 //      
 //        sendImageMessage(sender,playerImageURL);
       
-        sendTextMessage(sender, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString()+". Giving me a score of "+dealer.score.toString());
+        sendTextMessage(sender, dealer.name + " hand:" + cards.displayHand(dealer.hand).toString()+". Giving me a score of "+dealer.score.toString());
 
 //        var dealerImageURL = cards.requestImage(dealer.hand);
 //      
@@ -823,9 +823,9 @@ function receivedPostback(event) {
           
           if (dealer.hand.length === 2){
             
-              sendTextMessage(senderID, "The dealer's hole card was: " + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
+              sendTextMessage(senderID, "The dealer's hole card was:" + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
 
-              sendTextMessage(senderID, "Your hand is now " + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString()); 
+              sendTextMessage(senderID, "Your hand is now" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!"); 
 
           }
           
@@ -836,9 +836,13 @@ function receivedPostback(event) {
           }
                 
         } else {
+                    
+          shoe.deal(player,1);
+                    
+          player.score = cards.score(player.hand);
           
-          sendTextMessage(senderID, "ooops");
-          
+          sendTextMessage(senderID, "Now you've got" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!"); 
+
         }
         
 //        shoe.deal(dealer,1);

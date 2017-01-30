@@ -91,7 +91,7 @@ function shuffleDeck() {
 function displayHand(deck){
   var display = [];  
     for (i = 0; i < deck.length; i++){
-    display[i] = "" + deck[i].rank + " of " + deck[i].suit + "";
+    display[i] = " " + deck[i].rank + " of " + deck[i].suit + "";
   }
   return display;
 }
