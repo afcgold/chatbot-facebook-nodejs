@@ -825,8 +825,14 @@ function receivedPostback(event) {
             
               sendTextMessage(senderID, "The dealer's hole card was: " + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
 
-              sendTextMessage(senderID, "Your hand is now" + cards.displayHand(player.hand).toString()+", with a score of "+player.score.toString()); 
+              sendTextMessage(senderID, "Your hand is now " + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString()); 
 
+          }
+          
+          if (player.score < 21){
+            
+            hitStandButton(senderID, player.score);
+            
           }
                 
         } else {
