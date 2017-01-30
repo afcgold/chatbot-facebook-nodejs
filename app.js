@@ -206,33 +206,26 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           //create player
           player = new cards.Player("George");
           player.hand = shoe.deal(2);
+          player.score = cards.score(player.hand);
 
           //create dealer
           dealer = new cards.Player("Dealer");
           dealer.hand = shoe.deal(2);
           dealer.dealer = true;
+          dealer.score = cards.score(dealer.hand);
+        
         
         //deal 2 cards for player and 2 for dealer
-        sendTextMessage(sender, player.name + "'s hand: "+ cards.displayHand(player.hand).toString()+". Giving you a score of "+cards.score(player.hand).toString());
+        sendTextMessage(sender, player.name + "'s hand: "+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
         
 //        var playerImageURL = cards.requestImage(player.hand);
-//      
 //        sendImageMessage(sender,playerImageURL);
       
-        sendTextMessage(sender, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString()+". Giving me a score of "+cards.score(dealer.hand).toString());
+        sendTextMessage(sender, dealer.name + " hand: " + cards.displayHand(dealer.hand).toString()+". Giving me a score of "+dealer.score.toString());
 
 //        var dealerImageURL = cards.requestImage(dealer.hand);
-//      
 //        sendImageMessage(sender,dealerImageURL);
       
-        var handValue = cards.score(player.hand)
-        
-        if (dealer.busted === false){
-          
-          hitStand(sender,handValue);
-
-        }
-
         return shoe;
                 
          break;
@@ -803,6 +796,8 @@ function receivedPostback(event) {
 	var payload = event.postback.payload;
 
 	switch (payload) {
+        
+        //need to look at this tomorrow
       case "hit":
         
         var hitCard = shoe.deal();
@@ -814,10 +809,7 @@ function receivedPostback(event) {
         if (handValue > 21){
           player.busted = true;
         }
-        
-//        sendTextMessage(senderID,player.busted.toString());
-        
-
+                
         sendTextMessage(senderID, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+handValue.toString());
         
         hitStand(senderID,handValue);
