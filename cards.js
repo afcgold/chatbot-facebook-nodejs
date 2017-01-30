@@ -96,22 +96,14 @@ function displayHand(deck){
   return display;
 }
 
-function deal(number){
-     if(number === undefined){
-        number = 1;
-     }
-   
-     if(number === 1){
-        return this.deck.shift();
-     }
-     
-     var cards = [];
+function deal(player,number){
+    
+  for (i = 0; i < number; i++){
+                        
+         player.hand.push(this.deck.shift());        
+       }
   
-     for (i = 1; i < number; i++){
-       cards.push(this.deck.shift());        
-     }  
-  
-    return cards;
+    return player.hand;
 }
 
 function score(hand){

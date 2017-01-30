@@ -205,12 +205,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
           //create player
           player = new cards.Player("George");
-          player.hand = shoe.deal(2);
+          player.hand = shoe.deal(player,2);
           player.score = cards.score(player.hand);
 
           //create dealer
           dealer = new cards.Player("Dealer");
-          dealer.hand = shoe.deal(1);
+          dealer.hand = shoe.deal(dealer,1);
           dealer.dealer = true;
           dealer.score = cards.score(dealer.hand);
         
@@ -823,9 +823,9 @@ function receivedPostback(event) {
 //          
 //        }
         
-        var hitCard = shoe.deal();
+        shoe.deal(dealer,1);
         
-        player.hand.push(hitCard);
+//        player.hand.push(hitCard);
         
         var handValue = cards.score(player.hand);
         
