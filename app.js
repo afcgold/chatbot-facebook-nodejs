@@ -854,7 +854,7 @@ function receivedPostback(event) {
         
         sendTextMessage(senderID,"Great, you've decided to stand with "+ player.score);
         
-        if (cards.dealer17(dealer.score) === true ){
+        if (cards.below17(dealer.hand) === true ){
           
           shoe.deal(dealer,1);
           dealer.score = cards.score(dealer.hand);
