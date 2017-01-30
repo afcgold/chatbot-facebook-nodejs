@@ -230,11 +230,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       
 //        var handValue = cards.score(player.hand)
 //        
-//        if (dealer.busted === false){
+        if (dealer.score < 21 && player.score < 21){
           
           hitStandButton(sender, player.score);
 
-//        }
+        }
 
         return shoe;
                 
