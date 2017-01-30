@@ -818,12 +818,13 @@ function receivedPostback(event) {
           
           if (dealer.hand.length === 2){
             
-              sendTextMessage(senderID, "The dealer's hole card was: " + dealer.hand[1].toString()+", so his score is now "+dealer.score.toString());
+              sendTextMessage(senderID, "The dealer's hole card was: " + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
 
           }
         } else {
           
           sendTextMessage(senderID, "ooops");
+          
         }
         
 //        shoe.deal(dealer,1);
