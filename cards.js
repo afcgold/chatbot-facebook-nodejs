@@ -100,6 +100,10 @@ function deal(number){
      if(number === undefined){
         number = 1;
      }
+   
+     if(number === 1){
+        return this.deck.shift();
+     }
      
      var cards = [];
   
