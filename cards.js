@@ -148,9 +148,7 @@ function score(hand){
     } else if(sum > 21){
             
        var bust = ""+sum+". BUSTED! Game over 😭";
-      
-      this.player.busted = true;
-      
+            
       return bust;
     } 
   
