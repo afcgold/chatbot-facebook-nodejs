@@ -858,9 +858,9 @@ function receivedPostback(event) {
                   sendTextMessage(senderID, "Dealer wins. 😭")
                   
                 } 
-                //what happens when you get 21?
           
            sendTextMessage(senderID, "hit hit hit hit")
+           sendTextMessage(senderID, player.score.toString());
         }
 
         break;
@@ -891,7 +891,7 @@ function receivedPostback(event) {
                 }
               }
           
-          sendTextMessage(senderID,"The Dealer decides to stand 1");
+          sendTextMessage(senderID,"The Dealer has decided to stand.");
           
             if (dealer.busted === false && player.busted === false){
                  if (cards.below17(dealer.hand) === false ){
