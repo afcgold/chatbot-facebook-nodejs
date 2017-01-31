@@ -813,45 +813,48 @@ function receivedPostback(event) {
         
         if (dealer.hand.length < 2 ){
           
-          shoe.deal(dealer,1);
-          shoe.deal(player,1);
-          
-          dealer.score = cards.score(dealer.hand);
-          player.score = cards.score(player.hand);
+                    shoe.deal(dealer,1);
+                    shoe.deal(player,1);
 
-          
-          if (dealer.hand.length === 2){
-            
-            if (player.score < 21){
-              
-              sendTextMessage(senderID, "The dealer's hole card was:" + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
+                    dealer.score = cards.score(dealer.hand);
+                    player.score = cards.score(player.hand);
 
-            }
-            
-              sendTextMessage(senderID, "Your hand is now" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!"); 
 
-          }
-          
-          if (player.score < 21){
-            
-            hitStandButton(senderID, player.score);
-            
-          }
-                
+                    if (dealer.hand.length === 2){
+
+                      if (player.score < 21){
+
+                        sendTextMessage(senderID, "The dealer's hole card was:" + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
+
+                      }
+
+                        sendTextMessage(senderID, "Your hand is now" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!"); 
+
+                    }
+
+                    if (player.score < 21){
+
+                      hitStandButton(senderID, player.score);
+
+                    }
         } else {
                     
-          shoe.deal(player,1);
-                    
-          player.score = cards.score(player.hand);
-          
-          sendTextMessage(senderID, "Now you've got" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!"); 
+                shoe.deal(player,1);
 
-          if (player.score < 21){
-            
-            hitStandButton(senderID, player.score);
-            
-          } 
-          //what happens when you get 21?
+                player.score = cards.score(player.hand);
+
+                sendTextMessage(senderID, "Now you've got" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!"); 
+
+                if (player.score <= 21){
+
+                  hitStandButton(senderID, player.score);
+
+                } else if (player.score > 21){
+                  
+                  sendTextMessage(senderID, "Dealer wins. 😭")
+                  
+                } 
+                //what happens when you get 21?
         }
 
         break;
