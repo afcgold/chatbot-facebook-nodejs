@@ -930,13 +930,8 @@ function receivedPostback(event) {
             } else if (dealer.busted === true){
                  sendTextMessage(senderID, "YOU WIN!!😎💰");
             }
-        } 
-//  else { 
-//        //how do we get here? ANSWER 
-//          
-//          
-//          sendTextMessage(senderID,"The Dealer decides to stand 2");
-//        }
+    
+// 
 
         
         break;
