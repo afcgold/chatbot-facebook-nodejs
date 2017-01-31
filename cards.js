@@ -141,16 +141,9 @@ function score(hand){
 
     if (sum === 21 && hand.length <= 2){
       return "BLACKJACK";
-    } else if (sum ===21 && hand.length > 2){
-      
+    } else {
       return sum;
-      
-    } else if(sum > 21){
-            
-       var bust = ""+sum+". BUSTED! Game over 😭";
-            
-      return bust;
-    } 
+    }
   
     return sum;
 }
