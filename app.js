@@ -883,25 +883,20 @@ function receivedPostback(event) {
               }
           
           sendTextMessage(senderID,"The Dealer decides to stand 1");
-
           
-          if (dealer.busted === false && player.busted === false){
-               if (cards.below17(dealer.hand) === false ){
-              if(player.score > dealer.score){
-                sendTextMessage(senderID, "YOU WIN!!😎💰");
-              } else if (dealer.score > player.score){
-                sendTextMessage(senderID, "Dealer wins. 😭")
-              } else if (dealer.score === player.score){
-                sendTextMessage(senderID, "It's a draw!😑")
-              }
+            if (dealer.busted === false && player.busted === false){
+                 if (cards.below17(dealer.hand) === false ){
+                if(player.score > dealer.score || dealer.busted === true){
+                  sendTextMessage(senderID, "YOU WIN!!😎💰");
+                } else if (dealer.score > player.score){
+                  sendTextMessage(senderID, "Dealer wins. 😭")
+                } else if (dealer.score === player.score){
+                  sendTextMessage(senderID, "It's a draw!😑")
+                }
+              } 
+            } else if (dealer.busted === true){
+                 sendTextMessage(senderID, "YOU WIN!!😎💰");
             }
-            
-          } else if (dealer.busted === true){
-               sendTextMessage(senderID, "YOU WIN!!😎💰");
-          }
-          
-         
-        
         } else { 
         //how do we get here?
           sendTextMessage(senderID,"The Dealer decides to stand 2");
