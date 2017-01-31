@@ -860,6 +860,11 @@ function receivedPostback(event) {
             
                 shoe.deal(dealer,1);
             dealer.score = cards.score(dealer.hand);
+            
+            if (dealer.score > 21){
+              
+              dealer.busted = true;
+            }
 
             if (dealer.hand.length ===2 ){
 
@@ -869,7 +874,22 @@ function receivedPostback(event) {
 
                 sendTextMessage(senderID, "The dealer's hand is now:" + cards.displayHand(dealer.hand).toString()+", totalling "+dealer.score.toString());
             }
+          } 
+          
+          if (dealer.busted === false && player.busted === false){
+               if (cards.below17(dealer.hand) === false ){
+              if(player.score > dealer.score){
+                sendTextMessage(senderID, "YOU WIN!!😎💰");
+              } else if (dealer.score > player.score){
+                sendTextMessage(senderID, "Dealer wins. 😭")
+              }
+            }
+            
+          } else if (dealer.busted === true){
+               sendTextMessage(senderID, "YOU WIN!!😎💰");
           }
+          
+         
         
         } else { 
         
