@@ -844,6 +844,11 @@ function receivedPostback(event) {
           
           sendTextMessage(senderID, "Now you've got" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!"); 
 
+          if (player.score < 21){
+            
+            hitStandButton(senderID, player.score);
+            
+          }
         }
 
         break;
