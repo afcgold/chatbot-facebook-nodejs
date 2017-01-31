@@ -832,7 +832,7 @@ function receivedPostback(event) {
 
                     }
 
-                    if (player.score < 21){
+                    if (player.score <= 21){
 
                       hitStandButton(senderID, player.score);
 
