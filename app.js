@@ -863,25 +863,29 @@ function receivedPostback(event) {
         
         if (cards.below17(dealer.hand) === true ){
           
-          while (cards.below17(dealer.hand) === true){
-            
+              while (cards.below17(dealer.hand) === true){
+
                 shoe.deal(dealer,1);
-            dealer.score = cards.score(dealer.hand);
-            
-            if (dealer.score > 21){
-              
-              dealer.busted = true;
-            }
+                
+                dealer.score = cards.score(dealer.hand);
 
-            if (dealer.hand.length ===2 ){
+                if (dealer.score > 21){
 
-                sendTextMessage(senderID, "The dealer's hole card was:" + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
+                  dealer.busted = true;
+                }
 
-            } else {
+                if (dealer.hand.length ===2 ){
 
-                sendTextMessage(senderID, "The dealer's hand is now:" + cards.displayHand(dealer.hand).toString()+", totalling "+dealer.score.toString());
-            }
-          } 
+                    sendTextMessage(senderID, "The dealer's hole card was:" + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
+
+                } else {
+
+                    sendTextMessage(senderID, "The dealer's hand is now:" + cards.displayHand(dealer.hand).toString()+", totalling "+dealer.score.toString());
+                }
+              }
+          
+                    sendTextMessage(senderID,"The Dealer decides to stand");
+
           
           if (dealer.busted === false && player.busted === false){
                if (cards.below17(dealer.hand) === false ){
@@ -899,8 +903,8 @@ function receivedPostback(event) {
          
         
         } else { 
-        
-          sendTextMessage(senderID,"the dealer stands");
+        //how do we get here?
+          sendTextMessage(senderID,"The Dealer decides to stand");
         }
 
         
