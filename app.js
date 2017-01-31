@@ -859,8 +859,8 @@ function receivedPostback(event) {
                   
                 } 
           
-           sendTextMessage(senderID, "hit hit hit hit")
-           sendTextMessage(senderID, player.score.toString());
+//           sendTextMessage(senderID, "hit hit hit hit")
+//           sendTextMessage(senderID, player.score.toString());
         }
 
         break;
@@ -882,6 +882,7 @@ function receivedPostback(event) {
                 if (dealer.score > 21){
 
                   dealer.busted = true;
+                  
                 }
 
                 if (dealer.hand.length ===2 ){
@@ -891,7 +892,13 @@ function receivedPostback(event) {
                 }
               }
           
-          sendTextMessage(senderID,"The Dealer has decided to stand.");
+//            if (dealer.score > 21){
+//              sendTextMessage(senderID, "Dealer busts, YOU WIN!!😎💰");
+//            } else {
+//              sendTextMessage(senderID, "The dealer decided to stand.")
+//            }
+          
+//          sendTextMessage(senderID,"The Dealer has decided to stand.");
           
             if (dealer.busted === false && player.busted === false){
                  if (cards.below17(dealer.hand) === false ){
