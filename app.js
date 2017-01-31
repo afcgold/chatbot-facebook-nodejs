@@ -836,6 +836,10 @@ function receivedPostback(event) {
 
                       hitStandButton(senderID, player.score);
 
+                    } else if (player.score > 21){
+                      player.busted === true;
+                      sendTextMessage(senderID, "Dealer wins. 😭")
+
                     }
         } else {
                     
@@ -891,7 +895,7 @@ function receivedPostback(event) {
                  if (cards.below17(dealer.hand) === false ){
                 if(player.score > dealer.score || dealer.busted === true){
                   sendTextMessage(senderID, "YOU WIN!!😎💰");
-                } else if (dealer.score > player.score){
+                } else if (dealer.score > player.score || player.busted === true){
                   sendTextMessage(senderID, "Dealer wins. 😭")
                 } else if (dealer.score === player.score){
                   sendTextMessage(senderID, "It's a draw!😑")
