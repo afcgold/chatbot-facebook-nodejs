@@ -850,7 +850,8 @@ function receivedPostback(event) {
             
             hitStandButton(senderID, player.score);
             
-          }
+          } 
+          //what happens when you get 21?
         }
 
         break;
@@ -875,16 +876,13 @@ function receivedPostback(event) {
                 }
 
                 if (dealer.hand.length ===2 ){
-
                     sendTextMessage(senderID, "The dealer's hole card was:" + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
-
                 } else {
-
                     sendTextMessage(senderID, "The dealer's hand is now:" + cards.displayHand(dealer.hand).toString()+", totalling "+dealer.score.toString());
                 }
               }
           
-                    sendTextMessage(senderID,"The Dealer decides to stand");
+          sendTextMessage(senderID,"The Dealer decides to stand 1");
 
           
           if (dealer.busted === false && player.busted === false){
@@ -893,6 +891,8 @@ function receivedPostback(event) {
                 sendTextMessage(senderID, "YOU WIN!!😎💰");
               } else if (dealer.score > player.score){
                 sendTextMessage(senderID, "Dealer wins. 😭")
+              } else if (dealer.score === player.score){
+                sendTextMessage(senderID, "It's a draw!😑")
               }
             }
             
@@ -904,7 +904,7 @@ function receivedPostback(event) {
         
         } else { 
         //how do we get here?
-          sendTextMessage(senderID,"The Dealer decides to stand");
+          sendTextMessage(senderID,"The Dealer decides to stand 2");
         }
 
         
