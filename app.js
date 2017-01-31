@@ -233,6 +233,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           
           hitStandButton(sender, player.score);
 
+        } else if (player.score ===21){
+           sendTextMessage(senderID, "YOU WIN!!😎💰");
         }
 
         return shoe;
