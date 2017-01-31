@@ -859,6 +859,8 @@ function receivedPostback(event) {
                   
                 } 
                 //what happens when you get 21?
+          
+           sendTextMessage(senderID, "hit hit hit hit")
         }
 
         break;
