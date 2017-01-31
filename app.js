@@ -231,7 +231,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //        
         if (dealer.score < 21 && player.score < 21){
           
-          hitStandButton(sender, player.score);
+          hitStandButton(sender, player.score, dealer.score);
 
         } else if (player.score ===21){
            sendTextMessage(senderID, "YOU WIN!!😎💰");
@@ -260,9 +260,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	}
 }
 
-function hitStandButton (sender,score){
+function hitStandButton (sender,score,dealerscore){
   
-  if (score < 21){
+  if (score < 21 && score > dealerscore){
                 var buttons = [
               {
                 "type":"postback",
@@ -278,7 +278,28 @@ function hitStandButton (sender,score){
       
       sendButtonMessage(sender,"Choose your next move:", buttons);
     
-  };
+  } else if (dealerscore > score) {
+     var buttons = [
+              {
+                "type":"postback",
+                "title":"Hit ☝️",
+                "payload":"hit"
+              },
+       ];
+    
+      sendButtonMessage(sender,"Choose your next move:", buttons);
+  } else {
+    
+     var buttons = [
+              {
+                "type":"postback",
+              "title":"Stand ✋",
+              "payload":"stand"
+              },
+       ];
+    
+      sendButtonMessage(sender,"Choose your next move:", buttons);
+  }
   
 }
 
@@ -834,7 +855,7 @@ function receivedPostback(event) {
 
                     if (player.score <= 21){
 
-                      hitStandButton(senderID, player.score);
+                      hitStandButton(senderID, player.score, dealer.score);
 
                     } else if (player.score > 21){
                       player.busted === true;
@@ -849,15 +870,18 @@ function receivedPostback(event) {
 
                 sendTextMessage(senderID, "Now you've got" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!"); 
 
-                if (player.score <= 21){
+                if (player.score < 21){
 
-                  hitStandButton(senderID, player.score);
+                  hitStandButton(senderID, player.score, dealer.score);
 
                 } else if (player.score > 21){
                   
                   sendTextMessage(senderID, "Dealer wins. 😭")
                   
-                } 
+                } else if (player.score === 21){
+                  
+                  hitStandButton(senderID, player.score, dealer.score);
+                }
           
 //           sendTextMessage(senderID, "hit hit hit hit")
 //           sendTextMessage(senderID, player.score.toString());
