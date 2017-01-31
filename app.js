@@ -895,7 +895,7 @@ function receivedPostback(event) {
         
         sendTextMessage(senderID,"Great, you've decided to stand with "+ player.score);
         
-        if (cards.below17(dealer.hand) === true ){
+//        if (cards.below17(dealer.hand) === true ){
           
               while (cards.below17(dealer.hand) === true){
 
@@ -915,14 +915,7 @@ function receivedPostback(event) {
                     sendTextMessage(senderID, "The dealer's hand is now:" + cards.displayHand(dealer.hand).toString()+", totalling "+dealer.score.toString());
                 }
               }
-          
-//            if (dealer.score > 21){
-//              sendTextMessage(senderID, "Dealer busts, YOU WIN!!😎💰");
-//            } else {
-//              sendTextMessage(senderID, "The dealer decided to stand.")
-//            }
-          
-//          sendTextMessage(senderID,"The Dealer has decided to stand.");
+
           
             if (dealer.busted === false && player.busted === false){
                  if (cards.below17(dealer.hand) === false ){
@@ -937,10 +930,13 @@ function receivedPostback(event) {
             } else if (dealer.busted === true){
                  sendTextMessage(senderID, "YOU WIN!!😎💰");
             }
-        } else { 
-        //how do we get here?
-          sendTextMessage(senderID,"The Dealer decides to stand 2");
-        }
+        } 
+//  else { 
+//        //how do we get here? ANSWER 
+//          
+//          
+//          sendTextMessage(senderID,"The Dealer decides to stand 2");
+//        }
 
         
         break;
