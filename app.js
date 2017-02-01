@@ -226,13 +226,20 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         } else if (player.score === "BLACKJACK" || player.score === 21){
 //           sendTextMessage(sender, "YOU WIN!!😎💰");
           //compare with dealer's second card to see if blackjack
+          sendTextMessage(sender, "The Dealer's hidden card was "+cards.displayHand([dealer.hand[1]]).toString());
+          if (dealer.score < 21 && dealer.score !== "Blackjack"){
+            sendTextMessage(sender, "YOU WIN!!😎💰");
+          } else if (dealer.score === "BLACKJACK"){
+            sendTextMessage(senderID, "It's a draw! 😑");
+          }
+
+          
           
         } else if (dealer.score === "BLACKJACK" || dealer.score === 21){
           
           sendTextMessage(sender, "The Dealer's hidden card was "+cards.displayHand([dealer.hand[1]]).toString());
           sendTextMessage(sender, "The Dealer had blackjack 😡. Dealer wins. 😭");
           
-           
         }
 
         return shoe;
