@@ -199,7 +199,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           dealer.hand = shoe.deal(dealer,2);
           dealer.dealer = true;
           dealer.score = cards.score(dealer.hand);
-          dealerCardOne = cards.score([dealer.hand[0]]);
+          var dealerCardOne = cards.score([dealer.hand[0]]);
 
         
         
