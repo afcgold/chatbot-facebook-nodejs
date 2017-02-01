@@ -893,7 +893,7 @@ function receivedPostback(event) {
                 
               }
         //|| dealer.score < 21
-            if (cards.below17(dealer.hand) === false){
+            if (dealer.score <= 21){
                   sendTextMessage(senderID, "The dealer has decided to stand with "+dealer.score.toString());
                 } else if (dealer.score > 21){
                   sendTextMessage(senderID, "The dealers busts!");
