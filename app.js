@@ -835,7 +835,7 @@ function receivedPostback(event) {
                         sendTextMessage(senderID, "The dealer's hole card was:" + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
 
                         if (cards.below17(dealer.hand)=== false){
-                          sendTextMessage(senderID, "The dealer has decided to stand.");
+                          sendTextMessage(senderID, "The dealer has decided to stand!");
                         }
                         
                       }
@@ -898,12 +898,13 @@ function receivedPostback(event) {
                     sendTextMessage(senderID, "The dealer hit, and now has: " + cards.displayHand(dealer.hand).toString()+", totalling "+dealer.score.toString());
                 }
                 
-                if (cards.below17(dealer.hand) === false || dealer.score < 21){
+              }
+        
+            if (cards.below17(dealer.hand) === false || dealer.score < 21){
                   sendTextMessage(senderID, "The dealer has decided to stand with "+dealer.score.toString());
                 } else if (dealer.score > 21){
                   sendTextMessage(senderID, "The dealers busts!");
                 }
-              }
 
             if (dealer.busted === false && player.busted === false){
                  if (cards.below17(dealer.hand) === false ){
