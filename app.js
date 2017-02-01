@@ -228,6 +228,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           //compare with dealer's second card to see if blackjack
           
         } else if (dealer.score === "BLACKJACK" || dealer.score === 21){
+          
+          sendTextMessage(sender, "The Dealer had blackjack 😡")
+          
            sendTextMessage(sender, "Dealer wins. 😭")
         }
 
