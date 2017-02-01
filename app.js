@@ -876,7 +876,9 @@ function receivedPostback(event) {
         
         async.series([
             function() {sendTextMessage(senderID,"hello1")},
-            function(callback) { sendTextMessage(senderID,"hello2")}
+            function() { sendTextMessage(senderID,"hello2")},
+            function() { sendTextMessage(senderID,"hello3")}
+
           ]);
                 
         sendTextMessage(senderID,"Great, you've decided to stand with "+ player.score);
