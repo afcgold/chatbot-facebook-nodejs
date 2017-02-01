@@ -215,13 +215,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         
         //deal 2 cards for player and 2 for dealer
-        sendTextMessage(sender, "You've been dealt "+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
+        sendTextMessage(sender, "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
         
 //        var playerImageURL = cards.requestImage(player.hand);
 //      
 //        sendImageMessage(sender,playerImageURL);
       
-        sendTextMessage(sender, "The dealer's first card is " + cards.displayHand(dealer.hand).toString()+". Giving a score of "+dealer.score.toString());
+        sendTextMessage(sender, "The dealer's first card is" + cards.displayHand(dealer.hand).toString()+". Giving a score of "+dealer.score.toString());
 
 //        var dealerImageURL = cards.requestImage(dealer.hand);
 //      
