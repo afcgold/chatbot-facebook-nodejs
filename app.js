@@ -10,6 +10,7 @@ const request = require('request');
 const app = express();
 const uuid = require('uuid');
 const cards = require('./cards');
+const async = require("async");
 
 
 // Messenger API parameters
@@ -872,6 +873,11 @@ function receivedPostback(event) {
         break;
       
       case "stand":
+        
+        async.series([
+            function() {sendTextMessage(senderID,"hello1")},
+            function(callback) { sendTextMessage(senderID,"hello2")}
+          ]);
                 
         sendTextMessage(senderID,"Great, you've decided to stand with "+ player.score);
                   
