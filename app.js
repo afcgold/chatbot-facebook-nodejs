@@ -220,7 +220,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //        
         if (dealer.score < 21 && player.score < 21){
           
-          hitStandButton(sender, player.score, dealer.score);
+          hitStandButton(sender, player.score, dealerCardOne);
 
         } else if (player.score === "BLACKJACK" || player.score === 21){
 //           sendTextMessage(sender, "YOU WIN!!😎💰");
@@ -894,7 +894,7 @@ function receivedPostback(event) {
               }
         //|| dealer.score < 21
             if (dealer.score <= 21){
-                  sendTextMessage(senderID, "The dealer has decided to stand with "+dealer.score.toString());
+                  sendTextMessage(senderID, "The dealer has decided to stand on "+dealer.score.toString());
                 } else if (dealer.score > 21){
                   sendTextMessage(senderID, "The dealers busts!");
                 }
