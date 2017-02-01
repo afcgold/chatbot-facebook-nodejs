@@ -262,7 +262,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 function hitStandButton (sender,score,dealerscore){
   
-  if (score < 21 && score > dealerscore){
+  if (score < 21 && score > dealerscore || dealer.hand.length < 2){
                 var buttons = [
               {
                 "type":"postback",
@@ -278,7 +278,7 @@ function hitStandButton (sender,score,dealerscore){
       
       sendButtonMessage(sender,"Choose your next move:", buttons);
     
-  } else if (dealerscore > score) {
+  } else if (dealerscore > score && dealer.hand.length >= 2) {
      var buttons = [
               {
                 "type":"postback",
