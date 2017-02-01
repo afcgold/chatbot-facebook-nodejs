@@ -898,8 +898,10 @@ function receivedPostback(event) {
                     sendTextMessage(senderID, "The dealer hit, and now has: " + cards.displayHand(dealer.hand).toString()+", totalling "+dealer.score.toString());
                 }
                 
-                if (cards.below17(dealer.hand) === false){
+                if (cards.below17(dealer.hand) === false || dealer.score < 21){
                   sendTextMessage(senderID, "The dealer has decided to stand with "+dealer.score.toString());
+                } else if (dealer.score > 21){
+                  sendTextMessage(senderID, "The dealers busts!");
                 }
               }
 
