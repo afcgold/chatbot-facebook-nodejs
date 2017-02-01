@@ -215,13 +215,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         
         
         //deal 2 cards for player and 2 for dealer
-        sendTextMessage(sender, player.name + "'s hand:"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
+        sendTextMessage(sender, "You've been dealt "+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
         
 //        var playerImageURL = cards.requestImage(player.hand);
 //      
 //        sendImageMessage(sender,playerImageURL);
       
-        sendTextMessage(sender, dealer.name + " hand:" + cards.displayHand(dealer.hand).toString()+". Giving me a score of "+dealer.score.toString());
+        sendTextMessage(sender, "The dealer's first card is " + cards.displayHand(dealer.hand).toString()+". Giving a score of "+dealer.score.toString());
 
 //        var dealerImageURL = cards.requestImage(dealer.hand);
 //      
@@ -239,19 +239,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
         return shoe;
                 
-         break;
-      
-      case "hit" :
-        
-//        var hitCard = shoe.deal();
-//        
-//        player.hand.push(hitCard);
-//        
-//        sendTextMessage(sender, player.name + "'s hand: " + cards.displayHand(player.hand).toString()+", so your score is now "+cards.score(player.hand).toString());
-//
-////        var handValue = cards.score(player.hand)
-////        hitStand(sender,handValue);
-////              
         break;
         
       default:
@@ -852,9 +839,7 @@ function receivedPostback(event) {
                         }
                         
                       }
-
                         sendTextMessage(senderID, "Your hand is now" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!"); 
-
                     }
 
                     if (player.score <= 21){
@@ -910,7 +895,7 @@ function receivedPostback(event) {
                 if (dealer.hand.length ===2 ){
                     sendTextMessage(senderID, "The dealer's hole card was:" + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
                 } else {
-                    sendTextMessage(senderID, "The dealer's hand is now:" + cards.displayHand(dealer.hand).toString()+", totalling "+dealer.score.toString());
+                    sendTextMessage(senderID, "The dealer hit, and now has: " + cards.displayHand(dealer.hand).toString()+", totalling "+dealer.score.toString());
                 }
                 
                 if (cards.below17(dealer.hand) === false){
