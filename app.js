@@ -229,9 +229,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           
         } else if (dealer.score === "BLACKJACK" || dealer.score === 21){
           
-          sendTextMessage(sender, "The Dealer had blackjack 😡")
+          sendTextMessage(sender, "The Dealer's hidden card was "+cards.displayHand([dealer.hand[1]]).toString());
+          sendTextMessage(sender, "The Dealer had blackjack 😡. Dealer wins. 😭");
           
-           sendTextMessage(sender, "Dealer wins. 😭")
+           
         }
 
         return shoe;
