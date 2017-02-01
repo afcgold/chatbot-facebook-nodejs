@@ -182,20 +182,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	
 
   switch (action) {
-      
-      case "dealer-hand" :
-//    
-//        var deck = new cards.Deck()
-//        deck.createShoe(1);
-//                
-//        var printOut = deck.deal(2);
-//        
-//        printOut = cards.displayHand(printOut);
-//        
-//        sendTextMessage(sender, printOut.toString());
-//        
-        break;
-      
+          
       case "newGame" :
       
           //start a new game of blackjack
@@ -209,9 +196,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
           //create dealer
           dealer = new cards.Player("Dealer");
-          dealer.hand = shoe.deal(dealer,1);
+          dealer.hand = shoe.deal(dealer,2);
           dealer.dealer = true;
           dealer.score = cards.score(dealer.hand);
+          dealerCardOne = cards.score([dealer.hand[0]]);
+
         
         
         //deal 2 cards for player and 2 for dealer
@@ -221,7 +210,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //      
 //        sendImageMessage(sender,playerImageURL);
       
-        sendTextMessage(sender, "The dealer's first card is" + cards.displayHand(dealer.hand).toString()+". Giving a score of "+dealer.score.toString());
+        sendTextMessage(sender, "The dealer's first card is" + cards.displayHand([dealer.hand[0]]).toString()+". Giving a score of "+dealerCardOne.toString());
 
 //        var dealerImageURL = cards.requestImage(dealer.hand);
 //      
@@ -233,8 +222,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           
           hitStandButton(sender, player.score, dealer.score);
 
-        } else if (player.score ===21){
-           sendTextMessage(senderID, "YOU WIN!!😎💰");
+        } else if (player.score === "BLACKJACK" || player.score === 21){
+//           sendTextMessage(sender, "YOU WIN!!😎💰");
+          //compare with dealer's second card to see if blackjack
+          
+        } else if (dealer.score === "BLACKJACK" || dealer.score === 21){
+           sendTextMessage(sender, "Dealer wins. 😭")
         }
 
         return shoe;
@@ -821,7 +814,7 @@ function receivedPostback(event) {
         
         if (dealer.hand.length < 2 ){
           
-                    shoe.deal(dealer,1);
+//                    shoe.deal(dealer,1);
                     shoe.deal(player,1);
 
                     dealer.score = cards.score(dealer.hand);
@@ -899,8 +892,8 @@ function receivedPostback(event) {
                 }
                 
               }
-        
-            if (cards.below17(dealer.hand) === false || dealer.score < 21){
+        //|| dealer.score < 21
+            if (cards.below17(dealer.hand) === false){
                   sendTextMessage(senderID, "The dealer has decided to stand with "+dealer.score.toString());
                 } else if (dealer.score > 21){
                   sendTextMessage(senderID, "The dealers busts!");
@@ -913,7 +906,7 @@ function receivedPostback(event) {
                 } else if (dealer.score > player.score || player.busted === true){
                   sendTextMessage(senderID, "Dealer wins. 😭")
                 } else if (dealer.score === player.score){
-                  sendTextMessage(senderID, "It's a draw!😑")
+                  sendTextMessage(senderID, "It's a draw! 😑")
                 }
               } 
             } else if (dealer.busted === true){
