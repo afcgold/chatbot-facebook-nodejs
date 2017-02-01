@@ -894,13 +894,9 @@ function receivedPostback(event) {
         break;
       
       case "stand":
-        
-//        sendTextMessage(senderID,"stand, let dealer play");
-        
+                
         sendTextMessage(senderID,"Great, you've decided to stand with "+ player.score);
-        
-//        if (cards.below17(dealer.hand) === true ){
-          
+                  
               while (cards.below17(dealer.hand) === true){
 
                 shoe.deal(dealer,1);
@@ -908,9 +904,7 @@ function receivedPostback(event) {
                 dealer.score = cards.score(dealer.hand);
 
                 if (dealer.score > 21){
-
                   dealer.busted = true;
-                  
                 }
 
                 if (dealer.hand.length ===2 ){
@@ -918,9 +912,12 @@ function receivedPostback(event) {
                 } else {
                     sendTextMessage(senderID, "The dealer's hand is now:" + cards.displayHand(dealer.hand).toString()+", totalling "+dealer.score.toString());
                 }
+                
+                if (cards.below17(dealer.hand) === false){
+                  sendTextMessage(senderID, "The dealer has decided to stand with "+dealer.score.toString());
+                }
               }
 
-          
             if (dealer.busted === false && player.busted === false){
                  if (cards.below17(dealer.hand) === false ){
                 if(player.score > dealer.score || dealer.busted === true){
@@ -935,9 +932,6 @@ function receivedPostback(event) {
                  sendTextMessage(senderID, "YOU WIN!!😎💰");
             }
     
-// 
-
-        
         break;
         
       default:
