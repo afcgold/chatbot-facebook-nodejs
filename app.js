@@ -226,7 +226,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         } else if (player.score === "BLACKJACK" || player.score === 21){
 //           sendTextMessage(sender, "YOU WIN!!😎💰");
           //compare with dealer's second card to see if blackjack
-          sendTextMessage(sender, "The Dealer's hidden card was "+cards.displayHand([dealer.hand[1]]).toString());
+          sendTextMessage(sender, "The Dealer's hidden card was"+cards.displayHand([dealer.hand[1]]).toString());
           if (dealer.score < 21 && dealer.score !== "Blackjack"){
             sendTextMessage(sender, "YOU WIN!!😎💰");
           } else if (dealer.score === "BLACKJACK"){
@@ -893,6 +893,9 @@ function receivedPostback(event) {
           ]);
                 
         sendTextMessage(senderID,"Great, you've decided to stand with "+ player.score);
+        
+        sendTextMessage(sender, "The dealer's hidden card was" + cards.displayHand([dealer.hand[1]]).toString());
+
                   
               while (cards.below17(dealer.hand) === true){
 
