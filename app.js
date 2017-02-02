@@ -894,7 +894,7 @@ function receivedPostback(event) {
                 
         sendTextMessage(senderID,"Great, you've decided to stand with "+ player.score);
         
-        sendTextMessage(sender, "The dealer's hidden card was" + cards.displayHand([dealer.hand[1]]).toString());
+        sendTextMessage(senderID, "The dealer's hidden card was" + cards.displayHand([dealer.hand[1]]).toString());
 
                   
               while (cards.below17(dealer.hand) === true){
