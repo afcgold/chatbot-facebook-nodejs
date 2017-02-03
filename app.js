@@ -888,11 +888,11 @@ function receivedPostback(event) {
         async.series([
             function helloGeorge(callback){
               callback("hello");
-            };
+            },
 
           function name (hello){
             sendTextMessage(senderID, hello.toString() + " George!");
-          };
+          }
 
             helloGeorge(name);
 
