@@ -893,10 +893,9 @@ function receivedPostback(event) {
           function name (hello){
             sendTextMessage(senderID, hello.toString() + " George!");
           }
-
-            helloGeorge(name);
-
           ]);
+        
+        helloGeorge(name);
                 
         sendTextMessage(senderID,"Great, you've decided to stand with "+ player.score);
         
