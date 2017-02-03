@@ -885,12 +885,18 @@ function receivedPostback(event) {
       
       case "stand":
         
-//        async.series([
-//            function() {sendTextMessage(senderID,"hello1")},
-//            function() { sendTextMessage(senderID,"hello2")},
-//            function() { sendTextMessage(senderID,"hello3")}
-//
-//          ]);
+        async.series([
+            function helloGeorge(callback){
+              callback("hello");
+            };
+
+          function name (hello){
+            sendTextMessage(senderID, hello.toString() + " George!");
+          };
+
+            helloGeorge(name);
+
+          ]);
                 
         sendTextMessage(senderID,"Great, you've decided to stand with "+ player.score);
         
