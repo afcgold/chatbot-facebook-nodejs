@@ -202,7 +202,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           dealer.hand = shoe.deal(dealer,2);
           dealer.dealer = true;
           dealer.score = cards.score(dealer.hand);
-          var dealerCardOne = cards.score([dealer.hand[0]]);
       })();
       
       (function(){
@@ -218,6 +217,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       
       (function() {
           //FUNCTION 3
+        
+        var dealerCardOne = cards.score([dealer.hand[0]]);
+
         sendTextMessage(sender, "The dealer's first card is" + cards.displayHand([dealer.hand[0]]).toString()+". Giving a score of "+dealerCardOne.toString());
 
 //        var dealerImageURL = cards.requestImage(dealer.hand);
