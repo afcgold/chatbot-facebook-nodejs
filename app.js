@@ -181,11 +181,25 @@ function handleEcho(messageId, appId, metadata) {
 var player, dealer, shoe;
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	
-
   switch (action) {
           
       case "newGame" :
+            
+      async.series([
+        sayHello,
+        sayBye
+      ]);
       
+      function sayHello(){
+        sendTextMessage(sender, "Hello there!");
+      }
+      
+      function sayBye() {
+        sendTextMessage(sendre, "Well bye for now!");
+      }
+      
+      
+      //FUNCTION 1
           //start a new game of blackjack
           shoe = cards.newGame();
           //create player and dealer 
@@ -201,9 +215,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           dealer.dealer = true;
           dealer.score = cards.score(dealer.hand);
           var dealerCardOne = cards.score([dealer.hand[0]]);
-
         
-        
+        //FUNCTION 3
         //deal 2 cards for player and 2 for dealer
         sendTextMessage(sender, "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
         
@@ -211,6 +224,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //      
 //        sendImageMessage(sender,playerImageURL);
       
+        //FUNCTION 4
         sendTextMessage(sender, "The dealer's first card is" + cards.displayHand([dealer.hand[0]]).toString()+". Giving a score of "+dealerCardOne.toString());
 
 //        var dealerImageURL = cards.requestImage(dealer.hand);
@@ -219,10 +233,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       
 //        var handValue = cards.score(player.hand)
 //        
+        //FUNCTION 6
         if (dealer.score < 21 && player.score < 21){
-          
           hitStandButton(sender, player.score, dealerCardOne);
-
         } else if (player.score === "BLACKJACK" || player.score === 21){
 //           sendTextMessage(sender, "YOU WIN!!😎💰");
           //compare with dealer's second card to see if blackjack
@@ -231,15 +244,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             sendTextMessage(sender, "YOU WIN!!😎💰");
           } else if (dealer.score === "BLACKJACK"){
             sendTextMessage(senderID, "It's a draw! 😑");
-          }
-
-          
-          
+          } 
         } else if (dealer.score === "BLACKJACK" || dealer.score === 21){
-          
           sendTextMessage(sender, "The Dealer's hidden card was "+cards.displayHand([dealer.hand[1]]).toString());
           sendTextMessage(sender, "The Dealer had blackjack 😡. Dealer wins. 😭");
-          
         }
 
         return shoe;
@@ -884,30 +892,6 @@ function receivedPostback(event) {
         break;
       
       case "stand":
-
-            // 1st para in async.each() is the array of items
-            async.each(items,
-              // 2nd param is the function that each item is passed to
-              function(item, callback){
-                // Call an asynchronous function, often a save() to DB
-                item.someAsyncCall(function (){
-                  // Async call is done, alert via callback
-                  callback();
-                });
-              },
-              // 3rd param is the function to call when everything's done
-              function(err){
-                // All tasks are done now
-                doSomethingOnceAllAreDone();
-              }
-            );
-        
-        function doSomethingOnceAllAreDone(){
-          
-         sendTextMessage(senderID,"hiGeorge"); 
-          
-        }
-
                 
         sendTextMessage(senderID,"Great, you've decided to stand with "+ player.score);
         
