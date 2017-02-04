@@ -185,18 +185,26 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           
       case "newGame" :
 
-    
-        //FUNCTION 1
-          //start a new game of blackjack
+          async.series([
+            function(callback){ 
+                sendTextMessage(sender,"a");
+                callback();
+            },
+            function(callback){ 
+                sendTextMessage(sender,"b");
+                callback();
+            }
+          ]);
+      
+      
+      
+          //FUNCTION 1
           shoe = cards.newGame();
-          //create player and dealer 
-        
-          //create player
+
           player = new cards.Player("George");
           player.hand = shoe.deal(player,2);
           player.score = cards.score(player.hand);
 
-          //create dealer
           dealer = new cards.Player("Dealer");
           dealer.hand = shoe.deal(dealer,2);
           dealer.dealer = true;
@@ -206,9 +214,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       
       
      
-                //FUNCTION 2
-        //deal 2 cards for player and 2 for dealer
-        sendTextMessage(sender, "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
+          //FUNCTION 2
+          sendTextMessage(sender, "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
         
 //        var playerImageURL = cards.requestImage(player.hand);
 //      
@@ -218,7 +225,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       
    
           //FUNCTION 3
-        
           sendTextMessage(sender, "The dealer's first card is" + cards.displayHand([dealer.hand[0]]).toString()+". Giving a score of "+dealerCardOne.toString());
 
 //        var dealerImageURL = cards.requestImage(dealer.hand);
@@ -234,8 +240,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         if (dealer.score < 21 && player.score < 21){
           hitStandButton(sender, player.score, dealerCardOne);
         } else if (player.score === "BLACKJACK" || player.score === 21){
-//           sendTextMessage(sender, "YOU WIN!!😎💰");
-          //compare with dealer's second card to see if blackjack
           sendTextMessage(sender, "The Dealer's hidden card was"+cards.displayHand([dealer.hand[1]]).toString());
           if (dealer.score < 21 && dealer.score !== "Blackjack"){
             sendTextMessage(sender, "YOU WIN!!😎💰");
