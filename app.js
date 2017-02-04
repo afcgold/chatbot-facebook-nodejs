@@ -184,70 +184,52 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
   switch (action) {
           
       case "newGame" :
-      
-      async.waterfall([
-                function (callback){
-                  //FUNCTION 1
-                    //start a new game of blackjack
-                    shoe = cards.newGame();
-                    //create player and dealer 
 
-                    //create player
-                    player = new cards.Player("George");
-                    player.hand = shoe.deal(player,2);
-                    player.score = cards.score(player.hand);
-
-                    //create dealer
-                    dealer = new cards.Player("Dealer");
-                    dealer.hand = shoe.deal(dealer,2);
-                    dealer.dealer = true;
-                    dealer.score = cards.score(dealer.hand);
-                    var dealerCardOne = cards.score([dealer.hand[0]]);
-
-                    callback(null, dealerCardOne,dealer,player);
-              },function (dealerCardOne,dealer,player,callback){
-                      //FUNCTION 2
-                      //deal 2 cards for player and 2 for dealer
-                      sendTextMessage(sender, "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
-
-              //        var playerImageURL = cards.requestImage(player.hand);
-              //      
-              //        sendImageMessage(sender,playerImageURL);
-
-                      
-                      callback(null,dealerCardOne,dealer);
-
-              },
-              function (dealerCardOne,dealer,callback) {
-                    //FUNCTION 3
-
-                    sendTextMessage(sender, "The dealer's first card is" + cards.displayHand([dealer.hand[0]]).toString()+". Giving a score of "+dealerCardOne.toString());
-
-          //        var dealerImageURL = cards.requestImage(dealer.hand);
-          //      
-          //        sendImageMessage(sender,dealerImageURL);
-
-          //        var handValue = cards.score(player.hand)
-                
-                    callback();
-            
-              },
-              
-              
-      ], function (err, result) {
-         // result now equals 'done'  
+    
+        //FUNCTION 1
+          //start a new game of blackjack
+          shoe = cards.newGame();
+          //create player and dealer 
         
+          //create player
+          player = new cards.Player("George");
+          player.hand = shoe.deal(player,2);
+          player.score = cards.score(player.hand);
+
+          //create dealer
+          dealer = new cards.Player("Dealer");
+          dealer.hand = shoe.deal(dealer,2);
+          dealer.dealer = true;
+          dealer.score = cards.score(dealer.hand);
+          var dealerCardOne = cards.score([dealer.hand[0]]);
+
+      
+      
+     
+                //FUNCTION 2
+        //deal 2 cards for player and 2 for dealer
+        sendTextMessage(sender, "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
         
-      });
+//        var playerImageURL = cards.requestImage(player.hand);
+//      
+//        sendImageMessage(sender,playerImageURL);
+        
+     
+      
+   
+          //FUNCTION 3
+        
+          sendTextMessage(sender, "The dealer's first card is" + cards.displayHand([dealer.hand[0]]).toString()+". Giving a score of "+dealerCardOne.toString());
 
+//        var dealerImageURL = cards.requestImage(dealer.hand);
+//      
+//        sendImageMessage(sender,dealerImageURL);
       
-
+//        var handValue = cards.score(player.hand)
+       
+     
       
-      
-      
-      
-      
-      function showButtons(){
+     
          //FUNCTION 4
         if (dealer.score < 21 && player.score < 21){
           hitStandButton(sender, player.score, dealerCardOne);
@@ -265,7 +247,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           sendTextMessage(sender, "The Dealer had blackjack 😡. Dealer wins. 😭");
         }
       
-      };
+     
 
         return shoe;
                 
