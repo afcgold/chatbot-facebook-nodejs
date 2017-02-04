@@ -190,7 +190,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         sayBye
       ]);
       
-      function sayHello(){
+      function sayHello(callback){
         sendTextMessage(sender, "Hello there!");
       }
       
