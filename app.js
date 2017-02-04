@@ -216,6 +216,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           //        sendImageMessage(sender,dealerImageURL);
 
           //        var handValue = cards.score(player.hand)
+                
+                    sendTextMessage(sender,player.toString());
+
 
                     callback(player);
             
@@ -228,7 +231,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
               //        var playerImageURL = cards.requestImage(player.hand);
               //      
               //        sendImageMessage(sender,playerImageURL);
-                            sendImageMessage(sender,arg1);
+                            sendTextMessage(sender,arg1);
 
                       
                       callback()
