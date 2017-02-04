@@ -215,7 +215,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
       };
       
-      function playerHand(){
+      function playerHand(callback){
                 //FUNCTION 2
         //deal 2 cards for player and 2 for dealer
         sendTextMessage(sender, "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
@@ -223,6 +223,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //        var playerImageURL = cards.requestImage(player.hand);
 //      
 //        sendImageMessage(sender,playerImageURL);
+        
+        callback()
         
       };
       
@@ -237,11 +239,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       
 //        var handValue = cards.score(player.hand)
         
-          callback(playerHand);
+          playerHand(showButtons);
        
       };
       
-      (function(){
+      function showButtons(){
          //FUNCTION 4
         if (dealer.score < 21 && player.score < 21){
           hitStandButton(sender, player.score, dealerCardOne);
@@ -259,7 +261,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           sendTextMessage(sender, "The Dealer had blackjack 😡. Dealer wins. 😭");
         }
       
-      })();
+      };
 
         return shoe;
                 
