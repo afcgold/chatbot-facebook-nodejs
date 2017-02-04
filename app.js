@@ -205,17 +205,19 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var dealerCardOne = cards.score([dealer.hand[0]]);
       })();
       
-      
-        
-        //FUNCTION 3
+      (function(){
+                //FUNCTION 2
         //deal 2 cards for player and 2 for dealer
         sendTextMessage(sender, "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
         
 //        var playerImageURL = cards.requestImage(player.hand);
 //      
 //        sendImageMessage(sender,playerImageURL);
+        
+      })();
       
-        //FUNCTION 4
+      (function() {
+          //FUNCTION 3
         sendTextMessage(sender, "The dealer's first card is" + cards.displayHand([dealer.hand[0]]).toString()+". Giving a score of "+dealerCardOne.toString());
 
 //        var dealerImageURL = cards.requestImage(dealer.hand);
@@ -223,8 +225,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //        sendImageMessage(sender,dealerImageURL);
       
 //        var handValue = cards.score(player.hand)
-//        
-        //FUNCTION 6
+       
+      })();
+      
+      (function(){
+         //FUNCTION 4
         if (dealer.score < 21 && player.score < 21){
           hitStandButton(sender, player.score, dealerCardOne);
         } else if (player.score === "BLACKJACK" || player.score === 21){
@@ -240,6 +245,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           sendTextMessage(sender, "The Dealer's hidden card was "+cards.displayHand([dealer.hand[1]]).toString());
           sendTextMessage(sender, "The Dealer had blackjack 😡. Dealer wins. 😭");
         }
+      
+      })();
 
         return shoe;
                 
