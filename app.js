@@ -186,8 +186,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       case "newGame" :
             
       async.series([
-        sayHello,
-        sayBye
+       function(callback) {
+          sayHello(callback);
+        },function(callback) {
+           sayBye();
+        }
       ]);
       
       function sayHello(callback){
