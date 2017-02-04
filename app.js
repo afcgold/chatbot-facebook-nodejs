@@ -184,9 +184,16 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
   switch (action) {
           
       case "newGame" :
+      
+      async.series([
+        setupNewGame(dealerHand),
+        playerHand],
+                   function () {
+            sendTextMessage(sender,"confused.com");
+      ]);
 
       
-      (function(){
+      function setupNewGame(callback){
         //FUNCTION 1
           //start a new game of blackjack
           shoe = cards.newGame();
@@ -202,9 +209,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           dealer.hand = shoe.deal(dealer,2);
           dealer.dealer = true;
           dealer.score = cards.score(dealer.hand);
-      })();
+          var dealerCardOne = cards.score([dealer.hand[0]]);
+        
+          callback(dealerCardOne);
+
+      };
       
-      (function(){
+      function playerHand(){
                 //FUNCTION 2
         //deal 2 cards for player and 2 for dealer
         sendTextMessage(sender, "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
@@ -213,14 +224,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //      
 //        sendImageMessage(sender,playerImageURL);
         
-      })();
+      };
       
-      (function() {
+      function dealerHand(dealerCardOne) {
           //FUNCTION 3
         
-        var dealerCardOne = cards.score([dealer.hand[0]]);
-
-        sendTextMessage(sender, "The dealer's first card is" + cards.displayHand([dealer.hand[0]]).toString()+". Giving a score of "+dealerCardOne.toString());
+          sendTextMessage(sender, "The dealer's first card is" + cards.displayHand([dealer.hand[0]]).toString()+". Giving a score of "+dealerCardOne.toString());
 
 //        var dealerImageURL = cards.requestImage(dealer.hand);
 //      
@@ -228,7 +237,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       
 //        var handValue = cards.score(player.hand)
        
-      })();
+      };
       
       (function(){
          //FUNCTION 4
