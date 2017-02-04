@@ -190,7 +190,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         playerHand],
                    function () {
             sendTextMessage(sender,"confused.com");
-      ]);
+      });
 
       
       function setupNewGame(callback){
