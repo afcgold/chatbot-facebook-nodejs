@@ -206,7 +206,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
                     callback(null, dealerHand);
               },
-              function (dealerCardOne, callback) {
+              function (dealerCardOne,dealer,player, callback) {
                     //FUNCTION 3
 
                     sendTextMessage(sender, "The dealer's first card is" + cards.displayHand([dealer.hand[0]]).toString()+". Giving a score of "+dealerCardOne.toString());
@@ -217,7 +217,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
           //        var handValue = cards.score(player.hand)
 
-                    callback("done");
+                    callback(player);
             
               },
               function (arg1, callback){
