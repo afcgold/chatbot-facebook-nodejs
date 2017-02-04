@@ -187,10 +187,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
           async.series([
             function(callback){ 
+                console.log("a");
                 sendTextMessage(sender,"a");
                 callback();
             },
             function(callback){ 
+               console.log("b");
                 sendTextMessage(sender,"b");
                 callback();
             }
