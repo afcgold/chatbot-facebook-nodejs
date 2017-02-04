@@ -186,7 +186,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       case "newGame" :
 
       
-      function(){
+      (function(){
         //FUNCTION 1
           //start a new game of blackjack
           shoe = cards.newGame();
@@ -203,7 +203,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           dealer.dealer = true;
           dealer.score = cards.score(dealer.hand);
           var dealerCardOne = cards.score([dealer.hand[0]]);
-      }
+      })();
       
       
         
