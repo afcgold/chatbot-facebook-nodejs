@@ -205,6 +205,19 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                     var dealerCardOne = cards.score([dealer.hand[0]]);
 
                     callback(null, dealerCardOne,dealer,player);
+              },function (player,dealerCardOne,dealer, callback){
+                      //FUNCTION 2
+                      //deal 2 cards for player and 2 for dealer
+                      sendTextMessage(sender, "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
+
+              //        var playerImageURL = cards.requestImage(player.hand);
+              //      
+              //        sendImageMessage(sender,playerImageURL);
+                            sendTextMessage(sender,arg1);
+
+                      
+                      callback(null,dealerCardOne,dealer);
+
               },
               function (dealerCardOne,dealer,player, callback) {
                     //FUNCTION 3
@@ -217,26 +230,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
           //        var handValue = cards.score(player.hand)
                 
-                    sendTextMessage(sender,player.hand.toString());
-
-
-                    callback(null, player);
+                    callback();
             
-              },
-              function (player, callback){
-                      //FUNCTION 2
-                      //deal 2 cards for player and 2 for dealer
-                      sendTextMessage(sender, "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
-
-              //        var playerImageURL = cards.requestImage(player.hand);
-              //      
-              //        sendImageMessage(sender,playerImageURL);
-                            sendTextMessage(sender,arg1);
-
-                      
-                      callback()
-
               }
+              
       ], function (err, result) {
          // result now equals 'done'  
         
