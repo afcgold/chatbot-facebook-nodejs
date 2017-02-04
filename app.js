@@ -204,7 +204,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                     dealer.score = cards.score(dealer.hand);
                     var dealerCardOne = cards.score([dealer.hand[0]]);
 
-                    callback(null, dealerHand);
+                    callback(null, dealerCardOne,dealer,player);
               },
               function (dealerCardOne,dealer,player, callback) {
                     //FUNCTION 3
