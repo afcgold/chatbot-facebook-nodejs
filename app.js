@@ -184,25 +184,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
   switch (action) {
           
       case "newGame" :
-            
-      async.series([
-       function(callback) {
-          sayHello(callback);
-        },function(callback) {
-           sayBye();
-        }
-      ]);
+
       
-      function sayHello(callback){
-        sendTextMessage(sender, "Hello there!");
-      }
-      
-      function sayBye() {
-        sendTextMessage(sender, "Well bye for now!");
-      }
-      
-      
-      //FUNCTION 1
+      function(){
+        //FUNCTION 1
           //start a new game of blackjack
           shoe = cards.newGame();
           //create player and dealer 
@@ -218,6 +203,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           dealer.dealer = true;
           dealer.score = cards.score(dealer.hand);
           var dealerCardOne = cards.score([dealer.hand[0]]);
+      }
+      
+      
         
         //FUNCTION 3
         //deal 2 cards for player and 2 for dealer
