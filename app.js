@@ -197,8 +197,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                 var letter = "c";
                 callback(letter);
             }, 
-            function(thing,callback){
-              console.log(thing);
+            function(callback){
+              console.log(callback);
             }
           ]);
       
