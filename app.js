@@ -217,10 +217,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
           //        var handValue = cards.score(player.hand)
                 
-                    sendTextMessage(sender,player.toString());
+                    sendTextMessage(sender,player.hand.toString());
 
 
-                    callback(player);
+                    callback(null, player);
             
               },
               function (player, callback){
