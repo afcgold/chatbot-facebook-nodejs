@@ -185,63 +185,67 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           
       case "newGame" :
       
-      async.series([
-        setupNewGame(dealerHand),
-        playerHand],
-                   function () {
-            sendTextMessage(sender,"confused.com");
+      async.waterfall([
+                function (callback){
+                  //FUNCTION 1
+                    //start a new game of blackjack
+                    shoe = cards.newGame();
+                    //create player and dealer 
+
+                    //create player
+                    player = new cards.Player("George");
+                    player.hand = shoe.deal(player,2);
+                    player.score = cards.score(player.hand);
+
+                    //create dealer
+                    dealer = new cards.Player("Dealer");
+                    dealer.hand = shoe.deal(dealer,2);
+                    dealer.dealer = true;
+                    dealer.score = cards.score(dealer.hand);
+                    var dealerCardOne = cards.score([dealer.hand[0]]);
+
+                    callback(null, dealerHand);
+              },
+              function (dealerCardOne, callback) {
+                    //FUNCTION 3
+
+                    sendTextMessage(sender, "The dealer's first card is" + cards.displayHand([dealer.hand[0]]).toString()+". Giving a score of "+dealerCardOne.toString());
+
+          //        var dealerImageURL = cards.requestImage(dealer.hand);
+          //      
+          //        sendImageMessage(sender,dealerImageURL);
+
+          //        var handValue = cards.score(player.hand)
+
+                    callback("done");
+            
+              },
+              function (arg1, callback){
+                      //FUNCTION 2
+                      //deal 2 cards for player and 2 for dealer
+                      sendTextMessage(sender, "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
+
+              //        var playerImageURL = cards.requestImage(player.hand);
+              //      
+              //        sendImageMessage(sender,playerImageURL);
+                            sendImageMessage(sender,arg1);
+
+                      
+                      callback()
+
+              }
+      ], function (err, result) {
+         // result now equals 'done'  
+        
+        
       });
 
       
-      function setupNewGame(callback){
-        //FUNCTION 1
-          //start a new game of blackjack
-          shoe = cards.newGame();
-          //create player and dealer 
-        
-          //create player
-          player = new cards.Player("George");
-          player.hand = shoe.deal(player,2);
-          player.score = cards.score(player.hand);
 
-          //create dealer
-          dealer = new cards.Player("Dealer");
-          dealer.hand = shoe.deal(dealer,2);
-          dealer.dealer = true;
-          dealer.score = cards.score(dealer.hand);
-          var dealerCardOne = cards.score([dealer.hand[0]]);
-        
-          callback(dealerCardOne);
-
-      };
       
-      function playerHand(callback){
-                //FUNCTION 2
-        //deal 2 cards for player and 2 for dealer
-        sendTextMessage(sender, "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
-        
-//        var playerImageURL = cards.requestImage(player.hand);
-//      
-//        sendImageMessage(sender,playerImageURL);
-        
-        callback()
-        
-      };
       
-      function dealerHand(dealerCardOne, callback) {
-          //FUNCTION 3
-        
-          sendTextMessage(sender, "The dealer's first card is" + cards.displayHand([dealer.hand[0]]).toString()+". Giving a score of "+dealerCardOne.toString());
-
-//        var dealerImageURL = cards.requestImage(dealer.hand);
-//      
-//        sendImageMessage(sender,dealerImageURL);
       
-//        var handValue = cards.score(player.hand)
-        
-          playerHand(showButtons);
-       
-      };
+      
       
       function showButtons(){
          //FUNCTION 4
