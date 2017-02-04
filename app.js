@@ -198,7 +198,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       }
       
       function sayBye() {
-        sendTextMessage(sendre, "Well bye for now!");
+        sendTextMessage(sender, "Well bye for now!");
       }
       
       
