@@ -220,7 +220,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                     callback(player);
             
               },
-              function (arg1, callback){
+              function (player, callback){
                       //FUNCTION 2
                       //deal 2 cards for player and 2 for dealer
                       sendTextMessage(sender, "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
