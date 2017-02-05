@@ -187,31 +187,18 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
           async.waterfall([
             function(callback){ 
-                console.log("a");
+                console.log("aaaa");
                 callback();
             },
             function(callback){ 
-               console.log("b");
+               console.log("bbbb");
                 callback();
             },
              function(callback){ 
-               console.log("c");
+               console.log("cccc");
                 callback();
             }
           ]);
-      
-          (function (){
-            console.log("a");
-          })();
-      
-         (function (){
-            console.log("b");
-            })();
-
-         (function (){
-            console.log("c");
-            })();
-      
       
       
           //FUNCTION 1
@@ -286,16 +273,6 @@ function hitStandButton (sender,score,dealerscore){
       
       sendButtonMessage(sender,"Choose your next move:", buttons);
     
-  } else if (dealerscore > score && dealer.hand.length >= 2) {
-     var buttons = [
-              {
-                "type":"postback",
-                "title":"Hit ☝️",
-                "payload":"hit"
-              },
-       ];
-    
-      sendButtonMessage(sender,"Choose your next move:", buttons);
   } else {
     
      var buttons = [
