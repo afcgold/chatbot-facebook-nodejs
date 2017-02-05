@@ -245,7 +245,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           sendTextMessage(sender, "The Dealer had blackjack 😡. Dealer wins. 😭");
         }
       
-        goLast(sender);
         return shoe;
                 
         break;
@@ -254,12 +253,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		//unhandled action, just send back the text
 		sendTextMessage(sender, responseText);
 	}
-}
-
-function goLast(sender){
-  
-  sendTextMessage(sender, "I am the last message.");
-  
 }
 
 function hitStandButton (sender,score,dealerscore){
