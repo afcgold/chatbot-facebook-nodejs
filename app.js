@@ -185,7 +185,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           
       case "newGame" :
 
-          async.series([
+          async.waterfall([
             function(callback){ 
                 console.log("a");
                 callback();
