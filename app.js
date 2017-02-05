@@ -195,6 +195,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                console.log("b");
                 sendTextMessage(sender,"b");
                 callback();
+            },
+             function(callback){ 
+               console.log("c");
+                sendTextMessage(sender,"c");
+                callback();
             }
           ]);
       
