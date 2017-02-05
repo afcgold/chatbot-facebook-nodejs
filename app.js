@@ -194,12 +194,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             function(callback){ 
                console.log("b");
                 sendTextMessage(sender,"b");
-                var letter = "c"
-                callback(letter);
-            }, 
-            function(letter,callback){
-              console.log(letter);
-              sendTextMessage(sender,letter.toString());
+                callback();
             }
           ]);
       
