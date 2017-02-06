@@ -220,7 +220,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             
 //              var sendText = array[i].toString();
               console.log(array[i]);
-//            sendTextMessage(sender, sendText);
+            sendTextMessage(sender, array[i].toString());
             
             }
              
