@@ -185,20 +185,36 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           
       case "newGame" :
 
-          async.waterfall([
-            function(callback){ 
-                console.log("aaaa");
-                callback();
-            },
-            function(callback){ 
-               console.log("bbbb");
-                callback();
-            },
-             function(callback){ 
-               console.log("cccc");
-                callback();
-            }
-          ]);
+//          async.waterfall([
+//            function(callback){ 
+//                console.log("aaaa");
+//                callback();
+//            },
+//            function(callback){ 
+//               console.log("bbbb");
+//                callback();
+//            },
+//             function(callback){ 
+//               console.log("cccc");
+//                callback();
+//            }
+//          ]);
+      
+          var messages = [];
+      
+          var hello = "hello";
+          var welcome = "welcome";
+          var hotel = "to the hotel";
+      
+          messages.push(hello);
+          messages.push(welcome);
+          messages.push(hotel);
+      
+          for (i = 0; i <= messages.length; i++){
+            
+            sendTextMessage(sender,i.toString)();
+            
+          }
       
       
           //FUNCTION 1
@@ -786,6 +802,7 @@ function callSendAPI(messageData) {
 			if (messageId) {
 				console.log("Successfully sent message with id %s to recipient %s",
 					messageId, recipientId);
+              //here?
 			} else {
 				console.log("Successfully called Send API for recipient %s",
 					recipientId);
