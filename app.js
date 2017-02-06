@@ -219,7 +219,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             for (var i = 0; i < array.length; i++){
             
               var sendText = array[i].toString();
-            sendTextMessage(sender, send);
+            sendTextMessage(sender, sendText);
             
             }
              
