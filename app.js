@@ -212,7 +212,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       
           for (i = 0; i <= messages.length; i++){
             
-            sendTextMessage(sender,i.toString)();
+            sendTextMessage(sender,messages[i].toString)();
             
           }
       
