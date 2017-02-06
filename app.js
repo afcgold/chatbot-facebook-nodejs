@@ -212,11 +212,18 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       
           console.log(messages);
       
-          for (i = 0; i <= messages.length; i++){
+          orderText(messages);
+      
+          function orderText(array){
+             
+            for (i = 0; i <= array.length; i++){
             
-            sendTextMessage(sender, messages[i].toString());
+            sendTextMessage(sender, array[i].toString());
             
+            }
+             
           }
+          
       
       
           //FUNCTION 1
