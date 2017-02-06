@@ -216,10 +216,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
       
           function orderText(array){
              
-            for (i = 0; i <= array.length; i++){
+            for (i = 0; i < array.length; i++){
             
               var sendText = array[i].toString();
-            sendTextMessage(sender, sendText);
+            sendTextMessage(sender, send);
             
             }
              
