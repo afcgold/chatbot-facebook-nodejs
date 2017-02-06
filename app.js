@@ -210,6 +210,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           messages.push(welcome);
           messages.push(hotel);
       
+          console.log(messages);
+      
           for (i = 0; i <= messages.length; i++){
             
             sendTextMessage(sender, messages[i].toString());
