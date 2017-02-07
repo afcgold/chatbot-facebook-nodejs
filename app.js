@@ -184,49 +184,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
   switch (action) {
           
       case "newGame" :
-
-//          async.waterfall([
-//            function(callback){ 
-//                console.log("aaaa");
-//                callback();
-//            },
-//            function(callback){ 
-//               console.log("bbbb");
-//                callback();
-//            },
-//             function(callback){ 
-//               console.log("cccc");
-//                callback();
-//            }
-//          ]);
-      
-//          var messages = [];
-//      
-//          var hello = "hello";
-//          var welcome = "welcome";
-//          var hotel = "to the hotel";
-//      
-//          messages.push(hello);
-//          messages.push(welcome);
-//          messages.push(hotel);
-//      
-//          console.log(messages);
-//      
-//          orderText(messages);
-//      
-//          function orderText(array){
-//             
-//            for (var i = 0; i < array.length; i++){
-//            
-////              var sendText = array[i].toString();
-//              console.log(array[i]);
-//            sendTextMessage(sender, array[i].toString());
-//            
-//            }
-//             
-//          }
-//          
-            var arrayQueue = []; //my result is a array
+     
+          var arrayQueue = []; //my result is a array
 
       
       
@@ -888,6 +847,8 @@ function receivedPostback(event) {
         //need to look at this tomorrow
       case "hit":
         
+        var arrayQueue = []; //my result is a array
+
         if (dealer.hand.length < 2 ){
           
 //                    shoe.deal(dealer,1);
@@ -900,15 +861,24 @@ function receivedPostback(event) {
                     if (dealer.hand.length === 2){
 
                       if (player.score < 21){
-
-                        sendTextMessage(senderID, "The dealer's hole card was:" + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
+                        
+                        var message1 =  "The dealer's hole card was:" + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString();
+                        arrayQueue.push(message1);
+//                        sendTextMessage(senderID, "The dealer's hole card was:" + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
 
                         if (cards.below17(dealer.hand)=== false){
-                          sendTextMessage(senderID, "The dealer has decided to stand!");
+                          
+                            var message2 = "The dealer has decided to stand!";
+                            arrayQueue.push(message2);
+//                            sendTextMessage(senderID, "The dealer has decided to stand!");
                         }
                         
                       }
-                        sendTextMessage(senderID, "Your hand is now" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!"); 
+                    
+                          var message3 = "Your hand is now" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!";
+                          arrayQueue.push(message3);
+                        
+//                        sendTextMessage(senderID, "Your hand is now" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!"); 
                     }
 
                     if (player.score <= 21){
@@ -917,7 +887,10 @@ function receivedPostback(event) {
 
                     } else if (player.score > 21){
                       player.busted === true;
-                      sendTextMessage(senderID, "Dealer wins. 😭")
+                      
+                      var message4 = "Dealer wins. 😭";
+                      arrayQueue.push(message4);
+//                      sendTextMessage(senderID, "Dealer wins. 😭")
 
                     }
         } else {
@@ -926,7 +899,10 @@ function receivedPostback(event) {
 
                 player.score = cards.score(player.hand);
 
-                sendTextMessage(senderID, "Now you've got" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!"); 
+          
+                var message5 = "Now you've got" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!";
+                arrayQueue.push(message5);
+//                sendTextMessage(senderID, "Now you've got" + cards.displayHand(player.hand).toString()+", with a combined score of "+player.score.toString() + "!"); 
 
                 if (player.score < 21){
 
@@ -934,7 +910,9 @@ function receivedPostback(event) {
 
                 } else if (player.score > 21){
                   
-                  sendTextMessage(senderID, "Dealer wins. 😭")
+                  var message6 = "Dealer wins. 😭";
+                  arrayQueue.push(message6);
+//                  sendTextMessage(senderID, "Dealer wins. 😭")
                   
                 } else if (player.score === 21){
                   
@@ -948,10 +926,16 @@ function receivedPostback(event) {
         break;
       
       case "stand":
-                
-        sendTextMessage(senderID,"Great, you've decided to stand with "+ player.score);
         
-        sendTextMessage(senderID, "The dealer's hidden card was" + cards.displayHand([dealer.hand[1]]).toString());
+        var arrayQueue = []; //my result is a array
+
+        var message1 = "Great, you've decided to stand with "+ player.score;
+        arrayQueue.push(message1);
+//        sendTextMessage(senderID,"Great, you've decided to stand with "+ player.score);
+        
+        var message2 = "The dealer's hidden card was" + cards.displayHand([dealer.hand[1]]).toString();
+        arrayQueue.push(message2);
+//        sendTextMessage(senderID, "The dealer's hidden card was" + cards.displayHand([dealer.hand[1]]).toString());
 
                   
               while (cards.below17(dealer.hand) === true){
@@ -965,31 +949,55 @@ function receivedPostback(event) {
                 }
 
                 if (dealer.hand.length ===2 ){
-                    sendTextMessage(senderID, "The dealer's hole card was:" + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
+                  
+                    var message3 =  "The dealer's hole card was:" + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString();
+                    arrayQueue.push(message3);
+//                    sendTextMessage(senderID, "The dealer's hole card was:" + cards.displayHand([dealer.hand[1]]).toString()+", so his score is now "+dealer.score.toString());
                 } else {
-                    sendTextMessage(senderID, "The dealer hit, and now has: " + cards.displayHand(dealer.hand).toString()+", totalling "+dealer.score.toString());
+                  
+                    var message4 = "The dealer hit, and now has: " + cards.displayHand(dealer.hand).toString()+", totalling "+dealer.score.toString();
+                    arrayQueue.push(message4);
+//                    sendTextMessage(senderID, "The dealer hit, and now has: " + cards.displayHand(dealer.hand).toString()+", totalling "+dealer.score.toString());
                 }
                 
               }
         //|| dealer.score < 21
             if (dealer.score <= 21){
-                  sendTextMessage(senderID, "The dealer has decided to stand on "+dealer.score.toString());
+              
+                  var message5 = "The dealer has decided to stand on "+dealer.score.toString();
+                  arrayQueue.push(message5);
+//                  sendTextMessage(senderID, "The dealer has decided to stand on "+dealer.score.toString());
                 } else if (dealer.score > 21){
-                  sendTextMessage(senderID, "The dealers busts!");
+                  
+                  var message6 = "The dealers busts!";
+                  arrayQueue.push(message6);
+//                  sendTextMessage(senderID, "The dealers busts!");
                 }
 
             if (dealer.busted === false && player.busted === false){
                  if (cards.below17(dealer.hand) === false ){
                 if(player.score > dealer.score || dealer.busted === true){
-                  sendTextMessage(senderID, "YOU WIN!!😎💰");
+                  
+                  var message7 = "YOU WIN!!😎💰";
+                  arrayQueue.push(message7);
+//                  sendTextMessage(senderID, "YOU WIN!!😎💰");
                 } else if (dealer.score > player.score || player.busted === true){
-                  sendTextMessage(senderID, "Dealer wins. 😭")
+                  
+                  var message8 = "Dealer wins. 😭";
+                  arrayQueue.push(message8);
+//                  sendTextMessage(senderID, "Dealer wins. 😭")
                 } else if (dealer.score === player.score){
-                  sendTextMessage(senderID, "It's a draw! 😑")
+                  
+                  var message9 = "It's a draw! 😑";
+                  arrayQueue.push(message9);
+//                  sendTextMessage(senderID, "It's a draw! 😑")
                 }
               } 
             } else if (dealer.busted === true){
-                 sendTextMessage(senderID, "YOU WIN!!😎💰");
+              
+                 var message10 = "YOU WIN!!😎💰";
+                arrayQueue.push(message10);
+//                 sendTextMessage(senderID, "YOU WIN!!😎💰");
             }
     
         break;
