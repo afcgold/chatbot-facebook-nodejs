@@ -200,32 +200,35 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //            }
 //          ]);
       
-          var messages = [];
-      
-          var hello = "hello";
-          var welcome = "welcome";
-          var hotel = "to the hotel";
-      
-          messages.push(hello);
-          messages.push(welcome);
-          messages.push(hotel);
-      
-          console.log(messages);
-      
-          orderText(messages);
-      
-          function orderText(array){
-             
-            for (var i = 0; i < array.length; i++){
-            
-//              var sendText = array[i].toString();
-              console.log(array[i]);
-            sendTextMessage(sender, array[i].toString());
-            
-            }
-             
-          }
-          
+//          var messages = [];
+//      
+//          var hello = "hello";
+//          var welcome = "welcome";
+//          var hotel = "to the hotel";
+//      
+//          messages.push(hello);
+//          messages.push(welcome);
+//          messages.push(hotel);
+//      
+//          console.log(messages);
+//      
+//          orderText(messages);
+//      
+//          function orderText(array){
+//             
+//            for (var i = 0; i < array.length; i++){
+//            
+////              var sendText = array[i].toString();
+//              console.log(array[i]);
+//            sendTextMessage(sender, array[i].toString());
+//            
+//            }
+//             
+//          }
+//          
+            var arrayQueue = ["1", "2", "3"]; //my result is a array
+            sendTextMessages(sender, arrayQueue, 0); //OK. It works for me :)
+
       
       
           //FUNCTION 1
@@ -282,7 +285,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	}
 }
 
-var a = ["1", "2", "3"] //my result is a array
+
 function sendTextMessages(sender, text, i) {
     if (i < text.length) {
         request({
@@ -303,7 +306,6 @@ function sendTextMessages(sender, text, i) {
         })
     } else return
 }
-sendTextMessages(sender, array_item, 0) //OK. It works for me :)
 
 function hitStandButton (sender,score,dealerscore){
   
