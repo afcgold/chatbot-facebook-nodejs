@@ -272,53 +272,54 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 function sendTextMessages(sender, text, i) {
     if (i < text.length) {
       if (text[i] instanceof Array) {
-        
-      
-        request({
-            url: 'https://graph.facebook.com/v2.6/me/messages',
-            qs: {access_token:config.FB_PAGE_TOKEN},
-            method: 'POST',
-            json: {
-                recipient: {id:sender},
-                message: {text:text[i]},
+              request({
+                  url: 'https://graph.facebook.com/v2.6/me/messages',
+                  qs: {access_token:config.FB_PAGE_TOKEN},
+                  method: 'POST',
+                  json: {
+                      recipient: {id:sender},
+                      message: {text:text[i]},
+                  }
+              }, function(error, response, body) {
+                  if (error) {
+                      console.log('Error sending messages: ', error)
+                  } else if (response.body.error) {
+                      console.log('Error: ', response.body.error)
+                  }
+                  sendTextMessages(sender, text, i+1)
+              })
             }
-        }, function(error, response, body) {
-            if (error) {
-                console.log('Error sending messages: ', error)
-            } else if (response.body.error) {
-                console.log('Error: ', response.body.error)
-            }
-            sendTextMessages(sender, text, i+1)
-        })
-        
-      } else if (text[i] instanceof String ){
-        
-        request({
-            url: 'https://graph.facebook.com/v2.6/me/messages',
-            qs: {access_token:config.FB_PAGE_TOKEN},
-            method: 'POST',
-            json: {
-                recipient: {id:sender},
-                message: {attachment: {
-				type: "template",
-				payload: {
-					template_type: "button",
-					text: "Choose your next move:",
-					buttons: text[i]}
-                },
-            }
-            }
-        }, function(error, response, body) {
-            if (error) {
-                console.log('Error sending messages: ', error)
-            } else if (response.body.error) {
-                console.log('Error: ', response.body.error)
-            }
-            sendTextMessages(sender, text, i+1)
-        })
-      } else return
-      }
+        } else return
 }
+        
+//      } else if (text[i] instanceof String ){
+//        
+//        request({
+//            url: 'https://graph.facebook.com/v2.6/me/messages',
+//            qs: {access_token:config.FB_PAGE_TOKEN},
+//            method: 'POST',
+//            json: {
+//                recipient: {id:sender},
+//                message: {attachment: {
+//				type: "template",
+//				payload: {
+//					template_type: "button",
+//					text: "Choose your next move:",
+//					buttons: text[i]}
+//                },
+//            }
+//            }
+//        }, function(error, response, body) {
+//            if (error) {
+//                console.log('Error sending messages: ', error)
+//            } else if (response.body.error) {
+//                console.log('Error: ', response.body.error)
+//            }
+//            sendTextMessages(sender, text, i+1)
+//        })
+//      } else return
+//      }
+//}
 
 function hitStandButton (score,dealerscore){
   
