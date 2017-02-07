@@ -230,6 +230,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           arrayQueue.push(message205);
           
           var message2075 = hitStandButton(player.score, dealerCardOne);
+          arrayQueue.push(message2075);
+
         } else if (player.score === "BLACKJACK" || player.score === 21){
           
           var message3 = "The Dealer's hidden card was"+cards.displayHand([dealer.hand[1]]).toString();
