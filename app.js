@@ -225,7 +225,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
        
          //FUNCTION 4
         if (dealer.score < 21 && player.score < 21){
-          hitStandButton(sender, player.score, dealerCardOne);
+          
+          var message205 = "Choose your next move:";
+          arrayQueue.push(message205);
+          
+          var message2075 = hitStandButton(player.score, dealerCardOne);
         } else if (player.score === "BLACKJACK" || player.score === 21){
           
           var message3 = "The Dealer's hidden card was"+cards.displayHand([dealer.hand[1]]).toString();
@@ -265,6 +269,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 function sendTextMessages(sender, text, i) {
     if (i < text.length) {
+      if text[i] instanceof Array {
+        
+      
         request({
             url: 'https://graph.facebook.com/v2.6/me/messages',
             qs: {access_token:config.FB_PAGE_TOKEN},
@@ -281,10 +288,41 @@ function sendTextMessages(sender, text, i) {
             }
             sendTextMessages(sender, text, i+1)
         })
+        
+      } else if text[i] instanceof String {
+        
+        request({
+            url: 'https://graph.facebook.com/v2.6/me/messages',
+            qs: {access_token:config.FB_PAGE_TOKEN},
+            method: 'POST',
+            json: {
+                recipient: {id:sender},
+                message: {attachment: {
+				type: "template",
+				payload: {
+					template_type: "button",
+					text: "Choose your next move:",
+					buttons: text[i]},
+            }
+        }, function(error, response, body) {
+            if (error) {
+                console.log('Error sending messages: ', error)
+            } else if (response.body.error) {
+                console.log('Error: ', response.body.error)
+            }
+            sendTextMessages(sender, text, i+1)
+        })
+        
+      
+	};
+
+	callSendAPI(messageData);
+        
+      }
     } else return
 }
 
-function hitStandButton (sender,score,dealerscore){
+function hitStandButton (score,dealerscore){
   
   if (score < 21 && score > dealerscore){
                 var buttons = [
@@ -300,7 +338,8 @@ function hitStandButton (sender,score,dealerscore){
               }
             ];
       
-      sendButtonMessage(sender,"Choose your next move:", buttons);
+    return buttons;
+//      sendButtonMessage(sender,"Choose your next move:", buttons);
     
   } else {
     
@@ -312,7 +351,10 @@ function hitStandButton (sender,score,dealerscore){
               },
        ];
     
-      sendButtonMessage(sender,"Choose your next move:", buttons);
+        return buttons;
+
+    
+//      sendButtonMessage(sender,"Choose your next move:", buttons);
   }
   
 }
