@@ -226,8 +226,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 //             
 //          }
 //          
-            var arrayQueue = ["1", "2", "3"]; //my result is a array
-            sendTextMessages(sender, arrayQueue, 0); //OK. It works for me :)
+            var arrayQueue = []; //my result is a array
 
       
       
@@ -245,14 +244,19 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
           var dealerCardOne = cards.score([dealer.hand[0]]);
 
           //FUNCTION 2
-          sendTextMessage(sender, "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
+          var message1 = "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString();
+          arrayQueue.push(message1);
+
+          //          sendTextMessage(sender, "You've been dealt"+ cards.displayHand(player.hand).toString()+". Giving you a score of "+player.score.toString());
         
 //        var playerImageURL = cards.requestImage(player.hand);
 //      
 //        sendImageMessage(sender,playerImageURL);
         
           //FUNCTION 3
-          sendTextMessage(sender, "The dealer's first card is" + cards.displayHand([dealer.hand[0]]).toString()+". Giving a score of "+dealerCardOne.toString());
+          var message2 = "The dealer's first card is" + cards.displayHand([dealer.hand[0]]).toString()+". Giving a score of "+dealerCardOne.toString();
+          arrayQueue.push(message2);
+          //          sendTextMessage(sender, "The dealer's first card is" + cards.displayHand([dealer.hand[0]]).toString()+". Giving a score of "+dealerCardOne.toString());
 
 //        var dealerImageURL = cards.requestImage(dealer.hand);
 //      
@@ -264,17 +268,31 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         if (dealer.score < 21 && player.score < 21){
           hitStandButton(sender, player.score, dealerCardOne);
         } else if (player.score === "BLACKJACK" || player.score === 21){
-          sendTextMessage(sender, "The Dealer's hidden card was"+cards.displayHand([dealer.hand[1]]).toString());
+          
+          var message3 = "The Dealer's hidden card was"+cards.displayHand([dealer.hand[1]]).toString();
+          arrayQueue.push(message3);
+
+//          sendTextMessage(sender, "The Dealer's hidden card was"+cards.displayHand([dealer.hand[1]]).toString());
           if (dealer.score < 21 && dealer.score !== "Blackjack"){
-            sendTextMessage(sender, "YOU WIN!!😎💰");
+            var message4 = "YOU WIN!!😎💰";
+          arrayQueue.push(message4);
+//            sendTextMessage(sender, "YOU WIN!!😎💰");
           } else if (dealer.score === "BLACKJACK"){
+            var message5 = "It's a draw! 😑";
+          arrayQueue.push(message5);
             sendTextMessage(senderID, "It's a draw! 😑");
           } 
         } else if (dealer.score === "BLACKJACK" || dealer.score === 21){
-          sendTextMessage(sender, "The Dealer's hidden card was "+cards.displayHand([dealer.hand[1]]).toString());
-          sendTextMessage(sender, "The Dealer had blackjack 😡. Dealer wins. 😭");
+          var message6 = "The Dealer's hidden card was "+cards.displayHand([dealer.hand[1]]).toString();
+          arrayQueue.push(message6);
+//          sendTextMessage(sender, "The Dealer's hidden card was "+cards.displayHand([dealer.hand[1]]).toString());
+          var message7 = "The Dealer had blackjack 😡. Dealer wins. 😭";
+          arrayQueue.push(message7);
+//          sendTextMessage(sender, "The Dealer had blackjack 😡. Dealer wins. 😭");
         }
       
+                  sendTextMessages(sender, arrayQueue, 0); //OK. It works for me :)
+
         return shoe;
                 
         break;
