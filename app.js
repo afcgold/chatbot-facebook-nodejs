@@ -922,6 +922,9 @@ function receivedPostback(event) {
 //           sendTextMessage(senderID, "hit hit hit hit")
 //           sendTextMessage(senderID, player.score.toString());
         }
+        
+                          sendTextMessages(sender, arrayQueue, 0); //OK. It works for me :)
+
 
         break;
       
@@ -999,7 +1002,8 @@ function receivedPostback(event) {
                 arrayQueue.push(message10);
 //                 sendTextMessage(senderID, "YOU WIN!!😎💰");
             }
-    
+                      sendTextMessages(sender, arrayQueue, 0); //OK. It works for me :)
+
         break;
         
       default:
