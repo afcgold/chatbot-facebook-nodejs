@@ -282,6 +282,29 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	}
 }
 
+var a = ["1", "2", "3"] //my result is a array
+function sendTextMessages(sender, text, i) {
+    if (i < text.length) {
+        request({
+            url: 'https://graph.facebook.com/v2.6/me/messages',
+            qs: {access_token:token},
+            method: 'POST',
+            json: {
+                recipient: {id:sender},
+                message: {text:text[i]},
+            }
+        }, function(error, response, body) {
+            if (error) {
+                console.log('Error sending messages: ', error)
+            } else if (response.body.error) {
+                console.log('Error: ', response.body.error)
+            }
+            sendTextMessages(sender, text, i+1)
+        })
+    } else return
+}
+sendTextMessages(sender, array_item, 0) //OK. It works for me :)
+
 function hitStandButton (sender,score,dealerscore){
   
   if (score < 21 && score > dealerscore || dealer.hand.length < 2){
