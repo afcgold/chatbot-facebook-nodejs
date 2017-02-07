@@ -316,13 +316,6 @@ function sendTextMessages(sender, text, i) {
             }
             sendTextMessages(sender, text, i+1)
         })
-        
-      
-	};
-
-	callSendAPI(messageData);
-        
-      }
     } else return
 }
 
