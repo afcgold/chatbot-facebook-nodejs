@@ -327,7 +327,7 @@ function sendTextMessages(sender, text, i) {
 
 function hitStandButton (sender,score,dealerscore){
   
-  if (score < 21 && score > dealerscore || dealer.hand.length < 2){
+  if (score < 21 && score > dealerscore){
                 var buttons = [
               {
                 "type":"postback",
