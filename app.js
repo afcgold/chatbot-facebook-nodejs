@@ -271,7 +271,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 function sendTextMessages(sender, text, i) {
     if (i < text.length) {
-      if text[i] instanceof Array {
+      if (text[i] instanceof Array) {
         
       
         request({
@@ -291,7 +291,7 @@ function sendTextMessages(sender, text, i) {
             sendTextMessages(sender, text, i+1)
         })
         
-      } else if text[i] instanceof String {
+      } else if (text[i] instanceof String ){
         
         request({
             url: 'https://graph.facebook.com/v2.6/me/messages',
