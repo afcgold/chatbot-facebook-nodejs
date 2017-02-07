@@ -304,7 +304,9 @@ function sendTextMessages(sender, text, i) {
 				payload: {
 					template_type: "button",
 					text: "Choose your next move:",
-					buttons: text[i]},
+					buttons: text[i]}
+                },
+            }
             }
         }, function(error, response, body) {
             if (error) {
