@@ -316,7 +316,8 @@ function sendTextMessages(sender, text, i) {
             }
             sendTextMessages(sender, text, i+1)
         })
-    } else return
+      } else return
+      }
 }
 
 function hitStandButton (score,dealerscore){
